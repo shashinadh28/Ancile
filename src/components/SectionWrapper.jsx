@@ -29,14 +29,14 @@ export default function SectionWrapper({
             {eyebrow && (
               <motion.span
                 variants={fadeUpSmall}
-                className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-brand-200"
+                className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-accent-700"
               >
-                <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
+                <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
                 {eyebrow}
               </motion.span>
             )}
             {title && (
-              <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tightest text-white">
+              <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tightest text-ink-900">
                 <RevealText
                   text={title}
                   staggerChildren={0.06}
@@ -47,7 +47,7 @@ export default function SectionWrapper({
             {description && (
               <motion.p
                 variants={fadeUpSmall}
-                className="mt-5 text-base sm:text-lg leading-relaxed text-white/65 max-w-2xl"
+                className="mt-5 text-base sm:text-lg leading-relaxed text-ink-600 max-w-2xl"
               >
                 {description}
               </motion.p>

@@ -1,31 +1,30 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import SectionWrapper from './SectionWrapper.jsx';
 import { stagger, viewportOnce, easePremium } from '../utils/motion';
 
 const POSTS = [
   {
-    title: 'Cybersecurity in the Digital Age',
+    title: 'The Future of Staff Augmentation in 2026',
     excerpt:
-      'How modern enterprises defend against an ever-evolving threat landscape — and what 2026 demands of every CISO.',
-    category: 'Security',
+      'How leading enterprises are rethinking talent strategy — moving from headcount to outcome-aligned delivery models.',
+    category: 'Blog',
     readTime: '6 min read',
-    img: 'https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1100&q=80',
+    img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1100&q=80',
   },
   {
-    title: 'Revolutionizing Customer Experience',
+    title: 'Building a Modern Data Platform: A Decision Framework',
     excerpt:
-      'AI-driven personalization is rewriting the rules. We unpack the playbook winning brands are using right now.',
-    category: 'Experience',
-    readTime: '5 min read',
-    img: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1100&q=80',
+      'A practical guide for CIOs and CDOs evaluating data lakehouse, warehouse, and hybrid architectures.',
+    category: 'Whitepaper',
+    readTime: '12 min read',
+    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1100&q=80',
   },
   {
-    title: 'The Emergence of 5G: Reshaping Connectivity',
+    title: 'Cloud Migration Playbook: Reducing Risk at Scale',
     excerpt:
-      'From smart factories to immersive XR, 5G is unlocking infrastructure-grade speed at consumer scale.',
-    category: 'Connectivity',
-    readTime: '7 min read',
+      'Lessons from enterprise cloud migrations — governance frameworks, team structures, and phased approaches that work.',
+    category: 'Case Study',
+    readTime: '8 min read',
     img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1100&q=80',
   },
 ];
@@ -37,18 +36,9 @@ const cardVariant = {
 
 export default function Insights() {
   return (
-    <section id="insights" className="relative py-24 sm:py-28 lg:py-32 overflow-hidden">
-      {/* Distinctive dark panel background */}
-      <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950 via-navy-900/50 to-navy-950" />
-        <div className="absolute inset-0 bg-aurora opacity-60" />
-        <div className="absolute inset-0 bg-grid-faint bg-[size:48px_48px] opacity-20" />
-        {/* Accent glow */}
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-[500px] w-[800px] rounded-full bg-brand-500/6 blur-[120px]" />
-      </div>
-
+    <section id="insights" className="relative py-16 sm:py-20 overflow-hidden" style={{ backgroundColor: '#FAFAF8' }}>
       <div className="mx-auto max-w-page container-px">
-        {/* Section header with centered alignment for variety */}
+        {/* Section header */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -61,9 +51,9 @@ export default function Insights() {
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easePremium } },
             }}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-brand-200"
+            className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-accent-700"
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
+            <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
             Insights
           </motion.span>
           <motion.h2
@@ -71,18 +61,18 @@ export default function Insights() {
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easePremium } },
             }}
-            className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tightest text-white"
+            className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tightest text-ink-900"
           >
-            Ideas shaping the future of work.
+            Insights & perspectives
           </motion.h2>
           <motion.p
             variants={{
               hidden: { opacity: 0, y: 20 },
               visible: { opacity: 1, y: 0, transition: { duration: 0.7, ease: easePremium } },
             }}
-            className="mt-5 text-base sm:text-lg leading-relaxed text-white/65 max-w-2xl"
+            className="mt-5 text-base sm:text-lg leading-relaxed text-ink-600 max-w-2xl"
           >
-            Sharp, opinionated reads from the Ancile team — covering the technologies, trends, and strategies redefining global business.
+            Sharp, opinionated reads from the Ancile team — covering the technologies, trends, and strategies redefining delivery.
           </motion.p>
         </motion.div>
 
@@ -107,10 +97,10 @@ export default function Insights() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOnce}
             transition={{ delay: 0.4, duration: 0.7, ease: easePremium }}
-            className="group inline-flex items-center gap-2 text-sm font-semibold text-white/70 hover:text-white"
+            className="group inline-flex items-center gap-2 text-sm font-semibold text-ink-600 hover:text-accent-600"
           >
             View all insights
-            <span className="grid h-8 w-8 place-items-center rounded-full border border-white/15 transition-all group-hover:border-brand-300 group-hover:bg-brand-500/20">
+            <span className="grid h-8 w-8 place-items-center rounded-full border border-ink-300 transition-all group-hover:border-accent-300 group-hover:bg-accent-50">
               <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <line x1="5" y1="12" x2="19" y2="12" strokeLinecap="round" />
                 <polyline points="12 5 19 12 12 19" strokeLinecap="round" strokeLinejoin="round" />
@@ -120,8 +110,6 @@ export default function Insights() {
         </div>
       </div>
 
-      {/* Section dividers */}
-      <div className="absolute top-0 left-0 right-0 section-divider" />
       <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
@@ -130,80 +118,73 @@ export default function Insights() {
 function InsightCard({ p, index }) {
   const ref = useRef(null);
 
-  // Card-level parallax: each card moves at a slightly different rate.
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ['start end', 'end start'],
   });
-  const offsets = [60, 30, 90];
-  const yRaw = useTransform(scrollYProgress, [0, 1], [offsets[index] || 50, -(offsets[index] || 50)]);
-  const yCard = useSpring(yRaw, { stiffness: 80, damping: 22, mass: 0.5 });
 
-  // Image internal parallax (slower than card, opposite direction).
-  const imgYRaw = useTransform(scrollYProgress, [0, 1], [-40, 40]);
+  const imgYRaw = useTransform(scrollYProgress, [0, 1], [-30, 30]);
   const imgY = useSpring(imgYRaw, { stiffness: 80, damping: 22, mass: 0.5 });
-  const imgScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.15, 1, 1.05]);
+  const imgScale = useTransform(scrollYProgress, [0, 0.5, 1], [1.1, 1, 1.05]);
+
+  const categoryColors = {
+    Blog: 'bg-accent-50 text-accent-700 border-accent-200',
+    Whitepaper: 'bg-blue-50 text-blue-700 border-blue-200',
+    'Case Study': 'bg-green-50 text-green-700 border-green-200',
+  };
 
   return (
     <motion.article
       ref={ref}
-      style={{ y: yCard, willChange: 'transform' }}
-      className="group relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.03] shadow-card-lg cursor-pointer backdrop-blur-sm"
-      whileHover={{ y: -10 }}
+      className="group relative overflow-hidden rounded-2xl bg-white border border-ink-200 shadow-card hover:shadow-card-hover transition-all duration-500 cursor-pointer"
+      whileHover={{ y: -6 }}
       transition={{ type: 'spring', stiffness: 240, damping: 22 }}
     >
       {/* Image */}
-      <div className="relative aspect-[4/5] overflow-hidden">
+      <div className="relative aspect-[16/10] overflow-hidden">
         <motion.img
           src={p.img}
           alt={p.title}
           loading="lazy"
           style={{ y: imgY, scale: imgScale }}
-          className="absolute inset-0 h-[140%] w-full object-cover transition-transform duration-[1100ms] ease-out will-change-transform group-hover:scale-110"
+          className="absolute inset-0 h-[130%] w-full object-cover transition-transform duration-[1100ms] ease-out will-change-transform group-hover:scale-105"
         />
-        {/* Permanent dim */}
-        <div className="absolute inset-0 bg-gradient-to-t from-navy-950 via-navy-950/40 to-navy-950/10" />
-        {/* Hover overlay fade */}
-        <div className="absolute inset-0 bg-brand-700/30 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-gradient-to-t from-ink-950/40 via-transparent to-transparent" />
 
         {/* Category chip */}
-        <span className="absolute left-5 top-5 rounded-full border border-white/20 bg-white/10 px-3 py-1 text-xs font-medium text-white backdrop-blur">
+        <span className={`absolute left-4 top-4 rounded-full border px-3 py-1 text-xs font-semibold ${categoryColors[p.category] || 'bg-white text-ink-700 border-ink-200'}`}>
           {p.category}
         </span>
+      </div>
 
-        {/* Content overlay */}
-        <div className="absolute inset-x-5 bottom-5 text-white">
-          <div className="mb-3 text-xs uppercase tracking-[0.2em] text-white/60">
-            {p.readTime}
-          </div>
-          <h3 className="font-display text-xl sm:text-2xl font-bold leading-tight">
-            {p.title}
-          </h3>
-          <div className="grid grid-rows-[0fr] group-hover:grid-rows-[1fr] transition-all duration-500">
-            <div className="overflow-hidden">
-              <p className="mt-3 text-sm text-white/75">{p.excerpt}</p>
-            </div>
-          </div>
-          <div className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-brand-200">
-            Read article
-            <svg
-              className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </div>
+      {/* Content */}
+      <div className="p-6">
+        <div className="text-xs uppercase tracking-[0.15em] text-ink-400 mb-3">
+          {p.readTime}
+        </div>
+        <h3 className="font-display text-lg font-bold leading-tight text-ink-900 group-hover:text-accent-700 transition-colors">
+          {p.title}
+        </h3>
+        <p className="mt-2 text-sm text-ink-600 leading-relaxed line-clamp-2">{p.excerpt}</p>
+        <div className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-accent-600">
+          Read article
+          <svg
+            className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <line x1="5" y1="12" x2="19" y2="12" />
+            <polyline points="12 5 19 12 12 19" />
+          </svg>
         </div>
       </div>
 
       {/* Hover glow line */}
-      <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-brand-400/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
+      <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-accent-400/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
     </motion.article>
   );
 }

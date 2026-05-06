@@ -1,211 +1,217 @@
-import { useRef } from 'react';
-import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
-import Button from './Button.jsx';
-import { RevealText, RevealGroup } from './Reveal.jsx';
-import { fadeUpSmall, viewportOnce, easePremium } from '../utils/motion';
+import { motion } from 'framer-motion';
+import { viewportOnce } from '../utils/motion';
 
-const TALENTS = [
+const ease = [0.22, 1, 0.36, 1];
+
+const DIFFERENTIATORS = [
   {
-    name: 'Maya Patel',
-    role: 'Product Designer',
-    img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=600&q=80',
-    rating: '4.9',
-    tag: 'Design',
+    num: '01',
+    title: 'Speed with precision',
+    description: 'High-quality shortlists delivered fast—so your projects stay on track without sacrificing talent quality.',
+    icon: SpeedIcon,
+    color: '#F97316',
   },
   {
-    name: 'David Chen',
-    role: 'Cloud Engineer',
-    img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80',
-    rating: '4.8',
-    tag: 'Engineering',
+    num: '02',
+    title: 'Outcome-aligned delivery',
+    description: 'Not just filling roles, but driving real impact. Every engagement is structured around measurable business outcomes.',
+    icon: TargetIcon,
+    color: '#6366f1',
   },
   {
-    name: 'Aisha Rahman',
-    role: 'Data Scientist',
-    img: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=600&q=80',
-    rating: '5.0',
-    tag: 'AI / ML',
+    num: '03',
+    title: 'Transparent governance',
+    description: 'Clear reporting, open communication, and full accountability at every stage of your engagement.',
+    icon: ShieldIcon,
+    color: '#0ea5e9',
   },
   {
-    name: 'Liam Foster',
-    role: 'DevOps Lead',
-    img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=600&q=80',
-    rating: '4.7',
-    tag: 'Infra',
-  },
-  {
-    name: 'Sara Kim',
-    role: 'PM, Fintech',
-    img: 'https://images.unsplash.com/photo-1487412720507-e7ab37603c6f?auto=format&fit=crop&w=600&q=80',
-    rating: '4.9',
-    tag: 'Product',
-  },
-  {
-    name: 'Noah Brooks',
-    role: 'Solutions Architect',
-    img: 'https://images.unsplash.com/photo-1463453091185-61582044d556?auto=format&fit=crop&w=600&q=80',
-    rating: '4.8',
-    tag: 'Strategy',
+    num: '04',
+    title: 'Flexible models',
+    description: 'From staff augmentation to fully managed delivery—choose the engagement model that fits your needs.',
+    icon: FlexIcon,
+    color: '#10b981',
   },
 ];
 
-const POINTS = ['Vetted by Ancile experts', 'Match in under 48 hours', 'Flexible engagement models'];
-
 export default function FindTalents() {
-  const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: sectionRef,
-    offset: ['start end', 'end start'],
-  });
-
-  // Different parallax speeds per column for layered motion (smoothed with springs).
-  const yA = useSpring(useTransform(scrollYProgress, [0, 1], [80, -80]), {
-    stiffness: 70, damping: 20, mass: 0.5,
-  });
-  const yB = useSpring(useTransform(scrollYProgress, [0, 1], [-40, 40]), {
-    stiffness: 70, damping: 20, mass: 0.5,
-  });
-  const yC = useSpring(useTransform(scrollYProgress, [0, 1], [60, -120]), {
-    stiffness: 70, damping: 20, mass: 0.5,
-  });
-
-  const columns = [
-    [TALENTS[0], TALENTS[1]],
-    [TALENTS[2], TALENTS[3]],
-    [TALENTS[4], TALENTS[5]],
-  ];
-  const ys = [yA, yB, yC];
-
   return (
     <section
-      id="talents"
-      ref={sectionRef}
-      className="relative py-24 sm:py-28 lg:py-36 overflow-hidden"
+      id="why-ancile"
+      className="relative py-20 sm:py-28 overflow-hidden"
+      style={{
+        backgroundColor: '#FAFAF8',
+        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.07) 1.5px, transparent 1.5px)',
+        backgroundSize: '26px 26px',
+      }}
     >
-      {/* Decorative blob with subtle scroll drift */}
-      <motion.div
-        aria-hidden
-        style={{ y: useTransform(scrollYProgress, [0, 1], [-40, 40]) }}
-        className="pointer-events-none absolute -left-40 top-20 h-[500px] w-[500px] rounded-full bg-brand-500/10 blur-3xl"
-      />
+      <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
-      <div className="mx-auto max-w-page container-px grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-        {/* LEFT — Text */}
-        <RevealGroup staggerChildren={0.16} className="lg:col-span-5">
-          <motion.span
-            variants={fadeUpSmall}
-            className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-brand-200"
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-brand-400" />
-            Find Talents
-          </motion.span>
+          {/* ── LEFT: Content ───────────────────────────────────── */}
+          <div>
+            {/* Badge */}
+            <motion.span
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.6, ease }}
+              className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-700"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
+              Why Ancile
+            </motion.span>
 
-          <h2 className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.08] tracking-tightest text-white">
-            <RevealText
-              text="Find Talents that meet your project need"
-              staggerChildren={0.06}
-              className="block"
-            />
-          </h2>
+            {/* Heading */}
+            <motion.h2
+              initial={{ opacity: 0, y: 24 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.85, ease, delay: 0.08 }}
+              className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight text-ink-900"
+            >
+              Why teams choose{' '}
+              <span style={{ color: '#F97316' }}>Ancile</span>
+            </motion.h2>
 
-          <motion.p
-            variants={fadeUpSmall}
-            className="mt-6 text-base sm:text-lg leading-relaxed text-white/65 max-w-lg"
-          >
-            Discover the perfect match for your project! Our platform makes it easy to find talents
-            that precisely align with your project needs. Say goodbye to the guesswork and connect
-            with skilled individuals ready to bring your vision to life.
-          </motion.p>
+            {/* Sub */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={viewportOnce}
+              transition={{ duration: 0.7, ease, delay: 0.16 }}
+              className="mt-4 text-base leading-relaxed text-ink-500 max-w-lg"
+            >
+              Deep domain expertise meets operational discipline — built to deliver
+              results that actually move the needle.
+            </motion.p>
 
-          <motion.ul
-            variants={{
-              hidden: {},
-              visible: { transition: { staggerChildren: 0.1, delayChildren: 0.1 } },
-            }}
-            className="mt-8 space-y-3"
-          >
-            {POINTS.map((point) => (
-              <motion.li
-                key={point}
-                variants={fadeUpSmall}
-                className="flex items-start gap-3 text-white/75"
-              >
-                <span className="mt-1 grid h-5 w-5 place-items-center rounded-full bg-brand-500/30 text-brand-200">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" className="h-3 w-3">
-                    <polyline points="20 6 9 17 4 12" strokeLinecap="round" strokeLinejoin="round" />
-                  </svg>
-                </span>
-                <span className="text-sm sm:text-base">{point}</span>
-              </motion.li>
-            ))}
-          </motion.ul>
+            {/* Differentiator rows */}
+            <div className="mt-8 space-y-4">
+              {DIFFERENTIATORS.map((d, i) => {
+                const Icon = d.icon;
+                return (
+                  <motion.div
+                    key={d.num}
+                    initial={{ opacity: 0, x: -30 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={viewportOnce}
+                    transition={{ duration: 0.65, ease, delay: 0.2 + i * 0.1 }}
+                    className="group flex items-start gap-4 p-5 rounded-2xl bg-white cursor-default transition-shadow duration-400 hover:shadow-md"
+                    style={{ border: '1px solid rgba(15,23,42,0.07)' }}
+                  >
+                    {/* Icon box */}
+                    <span
+                      className="shrink-0 grid h-11 w-11 place-items-center rounded-xl transition-transform duration-300 group-hover:scale-110"
+                      style={{
+                        background: `${d.color}12`,
+                        border: `1px solid ${d.color}25`,
+                        color: d.color,
+                      }}
+                    >
+                      <Icon />
+                    </span>
 
-          <motion.div variants={fadeUpSmall} className="mt-9">
-            <Button href="#contact" variant="primary" size="lg">
-              Find Your Talent
-            </Button>
-          </motion.div>
-        </RevealGroup>
+                    {/* Text */}
+                    <div className="flex-1 min-w-0">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span
+                          className="text-[10px] font-bold uppercase tracking-[0.2em]"
+                          style={{ color: d.color }}
+                        >
+                          {d.num}
+                        </span>
+                        <span
+                          className="h-px flex-1"
+                          style={{ background: `${d.color}20` }}
+                        />
+                      </div>
+                      <h3 className="font-display text-base font-bold text-ink-900 leading-snug">
+                        {d.title}
+                      </h3>
+                      <p className="mt-1 text-sm leading-relaxed text-ink-500">
+                        {d.description}
+                      </p>
+                    </div>
 
-        {/* RIGHT — Parallax image grid */}
-        <div className="lg:col-span-7 relative">
-          <div className="grid grid-cols-3 gap-4 sm:gap-5">
-            {columns.map((col, ci) => (
-              <motion.div
-                key={ci}
-                style={{ y: ys[ci], willChange: 'transform' }}
-                className={`flex flex-col gap-4 sm:gap-5 ${ci === 1 ? 'pt-10 sm:pt-14' : ''}`}
-              >
-                {col.map((t, ti) => (
-                  <TalentCard key={ti} t={t} delay={ci * 0.08 + ti * 0.08} />
-                ))}
-              </motion.div>
-            ))}
+                    {/* Left accent bar */}
+                    <span
+                      className="absolute left-0 top-4 bottom-4 w-[3px] rounded-r-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                      style={{ background: d.color }}
+                    />
+                  </motion.div>
+                );
+              })}
+            </div>
           </div>
-          {/* glow */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute -inset-10 -z-10 rounded-[40px] bg-gradient-to-br from-brand-500/15 via-transparent to-transparent blur-3xl"
-          />
+
+          {/* ── RIGHT: Image ────────────────────────────────────── */}
+          <motion.div
+            initial={{ opacity: 0, x: 50, scale: 0.97 }}
+            whileInView={{ opacity: 1, x: 0, scale: 1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 1.0, ease, delay: 0.2 }}
+            className="relative hidden lg:block"
+          >
+            {/* Decorative dot grid behind image */}
+            <div
+              aria-hidden
+              className="absolute -top-6 -right-6 w-32 h-32 opacity-30"
+              style={{
+                backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.3) 1.5px, transparent 1.5px)',
+                backgroundSize: '14px 14px',
+                borderRadius: '8px',
+              }}
+            />
+            <div
+              aria-hidden
+              className="absolute -bottom-6 -left-6 w-24 h-24 opacity-20"
+              style={{
+                backgroundImage: 'radial-gradient(circle, rgba(249,115,22,0.5) 1.5px, transparent 1.5px)',
+                backgroundSize: '14px 14px',
+                borderRadius: '8px',
+              }}
+            />
+
+            {/* Floating orange ring */}
+            <motion.div
+              aria-hidden
+              className="absolute -top-8 -right-8 w-24 h-24 rounded-full"
+              style={{ border: '2px solid rgba(249,115,22,0.2)' }}
+              animate={{ rotate: 360 }}
+              transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+            />
+
+            {/* Image */}
+            <div
+              className="overflow-hidden shadow-2xl"
+              style={{ borderRadius: '24px' }}
+            >
+              <img
+                src="/why-ancile/employee_discuss.png"
+                alt="Ancile team collaborating"
+                className="w-full h-full object-cover"
+                style={{ aspectRatio: '4/3', display: 'block' }}
+              />
+            </div>
+          </motion.div>
+
         </div>
       </div>
     </section>
   );
 }
 
-function TalentCard({ t, delay = 0 }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 40, scale: 0.95 }}
-      whileInView={{ opacity: 1, y: 0, scale: 1 }}
-      viewport={viewportOnce}
-      transition={{ duration: 0.85, ease: easePremium, delay }}
-      whileHover={{ scale: 1.04, y: -4 }}
-      className="group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] shadow-card cursor-pointer"
-    >
-      <div className="aspect-[3/4] overflow-hidden">
-        <img
-          src={t.img}
-          alt={t.name}
-          loading="lazy"
-          className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-        />
-      </div>
-      <div className="absolute inset-0 bg-gradient-to-t from-navy-950/95 via-navy-950/30 to-transparent" />
-      <span className="absolute left-3 top-3 rounded-full border border-white/15 bg-white/10 px-2.5 py-0.5 text-[10px] font-medium uppercase tracking-wider text-white backdrop-blur">
-        {t.tag}
-      </span>
-      <div className="absolute inset-x-3 bottom-3">
-        <div className="flex items-center justify-between text-white">
-          <div>
-            <div className="text-sm font-semibold leading-tight">{t.name}</div>
-            <div className="text-[11px] text-white/65">{t.role}</div>
-          </div>
-          <span className="rounded-full bg-white/10 px-2 py-0.5 text-[10px] font-medium backdrop-blur">
-            ★ {t.rating}
-          </span>
-        </div>
-      </div>
-    </motion.div>
-  );
+/* Icons */
+function SpeedIcon() {
+  return <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M13 2L3 14h7l-1 8 11-14h-7l1-6z" strokeLinejoin="round" strokeLinecap="round" /></svg>;
+}
+function TargetIcon() {
+  return <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="10" /><circle cx="12" cy="12" r="6" /><circle cx="12" cy="12" r="2" /></svg>;
+}
+function ShieldIcon() {
+  return <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" strokeLinejoin="round" strokeLinecap="round" /></svg>;
+}
+function FlexIcon() {
+  return <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" rx="1" /><rect x="14" y="3" width="7" height="7" rx="1" /><rect x="3" y="14" width="7" height="7" rx="1" /><rect x="14" y="14" width="7" height="7" rx="1" /></svg>;
 }

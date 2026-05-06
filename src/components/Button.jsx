@@ -2,12 +2,14 @@ import { motion } from 'framer-motion';
 
 const variants = {
   primary:
-    'bg-brand-500 text-white hover:bg-brand-400 shadow-glow hover:shadow-[0_30px_80px_-15px_rgba(90,130,235,0.6)]',
+    'bg-accent-500 text-white hover:bg-accent-600 shadow-glow hover:shadow-glow-lg',
   secondary:
-    'bg-white/5 text-white border border-white/10 hover:bg-white/10 hover:border-white/20',
-  ghost: 'text-white/80 hover:text-white',
+    'bg-ink-900 text-white hover:bg-ink-800',
+  outline:
+    'bg-white text-ink-900 border border-ink-300 hover:border-ink-400 hover:bg-surface-100 shadow-soft',
+  ghost: 'text-ink-700 hover:text-ink-900',
   light:
-    'bg-white text-navy-900 hover:bg-brand-50 shadow-soft',
+    'bg-white text-ink-900 hover:bg-surface-100 shadow-card',
 };
 
 const sizes = {

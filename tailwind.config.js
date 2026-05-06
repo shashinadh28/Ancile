@@ -4,24 +4,61 @@ export default {
   theme: {
     extend: {
       colors: {
-        navy: {
-          950: '#070d1c',
-          900: '#0a1430',
-          800: '#0f1d44',
-          700: '#152759',
-          600: '#1c326f',
+        // ── Strict semantic tokens ──
+        'hero-dark': '#0B1120',
+        'c-primary': '#0F172A',
+        'c-secondary': '#475569',
+        // Warm light palette inspired by Catalog reference
+        surface: {
+          50: '#FFFFFF',
+          100: '#FAFAF8',
+          200: '#F5F3F0',
+          300: '#EDEAE5',
+          400: '#E0DDD7',
+        },
+        ink: {
+          950: '#0F172A',
+          900: '#1E293B',
+          800: '#334155',
+          700: '#475569',
+          600: '#64748B',
+          500: '#94A3B8',
+          400: '#CBD5E1',
+          300: '#E2E8F0',
+          200: '#E2E8F0',
+          150: '#F1F5F9',
+          100: '#F8FAFC',
+        },
+        accent: {
+          50: '#FFF7ED',
+          100: '#FFEDD5',
+          200: '#FED7AA',
+          300: '#FDBA74',
+          400: '#FB923C',
+          500: '#F97316',
+          600: '#EA580C',
+          700: '#C2410C',
+          800: '#9A3412',
+          900: '#7C2D12',
         },
         brand: {
-          50: '#eef4ff',
-          100: '#dae6ff',
-          200: '#b8cdff',
-          300: '#8aaaff',
-          400: '#5a82eb',
-          500: '#2f5fb3',
-          600: '#264c91',
-          700: '#1d3b73',
-          800: '#162d59',
-          900: '#0f2143',
+          50: '#FFF7ED',
+          100: '#FFEDD5',
+          200: '#FED7AA',
+          300: '#FDBA74',
+          400: '#FB923C',
+          500: '#F97316',
+          600: '#EA580C',
+          700: '#C2410C',
+          800: '#9A3412',
+          900: '#7C2D12',
+        },
+        navy: {
+          950: '#0B1120',
+          900: '#0F172A',
+          800: '#1E293B',
+          700: '#334155',
+          600: '#475569',
         },
       },
       fontFamily: {
@@ -32,24 +69,26 @@ export default {
         tightest: '-0.04em',
       },
       boxShadow: {
-        glow: '0 30px 80px -20px rgba(47, 95, 179, 0.55)',
-        'glow-lg': '0 40px 100px -25px rgba(47, 95, 179, 0.65)',
-        card: '0 20px 50px -20px rgba(7, 13, 28, 0.45)',
-        'card-lg': '0 30px 60px -15px rgba(7, 13, 28, 0.55)',
-        soft: '0 10px 30px -15px rgba(7, 13, 28, 0.6)',
-        'inner-glow': 'inset 0 1px 0 rgba(255,255,255,0.08), inset 0 0 60px rgba(47,95,179,0.05)',
+        'soft': '0 1px 3px rgba(0,0,0,0.04), 0 1px 2px rgba(0,0,0,0.06)',
+        'card': '0 4px 20px -4px rgba(0,0,0,0.06), 0 1px 3px rgba(0,0,0,0.04)',
+        'card-hover': '0 12px 40px -8px rgba(0,0,0,0.1), 0 4px 12px rgba(0,0,0,0.05)',
+        'card-lg': '0 20px 50px -12px rgba(0,0,0,0.08), 0 4px 20px rgba(0,0,0,0.04)',
+        'glow': '0 8px 30px -6px rgba(249,115,22,0.25)',
+        'glow-lg': '0 20px 50px -10px rgba(249,115,22,0.3)',
+        'inner-glow': 'inset 0 1px 0 rgba(255,255,255,0.8), inset 0 0 60px rgba(249,115,22,0.03)',
+        'nav': '0 1px 3px rgba(0,0,0,0.05), 0 4px 12px rgba(0,0,0,0.04)',
       },
       backgroundImage: {
-        'radial-fade':
-          'radial-gradient(circle at 20% 20%, rgba(47,95,179,0.35), transparent 55%), radial-gradient(circle at 80% 10%, rgba(90,130,235,0.25), transparent 50%), radial-gradient(circle at 50% 100%, rgba(15,33,67,0.7), transparent 60%)',
+        'warm-radial':
+          'radial-gradient(ellipse at 20% 0%, rgba(249,115,22,0.06) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(251,146,60,0.04) 0%, transparent 50%)',
         'grid-faint':
-          'linear-gradient(to right, rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.04) 1px, transparent 1px)',
+          'linear-gradient(to right, rgba(0,0,0,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.03) 1px, transparent 1px)',
         'grid-accent':
-          'linear-gradient(to right, rgba(90,130,235,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(90,130,235,0.06) 1px, transparent 1px)',
-        'mesh-gradient':
-          'radial-gradient(ellipse at 20% 0%, rgba(90,130,235,0.15) 0%, transparent 50%), radial-gradient(ellipse at 80% 100%, rgba(47,95,179,0.12) 0%, transparent 50%), radial-gradient(ellipse at 50% 50%, rgba(138,170,255,0.06) 0%, transparent 70%)',
-        'aurora':
-          'linear-gradient(135deg, rgba(47,95,179,0.08) 0%, rgba(90,130,235,0.04) 25%, transparent 50%, rgba(138,170,255,0.06) 75%, rgba(47,95,179,0.1) 100%)',
+          'linear-gradient(to right, rgba(249,115,22,0.04) 1px, transparent 1px), linear-gradient(to bottom, rgba(249,115,22,0.04) 1px, transparent 1px)',
+        'hero-gradient':
+          'linear-gradient(135deg, #FFFFFF 0%, #FFF7ED 30%, #FFEDD5 60%, #FFFFFF 100%)',
+        'cta-gradient':
+          'linear-gradient(135deg, #F97316 0%, #EA580C 50%, #C2410C 100%)',
       },
       keyframes: {
         float: {

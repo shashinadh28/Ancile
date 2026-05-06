@@ -6,10 +6,10 @@ const Card = forwardRef(function Card(
   ref,
 ) {
   const base =
-    'relative overflow-hidden rounded-3xl border border-white/10 bg-white/[0.04] backdrop-blur-md ring-soft shadow-card';
+    'relative overflow-hidden rounded-2xl border border-ink-300/60 bg-white shadow-card';
 
   const hoverStyles = hover
-    ? 'transition-all duration-500 hover:border-white/20 hover:bg-white/[0.06] hover:shadow-glow'
+    ? 'transition-all duration-500 hover:border-ink-300 hover:shadow-card-hover'
     : '';
 
   const motionProps = hover

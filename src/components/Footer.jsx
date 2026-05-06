@@ -7,18 +7,19 @@ const QUICK_LINKS = [
   { label: 'About', href: '#about' },
   { label: 'Industries', href: '#industries' },
   { label: 'Success Stories', href: '#stories' },
-  { label: 'Academy', href: '#academy' },
+  { label: 'Insights', href: '#insights' },
+  { label: 'Careers', href: '#careers' },
 ];
 
 const SERVICES = [
-  'Study Abroad Services',
-  'Staff Assignments Process',
-  'Deliverable Centric Solutions',
-  'IT Training',
   'Staff Augmentation',
-  'Technology Consulting',
-  'Managed Services',
-  'Products & Platforms',
+  'Direct Hire',
+  'Project-Based Teams',
+  'Application Modernization',
+  'Data Engineering & Platforms',
+  'Analytics, AI/ML Enablement',
+  'Cloud & Data Modernization',
+  'Delivery & PMO Support',
 ];
 
 const US_LOCATIONS = [
@@ -64,16 +65,13 @@ const SOCIALS = [
 
 export default function Footer() {
   return (
-    <footer className="relative mt-12 border-t border-white/5 overflow-hidden">
-      {/* Premium gradient top border */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-brand-400/40 to-transparent"
-      />
-      {/* Subtle background wash */}
+    <footer
+      className="relative overflow-hidden"
+      style={{ backgroundColor: '#0B1120', borderTop: '1px solid rgba(255,255,255,0.08)' }}
+    >
+      {/* Subtle glow accent */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute inset-0 bg-gradient-to-b from-navy-950/80 to-navy-950" />
-        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-brand-500/4 blur-[120px]" />
+        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 h-[400px] w-[800px] rounded-full bg-accent-500/5 blur-[120px]" />
       </div>
 
       <div className="mx-auto max-w-page container-px py-16 sm:py-20">
@@ -86,11 +84,11 @@ export default function Footer() {
           <motion.div variants={fadeUp}>
             <a href="#" className="flex items-center gap-2.5">
               <span className="font-display text-xl font-bold tracking-tight text-white">
-                Ancile <span className="text-brand-300">Inc</span>
+                Ancile <span className="text-accent-400">Inc</span>
               </span>
             </a>
             <p className="mt-3 text-sm leading-relaxed text-white/60">
-              Your growth is our progress
+              Talent + Technology to accelerate delivery.
             </p>
 
             <div className="mt-6 text-sm text-white/65 space-y-1">
@@ -132,7 +130,7 @@ export default function Footer() {
                   >
                     <span className="relative">
                       {l.label}
-                      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-brand-300 transition-all group-hover:w-full" />
+                      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent-400 transition-all group-hover:w-full" />
                     </span>
                   </a>
                 </motion.li>
@@ -163,7 +161,7 @@ export default function Footer() {
                   >
                     <span className="relative">
                       {s}
-                      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-brand-300 transition-all group-hover:w-full" />
+                      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent-400 transition-all group-hover:w-full" />
                     </span>
                   </a>
                 </motion.li>
@@ -178,7 +176,6 @@ export default function Footer() {
           delay={0.1}
           className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-8 py-12 border-b border-white/10"
         >
-          {/* US Locations header spanning full width */}
           <motion.h4
             variants={fadeUpSmall}
             className="col-span-full text-xs font-semibold uppercase tracking-[0.18em] text-white/45 flex items-center gap-2"
@@ -222,7 +219,7 @@ export default function Footer() {
           </motion.div>
         </RevealGroup>
 
-        {/* ── ROW 3: Bottom bar — copyright + socials ── */}
+        {/* ── ROW 3: Bottom bar ── */}
         <RevealGroup
           staggerChildren={0.1}
           className="flex flex-col sm:flex-row items-center justify-between gap-6 pt-8 text-xs text-white/45"
@@ -236,7 +233,7 @@ export default function Footer() {
                 key={label}
                 href={href}
                 aria-label={label}
-                className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-0.5 hover:border-brand-300 hover:bg-brand-500/20 hover:text-white hover:shadow-glow"
+                className="grid h-9 w-9 place-items-center rounded-full border border-white/10 bg-white/5 text-white/70 transition-all hover:-translate-y-0.5 hover:border-accent-400 hover:bg-accent-500/20 hover:text-white hover:shadow-glow"
               >
                 <svg className="h-4 w-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d={path} />
