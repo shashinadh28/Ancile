@@ -41,7 +41,7 @@ export default function FindTalents() {
       className="relative py-20 sm:py-28 overflow-hidden"
       style={{
         backgroundColor: '#FAFAF8',
-        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.07) 1.5px, transparent 1.5px)',
+        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.14) 1.5px, transparent 1.5px)',
         backgroundSize: '26px 26px',
       }}
     >

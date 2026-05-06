@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { viewportOnce } from '../utils/motion';
 import Navbar from '../components/Navbar.jsx';
@@ -7,6 +7,7 @@ import ScrollText from '../components/ui/ScrollText.jsx';
 import { CardHoverEffect } from '../components/ui/CardHoverEffect.jsx';
 
 const ease = [0.22, 1, 0.36, 1];
+const DOT_BG = { backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.13) 1.5px, transparent 1.5px)', backgroundSize: '26px 26px' };
 
 const ENGAGEMENT_MODELS = [
   { num: '01', title: 'Staff Augmentation', desc: 'Extend your team with vetted specialists on demand. Scale up or down as project needs shift—without the overhead of full-time hiring.', icon: AugIcon },
@@ -24,11 +25,11 @@ const ROLES = [
   { role: 'Data Scientists / ML Engineers', spec: 'Applied AI/ML' },
 ];
 
-const PROCESS = [
-  { step: '01', title: 'Intake & Alignment', desc: 'We map your requirements, culture, and constraints in a focused discovery session.' },
-  { step: '02', title: 'Sourcing & Vetting', desc: 'Our domain-specific recruiters surface and screen candidates against precise technical and behavioral criteria.' },
-  { step: '03', title: 'Shortlist Delivery', desc: 'You receive a concise, high-quality shortlist—typically within days, not weeks.' },
-  { step: '04', title: 'Onboarding & Governance', desc: 'We stay engaged post-placement with clear SLAs, reporting, and proactive communication.' },
+const FORM_STEPS = [
+  { num: '01', title: 'Define Your Need', desc: 'Share your talent requirements or project goals—we align fast on scope, stack, and timeline.' },
+  { num: '02', title: 'We Source & Vet', desc: 'Our domain specialists surface and screen candidates against precise technical and cultural criteria.' },
+  { num: '03', title: 'Receive a Shortlist', desc: 'You get a concise, high-quality shortlist—typically within days, not weeks.' },
+  { num: '04', title: 'Governed Delivery', desc: 'We stay engaged with clear SLAs, open reporting, and proactive communication throughout.' },
 ];
 
 export default function TalentSolutionsPage() {
@@ -36,176 +37,266 @@ export default function TalentSolutionsPage() {
     <div className="min-h-screen bg-white">
       <Navbar />
 
-      {/* ── HERO ────────────────────────────────────────────── */}
+      {/* HERO */}
       <section className="relative min-h-[82vh] flex items-center overflow-hidden pt-24" style={{ backgroundColor: '#0B1120' }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: '48px 48px' }} />
+        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
         <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[600px] h-[500px] rounded-full blur-[120px]" style={{ background: 'rgba(249,115,22,0.09)' }} />
-
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 py-20">
           <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6"
-            style={{ border: '1px solid rgba(249,115,22,0.3)', background: 'rgba(249,115,22,0.1)', color: '#F97316' }}
-          >
+            style={{ border: '1px solid rgba(249,115,22,0.3)', background: 'rgba(249,115,22,0.1)', color: '#F97316' }}>
             <span className="h-1.5 w-1.5 rounded-full bg-current" />Talent Solutions
           </motion.span>
-
-          <ScrollText
-            text="Talent solutions built for speed, fit, and accountability."
-            as="h1"
-            delay={0.15}
-            stagger={0.06}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.03] tracking-tight text-white max-w-3xl"
-          />
-
+          <ScrollText text="Talent solutions built for speed, fit, and accountability." as="h1" delay={0.15} stagger={0.06}
+            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.03] tracking-tight text-white max-w-3xl" />
           <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.5 }}
-            className="mt-6 text-lg leading-relaxed max-w-2xl" style={{ color: 'rgba(255,255,255,0.6)' }}
-          >
+            className="mt-6 text-lg leading-relaxed max-w-2xl" style={{ color: 'rgba(255,255,255,0.72)' }}>
             Specialized talent across engineering, data, cloud, QA automation, and AI—matched quickly and supported with clear governance.
           </motion.p>
-
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.65 }} className="mt-10 flex flex-wrap gap-4">
-            <CTABtn href="#contact-form" primary>Request Talent</CTABtn>
-            <CTABtn href="#contact-form" primary={false}>Talk to Sales</CTABtn>
+            <CTABtn href="#request-talent" primary>Request Talent</CTABtn>
+            <CTABtn href="#engagement-models" primary={false}>See Engagement Models</CTABtn>
           </motion.div>
         </div>
       </section>
 
-      {/* ── ENGAGEMENT MODELS ──────────────────────────────── */}
-      <section id="engagement-models" className="py-20 sm:py-28" style={{ backgroundColor: '#FAFAF8', backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.06) 1.5px, transparent 1.5px)', backgroundSize: '26px 26px' }}>
+      {/* ENGAGEMENT MODELS */}
+      <section id="engagement-models" className="py-20 sm:py-28" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.75, ease }} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-700">
-              <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />Engagement Models
-            </span>
-            <ScrollText text="Choose the model that fits your needs" as="h2" delay={0.05} stagger={0.06}
-              className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.06] tracking-tight text-ink-900" />
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-ink-500 max-w-2xl">From rapid staff augmentation to full program delivery—structured for outcomes, not just headcount.</p>
-          </motion.div>
-          <CardHoverEffect items={ENGAGEMENT_MODELS} />
+          <SectionHdr badge="Engagement Models" title="Choose the model that fits your needs"
+            sub="From rapid staff augmentation to full program delivery—structured for outcomes, not just headcount." />
+          <div className="mt-14"><CardHoverEffect items={ENGAGEMENT_MODELS} /></div>
         </div>
       </section>
 
-      {/* ── ROLES ──────────────────────────────────────────── */}
+      {/* ROLES */}
       <section id="roles" className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.75, ease }} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-700"><span className="h-1.5 w-1.5 rounded-full bg-accent-500" />Roles & Specialties</span>
-            <ScrollText text="The talent we place" as="h2" delay={0.05} stagger={0.09}
-              className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.06] tracking-tight text-ink-900" />
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-ink-500 max-w-2xl">High-demand engineering and technology disciplines that drive modern delivery.</p>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <SectionHdr badge="Roles & Specialties" title="The talent we place"
+            sub="High-demand engineering and technology disciplines that drive modern delivery." />
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-14">
             {ROLES.map((r, i) => (
-              <motion.div key={r.role} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6, ease, delay: i * 0.08 }}
-                className="flex items-start gap-4 p-5 rounded-2xl bg-white hover:shadow-md transition-shadow duration-300" style={{ border: '1px solid rgba(15,23,42,0.08)' }}>
-                <span className="mt-0.5 h-5 w-5 shrink-0 rounded-full grid place-items-center flex-shrink-0" style={{ background: 'rgba(249,115,22,0.12)' }}>
+              <motion.div key={r.role} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
+                transition={{ duration: 0.6, ease, delay: i * 0.08 }}
+                className="flex items-start gap-4 p-5 rounded-2xl bg-white hover:shadow-md transition-shadow" style={{ border: '1px solid rgba(15,23,42,0.08)' }}>
+                <span className="mt-1 h-5 w-5 shrink-0 rounded-full grid place-items-center" style={{ background: 'rgba(249,115,22,0.12)' }}>
                   <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                 </span>
-                <div><div className="font-semibold text-ink-900 text-sm">{r.role}</div><div className="text-xs text-ink-400 mt-0.5">{r.spec}</div></div>
+                <div>
+                  <div className="font-semibold text-ink-900 text-sm">{r.role}</div>
+                  <div className="text-xs mt-0.5" style={{ color: '#64748b' }}>{r.spec}</div>
+                </div>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ── PROCESS ────────────────────────────────────────── */}
-      <section id="process" className="py-20 sm:py-28" style={{ backgroundColor: '#FAFAF8', backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.06) 1.5px, transparent 1.5px)', backgroundSize: '26px 26px' }}>
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.75, ease }} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-700"><span className="h-1.5 w-1.5 rounded-full bg-accent-500" />Our Process</span>
-            <ScrollText text="From intake to impact" as="h2" delay={0.05} stagger={0.09}
-              className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.06] tracking-tight text-ink-900" />
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-ink-500 max-w-2xl">A repeatable, accountable process that gets the right talent in place—fast.</p>
-          </motion.div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PROCESS.map((p, i) => (
-              <motion.div key={p.step} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.65, ease, delay: i * 0.12 }}
-                className="relative bg-white rounded-2xl p-7" style={{ border: '1px solid rgba(15,23,42,0.08)' }}>
-                <div className="text-5xl font-extrabold mb-4" style={{ color: 'rgba(249,115,22,0.12)', fontFamily: '"Plus Jakarta Sans", sans-serif', lineHeight: 1 }}>{p.step}</div>
-                <h4 className="font-display text-lg font-bold text-ink-900 mb-2">{p.title}</h4>
-                <p className="text-sm text-ink-500 leading-relaxed">{p.desc}</p>
-                {i < PROCESS.length - 1 && <span className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-ink-200 text-2xl">→</span>}
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ── FORM ───────────────────────────────────────────── */}
-      <section id="contact-form" className="py-20 sm:py-28 bg-white">
-        <div className="mx-auto max-w-[680px] px-6 sm:px-8">
-          <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.75, ease }} className="flex flex-col items-center text-center max-w-3xl mx-auto mb-10">
-            <span className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-700"><span className="h-1.5 w-1.5 rounded-full bg-accent-500" />Request Talent</span>
-            <ScrollText text="Tell us what you need" as="h2" delay={0.05} stagger={0.1}
-              className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.06] tracking-tight text-ink-900" />
-            <p className="mt-4 text-base sm:text-lg leading-relaxed text-ink-500 max-w-2xl">Share your requirements and our team will respond with qualified candidates—typically within 48 hours.</p>
-          </motion.div>
-          <LeadForm />
-        </div>
-      </section>
+      {/* REQUEST TALENT — two-column orange CTA */}
+      <OrangeCTASection
+        id="request-talent"
+        badge="Request Talent"
+        headline="Tell us what you need"
+        sub="Share your requirements and our team will respond with qualified candidates—typically within 48 hours."
+        steps={FORM_STEPS}
+        ctaLabel="Get Started"
+        formHeadline="Request Talent"
+        formSub="Fill in the form and we'll follow up quickly."
+        selectLabel="What roles do you need?"
+        selectOptions={['Software Engineering', 'Data Engineering', 'Cloud / DevOps', 'QA / Automation', 'Cybersecurity', 'Product / PMO / BA', 'Multiple / Other']}
+        submitLabel="Submit Request"
+      />
 
       <Footer />
     </div>
   );
 }
 
+/* ── Reusable orange two-column CTA section ── */
+function OrangeCTASection({ id, badge, headline, sub, steps, ctaLabel, formHeadline, formSub, selectLabel, selectOptions, submitLabel }) {
+  const stepsRef = useRef(null);
+  const [submitted, setSubmitted] = useState(false);
+  const [agreed, setAgreed] = useState(false);
+  const [form, setForm] = useState({ first: '', last: '', email: '', company: '', title: '', need: '', message: '' });
+  const handleChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
+  const handleSubmit = (e) => { e.preventDefault(); if (!agreed) return; setSubmitted(true); };
+
+  return (
+    <section id={id} className="relative py-20 sm:py-28 overflow-hidden"
+      style={{ background: 'linear-gradient(135deg, #431407 0%, #7c2d12 40%, #c2410c 75%, #ea580c 100%)' }}>
+      {/* Grid overlay */}
+      <div aria-hidden className="pointer-events-none absolute inset-0"
+        style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.04) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
+      {/* Glow orbs */}
+      <div aria-hidden className="pointer-events-none absolute -top-20 -right-20 w-[360px] h-[360px] rounded-full blur-[90px]" style={{ background: 'radial-gradient(circle, rgba(251,191,36,0.2) 0%, transparent 70%)' }} />
+      <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-20 w-[300px] h-[300px] rounded-full blur-[80px]" style={{ background: 'radial-gradient(circle, rgba(249,115,22,0.25) 0%, transparent 70%)' }} />
+
+      <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+          {/* Left: headline + steps */}
+          <div>
+            <motion.span initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.6, ease }}
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-6"
+              style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#fed7aa' }}>
+              <span className="h-1.5 w-1.5 rounded-full bg-current" />{badge}
+            </motion.span>
+
+            <motion.h2 initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
+              transition={{ duration: 0.85, ease, delay: 0.08 }}
+              className="font-display text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight text-white mb-4">
+              {headline}
+            </motion.h2>
+
+            <motion.p initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
+              transition={{ duration: 0.7, ease, delay: 0.15 }}
+              className="text-base leading-[1.9] max-w-sm mb-10" style={{ color: 'rgba(254,215,170,0.85)' }}>
+              {sub}
+            </motion.p>
+
+            {/* Steps */}
+            <div ref={stepsRef} className="space-y-5 mb-10">
+              {steps.map((s, i) => (
+                <motion.div key={s.num} initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewportOnce}
+                  transition={{ duration: 0.65, ease, delay: 0.2 + i * 0.1 }}
+                  className="flex items-start gap-4">
+                  <span className="shrink-0 grid h-11 w-11 place-items-center rounded-xl font-bold text-sm"
+                    style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.18)', color: '#fed7aa' }}>
+                    {s.num}
+                  </span>
+                  <div className="pt-1">
+                    <h4 className="text-white font-bold text-sm mb-1">{s.title}</h4>
+                    <p className="text-sm leading-relaxed" style={{ color: 'rgba(254,215,170,0.75)' }}>{s.desc}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+
+            <motion.a href="#" initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
+              transition={{ duration: 0.6, ease, delay: 0.65 }}
+              style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', padding: '12px 28px', borderRadius: '50px', fontWeight: 700, fontSize: '14px', color: 'white', textDecoration: 'none', background: 'rgba(255,255,255,0.12)', border: '1.5px solid rgba(255,255,255,0.3)', backdropFilter: 'blur(8px)' }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.22)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.5)'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.12)'; e.currentTarget.style.borderColor = 'rgba(255,255,255,0.3)'; }}>
+              {ctaLabel}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+            </motion.a>
+          </div>
+
+          {/* Right: form card */}
+          <motion.div initial={{ opacity: 0, x: 40, y: 20 }} whileInView={{ opacity: 1, x: 0, y: 0 }} viewport={viewportOnce}
+            transition={{ duration: 0.9, ease, delay: 0.15 }}>
+            <div style={{ background: '#fff', borderRadius: '28px', padding: '36px 32px', boxShadow: '0 24px 64px rgba(0,0,0,0.28), 0 4px 16px rgba(0,0,0,0.12)' }}>
+              {submitted ? (
+                <div className="flex flex-col items-center text-center py-12">
+                  <div className="h-20 w-20 rounded-full grid place-items-center mb-6" style={{ background: 'rgba(249,115,22,0.1)' }}>
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                  </div>
+                  <h3 className="font-display text-2xl font-bold text-ink-900 mb-3">Request Sent!</h3>
+                  <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#475569' }}>Thanks—our team will follow up within one business day.</p>
+                  <button onClick={() => { setSubmitted(false); setAgreed(false); }} className="mt-8 text-sm font-semibold" style={{ color: '#F97316', background: 'none', border: 'none', cursor: 'pointer' }}>Send another →</button>
+                </div>
+              ) : (
+                <>
+                  <div className="mb-6">
+                    <h3 className="text-xl font-bold text-ink-900 mb-1">{formHeadline}</h3>
+                    <p className="text-sm" style={{ color: '#64748b' }}>{formSub}</p>
+                    <div style={{ width: '48px', height: '3px', background: '#F97316', borderRadius: '999px', marginTop: '14px' }} />
+                  </div>
+                  <form onSubmit={handleSubmit} className="flex flex-col gap-3.5">
+                    <div className="grid grid-cols-2 gap-3">
+                      <FF label="First Name" name="first" value={form.first} onChange={handleChange} required />
+                      <FF label="Last Name" name="last" value={form.last} onChange={handleChange} required />
+                    </div>
+                    <FF label="Work Email" name="email" type="email" value={form.email} onChange={handleChange} required />
+                    <FF label="Company" name="company" value={form.company} onChange={handleChange} required />
+                    <FF label="Title / Role" name="title" value={form.title} onChange={handleChange} />
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: '#64748b' }}>{selectLabel}</label>
+                      <div className="relative">
+                        <select name="need" value={form.need} onChange={handleChange} required
+                          className="w-full px-4 py-3 rounded-xl text-sm bg-white focus:outline-none appearance-none pr-9"
+                          style={{ border: '1.5px solid #e5e7eb', color: form.need ? '#111827' : '#9ca3af' }}>
+                          <option value="">Select...</option>
+                          {selectOptions.map(o => <option key={o}>{o}</option>)}
+                        </select>
+                        <div className="pointer-events-none absolute right-3.5 top-1/2 -translate-y-1/2" style={{ color: '#9ca3af' }}>
+                          <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor"><path d="M6 8L1 3h10L6 8z" /></svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: '#64748b' }}>Message</label>
+                      <textarea name="message" rows={3} value={form.message} onChange={handleChange} placeholder="Tell us more about what you're looking for..."
+                        className="w-full px-4 py-3 rounded-xl text-sm bg-white focus:outline-none resize-none" style={{ border: '1.5px solid #e5e7eb' }} />
+                    </div>
+                    {/* Checkbox */}
+                    <label className="flex items-start gap-2.5 cursor-pointer">
+                      <div className="relative mt-0.5 shrink-0">
+                        <div onClick={() => setAgreed(!agreed)}
+                          className="w-5 h-5 rounded-md border-2 flex items-center justify-center transition-all duration-200 cursor-pointer"
+                          style={{ background: agreed ? '#F97316' : '#fff', borderColor: agreed ? '#F97316' : '#d1d5db' }}>
+                          {agreed && <svg className="w-3 h-3" fill="none" viewBox="0 0 12 12" stroke="#fff" strokeWidth="2.5"><path d="M2 6l3 3 5-5" strokeLinecap="round" strokeLinejoin="round" /></svg>}
+                        </div>
+                      </div>
+                      <span className="text-xs leading-relaxed" style={{ color: '#6b7280' }}>
+                        I agree to Ancile Inc's <a href="/contact" style={{ color: '#F97316', fontWeight: 600 }}>Privacy Policy</a> and <a href="/contact" style={{ color: '#F97316', fontWeight: 600 }}>Terms</a> *
+                      </span>
+                    </label>
+                    <motion.button type="submit"
+                      style={{ width: '100%', background: '#F97316', color: '#fff', fontWeight: 700, fontSize: '15px', padding: '14px', borderRadius: '50px', border: 'none', cursor: 'pointer', boxShadow: '0 8px 24px rgba(249,115,22,0.4)', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}
+                      whileHover={{ scale: 1.02, boxShadow: '0 12px 32px rgba(249,115,22,0.55)' }} whileTap={{ scale: 0.98 }}>
+                      {submitLabel}
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+                    </motion.button>
+                    <p className="text-center text-xs" style={{ color: '#9ca3af' }}>Your data is 100% secure & never shared</p>
+                  </form>
+                </>
+              )}
+            </div>
+          </motion.div>
+
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function SectionHdr({ badge, title, sub }) {
+  return (
+    <motion.div initial={{ opacity: 0, y: 28 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.75, ease }}
+      className="flex flex-col items-center text-center max-w-3xl mx-auto">
+      <span className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-700">
+        <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />{badge}
+      </span>
+      <ScrollText text={title} as="h2" delay={0.05} stagger={0.07}
+        className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.06] tracking-tight text-ink-900" />
+      <p className="mt-4 text-base sm:text-lg leading-relaxed max-w-2xl" style={{ color: '#475569' }}>{sub}</p>
+    </motion.div>
+  );
+}
+
 function CTABtn({ href, children, primary }) {
   return (
-    <motion.a href={href} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: primary ? '#F97316' : 'transparent', color: primary ? '#fff' : 'rgba(255,255,255,0.75)', fontWeight: 700, fontSize: '15px', padding: '13px 28px', borderRadius: '50px', textDecoration: 'none', border: primary ? 'none' : '1.5px solid rgba(255,255,255,0.2)', boxShadow: primary ? '0 8px 32px rgba(249,115,22,0.35)' : 'none' }}
+    <motion.a href={href} style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', background: primary ? '#F97316' : 'transparent', color: primary ? '#fff' : 'rgba(255,255,255,0.8)', fontWeight: 700, fontSize: '15px', padding: '13px 28px', borderRadius: '50px', textDecoration: 'none', border: primary ? 'none' : '1.5px solid rgba(255,255,255,0.25)', boxShadow: primary ? '0 8px 32px rgba(249,115,22,0.4)' : 'none' }}
       whileHover={{ scale: 1.04 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400, damping: 20 }}>
       {children}
     </motion.a>
   );
 }
 
-function LeadForm() {
-  const [submitted, setSubmitted] = useState(false);
-  if (submitted) return (
-    <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} className="text-center py-16 rounded-2xl" style={{ background: '#FAFAF8', border: '1px solid rgba(15,23,42,0.08)' }}>
-      <div className="h-16 w-16 rounded-full grid place-items-center mx-auto mb-5" style={{ background: 'rgba(249,115,22,0.1)' }}>
-        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
-      </div>
-      <h3 className="font-display text-xl font-bold text-ink-900 mb-2">Request Sent!</h3>
-      <p className="text-sm text-ink-500">Thanks—our team will follow up shortly.</p>
-    </motion.div>
-  );
-  return (
-    <motion.form initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.7, ease, delay: 0.2 }}
-      onSubmit={(e) => { e.preventDefault(); setSubmitted(true); }} className="space-y-4"
-      style={{ background: '#FAFAF8', borderRadius: '20px', padding: '2rem', border: '1px solid rgba(15,23,42,0.08)' }}>
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <FF label="First Name" name="first_name" /><FF label="Last Name" name="last_name" />
-      </div>
-      <FF label="Work Email" name="email" type="email" /><FF label="Company" name="company" /><FF label="Title / Role" name="title" />
-      <div>
-        <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-1.5">What do you need?</label>
-        <select name="need" className="w-full px-4 py-3 rounded-xl text-sm text-ink-700 bg-white focus:outline-none" style={{ border: '1px solid rgba(15,23,42,0.12)' }}>
-          <option>Select...</option><option>Staffing</option><option>Project</option><option>Both</option>
-        </select>
-      </div>
-      <div>
-        <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-1.5">Message</label>
-        <textarea rows={4} placeholder="Describe what you're looking for..." className="w-full px-4 py-3 rounded-xl text-sm text-ink-900 bg-white focus:outline-none resize-none" style={{ border: '1px solid rgba(15,23,42,0.12)' }} />
-      </div>
-      <motion.button type="submit" style={{ width: '100%', background: '#F97316', color: '#fff', fontWeight: 700, fontSize: '15px', padding: '14px', borderRadius: '50px', border: 'none', cursor: 'pointer', boxShadow: '0 8px 24px rgba(249,115,22,0.3)' }}
-        whileHover={{ scale: 1.02, boxShadow: '0 12px 32px rgba(249,115,22,0.45)' }} whileTap={{ scale: 0.98 }}>
-        Send Request
-      </motion.button>
-      <p className="text-center text-xs text-ink-400">Thanks—our team will follow up shortly.</p>
-    </motion.form>
-  );
-}
-
-function FF({ label, name, type = 'text' }) {
+function FF({ label, name, type = 'text', value, onChange, required }) {
   return (
     <div>
-      <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-1.5">{label}</label>
-      <input type={type} name={name} className="w-full px-4 py-3 rounded-xl text-sm text-ink-900 bg-white focus:outline-none" style={{ border: '1px solid rgba(15,23,42,0.12)' }} />
+      <label className="block text-xs font-semibold uppercase tracking-wider mb-1.5" style={{ color: '#64748b' }}>
+        {label}{required && <span style={{ color: '#F97316' }}> *</span>}
+      </label>
+      <input type={type} name={name} value={value} onChange={onChange} required={required}
+        className="w-full px-4 py-3 rounded-xl text-sm bg-white focus:outline-none"
+        style={{ border: '1.5px solid #e5e7eb', color: '#111827' }} />
     </div>
   );
 }
 
-/* Icons for engagement models */
 function AugIcon() { return <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>; }
 function HireIcon() { return <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><polyline points="20 6 9 17 4 12" strokeLinecap="round" strokeLinejoin="round"/></svg>; }
 function TeamIcon() { return <svg className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>; }

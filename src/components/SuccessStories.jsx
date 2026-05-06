@@ -1,130 +1,207 @@
 import { motion } from 'framer-motion';
-import Button from './Button.jsx';
-import { RevealGroup } from './Reveal.jsx';
-import { fadeUpSmall, viewportOnce, easePremium, stagger } from '../utils/motion';
+import { viewportOnce } from '../utils/motion';
+import ScrollText from './ui/ScrollText.jsx';
+
+const ease = [0.22, 1, 0.36, 1];
 
 const STORIES = [
   {
-    client: 'National Healthcare Provider',
-    challenge: 'Reduce delivery delays caused by skill gaps across critical care technology systems.',
-    solution: 'Blended staffing model with QA automation support, integrated within two-week sprint cycles.',
-    result: 'Faster release cycle, improved quality metrics, and reduced time-to-delivery by 40%.',
-    tag: 'Healthcare',
-    color: 'bg-red-50 text-red-600 border-red-100',
+    name: 'Ruchika Pattjoshi',
+    role: 'Data Analyst',
+    company: 'State Of MA',
+    image: '/success_stories/Ruchika.jpg',
+    quote:
+      'I am proud to be a part of the team. I am grateful for the opportunity to work for such a supportive and dynamic organization, and I am proud to be a part of a team that values hard work, collaboration, and commitment to excellence.',
   },
   {
-    client: 'Financial Services Organization',
-    challenge: 'Modernize legacy applications while reducing operational risk during migration.',
-    solution: 'Application modernization combined with cloud migration support and governance framework.',
-    result: 'Improved system stability, 3x deployment velocity, and zero downtime during migration.',
-    tag: 'Finance',
-    color: 'bg-blue-50 text-blue-600 border-blue-100',
+    name: 'Rajendra Prasad Thummati',
+    role: 'Power BI Developer',
+    company: 'Volvo',
+    image: '/success_stories/rajendra.jpg',
+    quote:
+      "Turning data into insights, one visualization at a time! Excited to share my success story after being placed as a Power BI Developer at Volvo. Here's to achieving new heights and illuminating the path to success!",
   },
   {
-    client: 'Retail / eCommerce Brand',
-    challenge: 'Data foundations not ready for analytics and AI-driven decision making.',
-    solution: 'Data engineering engagement plus platform enablement to build a modern data lakehouse.',
-    result: 'Improved reporting speed by 5x and established reliable data foundations for AI/ML.',
-    tag: 'Retail',
-    color: 'bg-green-50 text-green-600 border-green-100',
+    name: 'Priyanka Ramireddy',
+    role: 'Business Intelligence (BI) Analyst',
+    company: 'Brillio',
+    image: '/success_stories/Priyanka.jpg',
+    quote:
+      "Priyanka's dedication, analytical prowess, and relentless pursuit of excellence have made a significant impact. Her expertise in BI has helped uncover valuable insights and make data-driven decisions, driving success to new heights.",
+  },
+  {
+    name: 'Sriharsha Barisetty',
+    role: 'Assistant BSA Officer, QA Team Lead',
+    company: 'Woori Bank',
+    image: '/success_stories/Sriharsha.jpg',
+    quote:
+      'Your dedication and hard work have paid off, and this new chapter is just the beginning of your incredible journey. Wishing you endless success and growth as you continue to excel in this role!',
+  },
+  {
+    name: 'Sreekanth Upputuri',
+    role: 'Power BI Developer / Admin',
+    company: 'Adobe Systems',
+    image: '/success_stories/Sreekanth.jpg',
+    quote:
+      "Powering up the future! Congratulations on securing the role of Power BI Developer/Admin at Adobe Systems. Your skills and expertise have landed you in the heart of innovation. Here's to a successful and fulfilling journey ahead!",
+  },
+  {
+    name: 'RamaKrishna Chereddy',
+    role: 'Infinidat Storage',
+    company: 'HCL',
+    image: '/success_stories/RamaKrishna.jpg',
+    quote:
+      "From India to the world! Congratulations on landing the amazing opportunity as Infinidat Storage at HCL. Your journey is an inspiration, and we're grateful to Ancile Inc for making this leap possible.",
   },
 ];
 
-const cardVariant = {
-  hidden: { opacity: 0, y: 50 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.85, ease: easePremium } },
-};
-
 export default function SuccessStories() {
   return (
-    <section id="stories" className="relative py-16 sm:py-20 overflow-hidden" style={{ backgroundColor: '#FAFAF8' }}>
-      <div className="mx-auto max-w-page container-px">
-        <RevealGroup
-          staggerChildren={0.18}
-          className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14 sm:mb-16"
-        >
+    <section
+      id="stories"
+      className="relative py-20 sm:py-28 overflow-hidden"
+      style={{
+        backgroundColor: '#FAFAF8',
+        backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.13) 1.5px, transparent 1.5px)',
+        backgroundSize: '26px 26px',
+      }}
+    >
+      {/* Subtle top glow */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] blur-[100px]"
+        style={{ background: 'rgba(249,115,22,0.05)' }}
+      />
+
+      <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+        {/* ── Header ── */}
+        <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-14">
           <motion.span
-            variants={fadeUpSmall}
-            className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-3 py-1 text-xs font-medium uppercase tracking-[0.18em] text-accent-700"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.6, ease }}
+            className="inline-flex items-center gap-2 rounded-full border border-accent-200 bg-accent-50 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] text-accent-700"
           >
             <span className="h-1.5 w-1.5 rounded-full bg-accent-500" />
             Success Stories
           </motion.span>
-          <motion.h2
-            variants={fadeUpSmall}
-            className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tightest text-ink-900"
-          >
-            Outcomes we've delivered
-          </motion.h2>
+
+          <ScrollText
+            text="Inspiring Success Stories From Our Clients"
+            as="h2"
+            delay={0.05}
+            stagger={0.055}
+            className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.06] tracking-tight text-ink-900"
+          />
+
           <motion.p
-            variants={fadeUpSmall}
-            className="mt-5 text-base sm:text-lg leading-relaxed text-ink-600 max-w-2xl"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.7, ease, delay: 0.25 }}
+            className="mt-4 text-base sm:text-lg leading-relaxed max-w-2xl"
+            style={{ color: '#475569' }}
           >
-            Real results for real organizations. Here's how we've helped teams accelerate delivery.
+            Real professionals. Real placements. Real outcomes — made possible through Ancile's talent network.
           </motion.p>
-        </RevealGroup>
+        </div>
 
-        <motion.div
-          initial="hidden"
-          whileInView="visible"
-          viewport={viewportOnce}
-          variants={stagger(0.18)}
-          className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8"
-        >
+        {/* ── Cards grid ── */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-7">
           {STORIES.map((s, i) => (
-            <motion.div key={i} variants={cardVariant}>
-              <StoryCard s={s} />
-            </motion.div>
+            <StoryCard key={s.name} story={s} index={i} />
           ))}
-        </motion.div>
+        </div>
       </div>
-
-      <div className="absolute bottom-0 left-0 right-0 section-divider" />
     </section>
   );
 }
 
-function StoryCard({ s }) {
+function StoryCard({ story, index }) {
   return (
-    <div className="group relative flex flex-col h-full overflow-hidden rounded-2xl bg-white border border-ink-200 shadow-card hover:shadow-card-hover transition-all duration-500 hover:-translate-y-1">
-      <div className="p-7 flex-1 flex flex-col">
-        {/* Tag */}
-        <span className={`inline-flex self-start items-center rounded-full border px-3 py-1 text-[11px] font-semibold uppercase tracking-wider ${s.color}`}>
-          {s.tag}
-        </span>
+    <motion.div
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={viewportOnce}
+      transition={{ duration: 0.7, ease, delay: index * 0.08 }}
+      className="group relative flex flex-col bg-white rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1.5 hover:shadow-xl"
+      style={{ border: '1px solid rgba(15,23,42,0.08)', boxShadow: '0 2px 12px rgba(15,23,42,0.06)' }}
+    >
+      {/* Top orange accent */}
+      <span
+        className="absolute inset-x-0 top-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+        style={{ background: 'linear-gradient(90deg, transparent, #F97316, transparent)' }}
+      />
 
-        {/* Client */}
-        <h3 className="mt-4 font-display text-lg font-bold text-ink-900">{s.client}</h3>
-
-        {/* Challenge / Solution / Result */}
-        <div className="mt-5 space-y-4 flex-1">
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-ink-400 mb-1">Challenge</div>
-            <p className="text-sm text-ink-600 leading-relaxed">{s.challenge}</p>
-          </div>
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-ink-400 mb-1">Solution</div>
-            <p className="text-sm text-ink-600 leading-relaxed">{s.solution}</p>
-          </div>
-          <div>
-            <div className="text-xs font-semibold uppercase tracking-wider text-accent-600 mb-1">Result</div>
-            <p className="text-sm font-medium text-ink-800 leading-relaxed">{s.result}</p>
-          </div>
+      {/* Profile area */}
+      <div
+        className="flex items-center gap-4 px-6 pt-6 pb-5"
+        style={{ borderBottom: '1px solid rgba(15,23,42,0.07)' }}
+      >
+        <div
+          className="shrink-0 h-16 w-16 rounded-2xl overflow-hidden"
+          style={{ border: '2px solid rgba(249,115,22,0.2)' }}
+        >
+          <img
+            src={story.image}
+            alt={story.name}
+            className="h-full w-full object-cover"
+            onError={(e) => {
+              e.target.style.display = 'none';
+              e.target.parentElement.style.background = 'rgba(249,115,22,0.1)';
+            }}
+          />
         </div>
-
-        {/* CTA */}
-        <div className="mt-6">
-          <a href="#" className="inline-flex items-center gap-2 text-sm font-semibold text-accent-600 hover:text-accent-700 transition-colors">
-            Read Case Study
-            <svg className="h-4 w-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
+        <div>
+          <h3 className="font-display font-bold text-ink-900 text-base leading-tight">{story.name}</h3>
+          <p className="text-xs text-ink-500 mt-0.5 leading-relaxed">{story.role}</p>
+          <span
+            className="inline-block mt-1.5 text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-0.5 rounded-full"
+            style={{ background: 'rgba(249,115,22,0.1)', color: '#EA580C' }}
+          >
+            {story.company}
+          </span>
         </div>
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 -bottom-px h-px bg-gradient-to-r from-transparent via-accent-400/60 to-transparent opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-    </div>
+      {/* Quote */}
+      <div className="px-6 py-5 flex-1 flex flex-col">
+        {/* Quote mark */}
+        <svg
+          className="mb-3 shrink-0"
+          width="24"
+          height="18"
+          viewBox="0 0 24 18"
+          fill="none"
+          aria-hidden
+        >
+          <path
+            d="M0 18V10.8C0 7.2 1.2 4.2 3.6 1.8L6 0l1.8 1.8C6.6 3 5.7 4.5 5.1 6H9V18H0zm15 0V10.8c0-3.6 1.2-6.6 3.6-9L21 0l1.8 1.8C21.6 3 20.7 4.5 20.1 6H24V18H15z"
+            fill="#F97316"
+            fillOpacity="0.25"
+          />
+        </svg>
+        <p className="text-sm leading-relaxed flex-1" style={{ color: '#475569' }}>
+          {story.quote}
+        </p>
+
+        {/* Stars */}
+        <div className="flex items-center gap-0.5 mt-5">
+          {[...Array(5)].map((_, i) => (
+            <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#F97316" stroke="none">
+              <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+            </svg>
+          ))}
+          <span className="text-[11px] font-semibold ml-1.5" style={{ color: '#F97316' }}>5.0</span>
+        </div>
+      </div>
+
+      {/* Bottom hover line */}
+      <span
+        className="absolute inset-x-0 bottom-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-400"
+        style={{ background: '#F97316' }}
+      />
+    </motion.div>
   );
 }

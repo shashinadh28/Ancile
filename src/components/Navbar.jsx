@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const NAV_LINKS = [
   { label: 'Home', href: '/', isRoute: true },
@@ -25,6 +25,20 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const dropdownTimeout = useRef(null);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  // Smooth-scroll to a hash section; if not on homepage, navigate first then scroll
+  const handleAnchorNav = (e, href) => {
+    e.preventDefault();
+    if (location.pathname === '/') {
+      const el = document.querySelector(href);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      navigate('/', { state: { scrollTo: href } });
+    }
+    setOpen(false);
+    setDropdownOpen(null);
+  };
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -111,6 +125,7 @@ export default function Navbar() {
               {link.isRoute ? (
                 <Link
                   to={link.href}
+                  onClick={() => { setOpen(false); setDropdownOpen(null); }}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -137,6 +152,7 @@ export default function Navbar() {
               ) : (
                 <a
                   href={link.href}
+                  onClick={(e) => handleAnchorNav(e, link.href)}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -346,23 +362,43 @@ export default function Navbar() {
             }}
           >
             {NAV_LINKS.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                style={{
-                  display: 'block',
-                  padding: '12px 16px',
-                  borderRadius: '10px',
-                  fontSize: '14px',
-                  fontWeight: 500,
-                  color: '#334155',
-                  textDecoration: 'none',
-                  transition: 'all 0.15s ease',
-                }}
-              >
-                {link.label}
-              </a>
+              link.isRoute ? (
+                <Link
+                  key={link.label}
+                  to={link.href}
+                  onClick={() => setOpen(false)}
+                  style={{
+                    display: 'block',
+                    padding: '12px 16px',
+                    borderRadius: '10px',
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    color: '#334155',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease',
+                  }}
+                >
+                  {link.label}
+                </Link>
+              ) : (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  onClick={(e) => { handleAnchorNav(e, link.href); setOpen(false); }}
+                  style={{
+                    display: 'block',
+                    padding: '12px 16px',
+                    borderRadius: '10px',
+                    fontSize: '14px',
+                    fontWeight: 500,
+                    color: '#334155',
+                    textDecoration: 'none',
+                    transition: 'all 0.15s ease',
+                  }}
+                >
+                  {link.label}
+                </a>
+              )
             ))}
             <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
               <button

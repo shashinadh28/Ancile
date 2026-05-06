@@ -1,4 +1,5 @@
-import { Routes, Route } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import FeatureCards from './components/FeatureCards.jsx';
@@ -14,6 +15,30 @@ import TechnologyServicesPage from './pages/TechnologyServicesPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
 
 function HomePage() {
+  const location = useLocation();
+
+  // When navigating from another page with a scrollTo state, scroll to the section
+  useEffect(() => {
+    if (location.state?.scrollTo) {
+      // Small delay to let the page render fully
+      const timer = setTimeout(() => {
+        const el = document.querySelector(location.state.scrollTo);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 350);
+      return () => clearTimeout(timer);
+    }
+    // If there's a hash in the URL, also scroll to it
+    if (location.hash) {
+      const timer = setTimeout(() => {
+        const el = document.querySelector(location.hash);
+        if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }, 350);
+      return () => clearTimeout(timer);
+    }
+  }, [location]);
+
   return (
     <div className="relative min-h-screen bg-white overflow-x-clip">
       <Navbar />
