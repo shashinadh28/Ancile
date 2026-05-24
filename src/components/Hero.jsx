@@ -41,6 +41,7 @@ export default function Hero() {
           maxWidth: '700px',
           minWidth: '400px',
           zIndex: 0,
+          filter: 'hue-rotate(190deg) saturate(1.2)',
         }}
       />
 
@@ -74,8 +75,8 @@ export default function Hero() {
               custom={0} variants={item} initial="hidden" animate="visible"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '1.75rem' }}
             >
-              <span style={{ display: 'inline-block', width: '32px', height: '3px', background: '#F97316', borderRadius: '2px' }} />
-              <span style={{ fontSize: '12px', fontWeight: 700, color: '#F97316', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              <span style={{ display: 'inline-block', width: '32px', height: '3px', background: '#2F80ED', borderRadius: '2px' }} />
+              <span style={{ fontSize: '12px', fontWeight: 700, color: '#2F80ED', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 Welcome to Ancile
               </span>
             </motion.div>
@@ -95,7 +96,7 @@ export default function Hero() {
             >
               Talent + Technology<br />
               to Accelerate<br />
-              <span style={{ color: '#F97316' }}>Delivery.</span>
+              <span style={{ color: '#2F80ED' }}>Delivery.</span>
             </motion.h1>
 
             {/* Subtitle */}
@@ -130,12 +131,12 @@ export default function Hero() {
                 href="#contact"
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '10px',
-                  background: '#F97316', color: '#fff', fontWeight: 700,
+                  background: '#2F80ED', color: '#fff', fontWeight: 700,
                   fontSize: '15px', padding: '14px 28px', borderRadius: '50px',
-                  textDecoration: 'none', boxShadow: '0 8px 32px rgba(249,115,22,0.35)',
+                  textDecoration: 'none', boxShadow: '0 8px 32px rgba(47,128,237,0.35)',
                   letterSpacing: '0.01em',
                 }}
-                whileHover={{ scale: 1.04, boxShadow: '0 12px 40px rgba(249,115,22,0.5)' }}
+                whileHover={{ scale: 1.04, boxShadow: '0 12px 40px rgba(47,128,237,0.5)' }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               >
@@ -195,12 +196,12 @@ export default function Hero() {
               style={{ position: 'absolute', top: '-50px', left: '156px', zIndex: 1, width: '35px', height: '150px', background: '#ffffff', borderRadius: '4px', pointerEvents: 'none' }}
             />
 
-            {/* Orange Circle mid-left — slides up */}
+            {/* Orange Circle mid-left — slides up, rotated to brand blue */}
             <motion.img
               src="/SVG/Orange_Circle.png" alt="" aria-hidden="true"
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.05, duration: 0.8, ease }}
-              style={{ position: 'absolute', top: '-34px', left: '105px', zIndex: 2, width: '35px', objectFit: 'contain', pointerEvents: 'none' }}
+              style={{ position: 'absolute', top: '-34px', left: '105px', zIndex: 2, width: '35px', objectFit: 'contain', pointerEvents: 'none', filter: 'hue-rotate(190deg) saturate(1.2)' }}
             />
 
             {/* White Circle bottom-left — slides up */}
@@ -240,14 +241,14 @@ export default function Hero() {
               style={{ position: 'absolute', left: '-20px', top: '42%', zIndex: 10, background: 'white', borderRadius: '50px', padding: '8px 16px 8px 8px', display: 'flex', alignItems: 'center', gap: '10px', boxShadow: '0 8px 32px rgba(0,0,0,0.18)' }}
             >
               <div style={{ display: 'flex' }}>
-                {['#6366f1', '#10b981', '#f59e0b'].map((color, i) => (
+                {['#6366f1', '#2F80ED', '#0EA5E9'].map((color, i) => (
                   <div key={i} style={{ width: '30px', height: '30px', borderRadius: '50%', background: color, border: '2px solid white', marginLeft: i > 0 ? '-8px' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
                       <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
                     </svg>
                   </div>
                 ))}
-                <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: '#22c55e', border: '2px solid white', marginLeft: '-8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '30px', height: '30px', borderRadius: '50%', background: '#1E5DB8', border: '2px solid white', marginLeft: '-8px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
                     <line x1="12" y1="5" x2="12" y2="19" stroke="white" strokeWidth="3" strokeLinecap="round" />
                     <line x1="5" y1="12" x2="19" y2="12" stroke="white" strokeWidth="3" strokeLinecap="round" />
@@ -262,7 +263,7 @@ export default function Hero() {
 
             {/* Main hero image */}
             <img
-              src="/ancile_Landing_Page.png"
+              src="/ancile_Landing_Page.webp"
               alt="Professional team collaborating"
               style={{
                 width: '100%',
@@ -271,7 +272,7 @@ export default function Hero() {
                 position: 'relative',
                 zIndex: 2,
                 marginTop: '-80px',
-                marginLeft: '200px', // 👈 Moved right
+                marginLeft: '200px',
                 filter: 'drop-shadow(0 40px 80px rgba(0,0,0,0.6))'
               }}
             />

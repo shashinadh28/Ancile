@@ -55,7 +55,8 @@ export default function FinalCTA() {
         }}
       />
       {/* Glow orbs */}
-      <div aria-hidden className="pointer-events-none absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(249,115,22,0.10)' }} />
+      {/* Glow orbs */}
+      <div aria-hidden className="pointer-events-none absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(47,128,237,0.10)' }} />
       <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-20 w-[350px] h-[350px] rounded-full blur-[90px]" style={{ background: 'rgba(99,102,241,0.07)' }} />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
@@ -68,7 +69,7 @@ export default function FinalCTA() {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce} transition={{ duration: 0.6, ease }}
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-6"
-              style={{ background: 'rgba(249,115,22,0.1)', border: '1px solid rgba(249,115,22,0.25)', color: '#F97316' }}
+              style={{ background: 'rgba(47,128,237,0.1)', border: '1px solid rgba(47,128,237,0.25)', color: '#2F80ED' }}
             >
               <span className="h-1.5 w-1.5 rounded-full bg-current" />
               Let's Connect
@@ -80,7 +81,7 @@ export default function FinalCTA() {
               className="font-display text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight text-white mb-5"
             >
               Let's talk about your{' '}
-              <span style={{ color: '#F97316' }}>hiring or delivery goals.</span>
+              <span style={{ color: '#2F80ED' }}>hiring or delivery goals.</span>
             </motion.h2>
 
             <motion.p
@@ -111,14 +112,14 @@ export default function FinalCTA() {
                       style={{
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.12)',
-                        color: '#F97316',
+                        color: '#2F80ED',
                       }}
                     >
                       <Icon />
                     </span>
                     <div className="pt-1">
                       <h4 className="text-white font-bold text-sm mb-1">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] mr-2" style={{ color: '#F97316' }}>{s.num}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] mr-2" style={{ color: '#2F80ED' }}>{s.num}</span>
                         {s.title}
                       </h4>
                       <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.desc}</p>
@@ -172,23 +173,23 @@ export default function FinalCTA() {
                 >
                   <div
                     className="h-20 w-20 rounded-full grid place-items-center mb-6"
-                    style={{ background: 'rgba(249,115,22,0.1)' }}
+                    style={{ background: 'rgba(47,128,237,0.1)' }}
                   >
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2F80ED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
                   <h3 className="font-display text-2xl font-bold text-ink-900 mb-3">Message Sent!</h3>
                   <p className="text-ink-500 text-sm leading-relaxed max-w-xs">Thanks—our team will follow up shortly. We typically respond within one business day.</p>
-                  <button onClick={() => setSubmitted(false)} className="mt-8 text-sm font-semibold" style={{ color: '#F97316' }}>Send another →</button>
+                  <button onClick={() => setSubmitted(false)} className="mt-8 text-sm font-semibold" style={{ color: '#2F80ED' }}>Send another →</button>
                 </motion.div>
               ) : (
                 <>
                   <div className="mb-7">
                     <h3 className="text-xl font-bold text-ink-900 mb-1">Send us a message</h3>
                     <p className="text-sm text-ink-400">Fill in the form and we'll get back to you quickly.</p>
-                    {/* Orange underline accent */}
-                    <div style={{ width: '48px', height: '3px', background: '#F97316', borderRadius: '999px', marginTop: '14px' }} />
+                    {/* Blue underline accent */}
+                    <div style={{ width: '48px', height: '3px', background: '#2F80ED', borderRadius: '999px', marginTop: '14px' }} />
                   </div>
 
                   {/* Tab toggle */}
@@ -206,7 +207,7 @@ export default function FinalCTA() {
                         className="flex-1 px-3 py-2.5 rounded-lg text-xs font-semibold transition-all duration-200"
                         style={{
                           color: activeTab === tab.id ? '#fff' : '#64748b',
-                          background: activeTab === tab.id ? '#F97316' : 'transparent',
+                          background: activeTab === tab.id ? '#2F80ED' : 'transparent',
                           border: 'none', cursor: 'pointer',
                         }}
                       >
@@ -262,8 +263,8 @@ export default function FinalCTA() {
 
                     <motion.button
                       type="submit"
-                      style={{ width: '100%', background: '#F97316', color: '#fff', fontWeight: 700, fontSize: '15px', padding: '14px', borderRadius: '50px', border: 'none', cursor: 'pointer', boxShadow: '0 8px 24px rgba(249,115,22,0.35)' }}
-                      whileHover={{ scale: 1.02, boxShadow: '0 12px 32px rgba(249,115,22,0.5)' }}
+                      style={{ width: '100%', background: '#2F80ED', color: '#fff', fontWeight: 700, fontSize: '15px', padding: '14px', borderRadius: '50px', border: 'none', cursor: 'pointer', boxShadow: '0 8px 24px rgba(47,128,237,0.35)' }}
+                      whileHover={{ scale: 1.02, boxShadow: '0 12px 32px rgba(47,128,237,0.5)' }}
                       whileTap={{ scale: 0.98 }}
                     >
                       Send
@@ -286,7 +287,7 @@ function FormField({ label, name, type = 'text', value, onChange, required }) {
   return (
     <div>
       <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-1.5">
-        {label}{required && <span style={{ color: '#F97316' }}> *</span>}
+        {label}{required && <span style={{ color: '#2F80ED' }}> *</span>}
       </label>
       <input
         type={type} name={name} value={value} onChange={onChange} required={required}

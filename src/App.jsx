@@ -12,7 +12,16 @@ import FinalCTA from './components/FinalCTA.jsx';
 import Footer from './components/Footer.jsx';
 import TalentSolutionsPage from './pages/TalentSolutionsPage.jsx';
 import TechnologyServicesPage from './pages/TechnologyServicesPage.jsx';
+import PricingRevenuePage from './pages/PricingRevenuePage.jsx';
+import EngineeringTechnologyPage from './pages/EngineeringTechnologyPage.jsx';
+import InterviewProcessPage from './pages/InterviewProcessPage.jsx';
 import ContactPage from './pages/ContactPage.jsx';
+import CaseInterviewPrepPage from './pages/CaseInterviewPrepPage.jsx';
+import UsingAIApplicationPage from './pages/UsingAIApplicationPage.jsx';
+import ResponsibleAIHiringPage from './pages/ResponsibleAIHiringPage.jsx';
+import EmployeeBenefitsPage from './pages/EmployeeBenefitsPage.jsx';
+import ArtificialIntelligencePage from './pages/ArtificialIntelligencePage.jsx';
+import ValuesCulturePage from './pages/ValuesCulturePage.jsx';
 
 function HomePage() {
   const location = useLocation();
@@ -63,7 +72,16 @@ export default function App() {
       <Route path="/" element={<HomePage />} />
       <Route path="/talent-solutions" element={<TalentSolutionsPage />} />
       <Route path="/technology-services" element={<TechnologyServicesPage />} />
+      <Route path="/pricing-revenue-management" element={<PricingRevenuePage />} />
+      <Route path="/engineering-technology" element={<EngineeringTechnologyPage />} />
+      <Route path="/interview-process" element={<InterviewProcessPage />} />
+      <Route path="/case-interview-prep" element={<CaseInterviewPrepPage />} />
+      <Route path="/using-ai-application-process" element={<UsingAIApplicationPage />} />
+      <Route path="/responsible-ai-in-hiring" element={<ResponsibleAIHiringPage />} />
       <Route path="/contact" element={<ContactPage />} />
+      <Route path="/employee-benefits" element={<EmployeeBenefitsPage />} />
+      <Route path="/artificial-intelligence" element={<ArtificialIntelligencePage />} />
+      <Route path="/values-and-culture" element={<ValuesCulturePage />} />
     </Routes>
   );
 }

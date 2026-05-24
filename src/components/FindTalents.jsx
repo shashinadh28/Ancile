@@ -9,7 +9,7 @@ const DIFFERENTIATORS = [
     title: 'Speed with precision',
     description: 'High-quality shortlists delivered fast—so your projects stay on track without sacrificing talent quality.',
     icon: SpeedIcon,
-    color: '#F97316',
+    color: '#2F80ED',
   },
   {
     num: '02',
@@ -30,7 +30,7 @@ const DIFFERENTIATORS = [
     title: 'Flexible models',
     description: 'From staff augmentation to fully managed delivery—choose the engagement model that fits your needs.',
     icon: FlexIcon,
-    color: '#10b981',
+    color: '#2F80ED',
   },
 ];
 
@@ -71,7 +71,7 @@ export default function FindTalents() {
               className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight text-ink-900"
             >
               Why teams choose{' '}
-              <span style={{ color: '#F97316' }}>Ancile</span>
+              <span style={{ color: '#2F80ED' }}>Ancile</span>
             </motion.h2>
 
             {/* Sub */}
@@ -167,17 +167,17 @@ export default function FindTalents() {
               aria-hidden
               className="absolute -bottom-6 -left-6 w-24 h-24 opacity-20"
               style={{
-                backgroundImage: 'radial-gradient(circle, rgba(249,115,22,0.5) 1.5px, transparent 1.5px)',
+                backgroundImage: 'radial-gradient(circle, rgba(47,128,237,0.5) 1.5px, transparent 1.5px)',
                 backgroundSize: '14px 14px',
                 borderRadius: '8px',
               }}
             />
 
-            {/* Floating orange ring */}
+            {/* Floating brand blue ring */}
             <motion.div
               aria-hidden
               className="absolute -top-8 -right-8 w-24 h-24 rounded-full"
-              style={{ border: '2px solid rgba(249,115,22,0.2)' }}
+              style={{ border: '2px solid rgba(47,128,237,0.2)' }}
               animate={{ rotate: 360 }}
               transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
             />

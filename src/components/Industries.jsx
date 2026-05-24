@@ -74,7 +74,7 @@ export default function Industries() {
             className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-ink-900"
           >
             Experience across{' '}
-            <span style={{ color: '#F97316' }}>industries</span>
+            <span style={{ color: '#2F80ED' }}>industries</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -134,7 +134,7 @@ export default function Industries() {
                 <p className="mt-2 text-sm text-ink-500 leading-relaxed">{ind.desc}</p>
                 <div
                   className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold transition-colors duration-300"
-                  style={{ color: '#F97316' }}
+                  style={{ color: '#2F80ED' }}
                 >
                   Learn more
                   <svg
@@ -148,11 +148,11 @@ export default function Industries() {
                 </div>
               </div>
 
-              {/* Bottom orange border glow on hover */}
+              {/* Bottom blue border glow on hover */}
               <span
                 className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] transition-opacity duration-500"
                 style={{
-                  background: '#F97316',
+                  background: '#2F80ED',
                   opacity: hoveredIdx === i ? 1 : 0,
                 }}
               />
@@ -178,7 +178,7 @@ export default function Industries() {
               textDecoration: 'none', background: 'white',
               boxShadow: '0 2px 8px rgba(15,23,42,0.06)',
             }}
-            whileHover={{ borderColor: '#F97316', color: '#F97316', scale: 1.03 }}
+            whileHover={{ borderColor: '#2F80ED', color: '#2F80ED', scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
           >

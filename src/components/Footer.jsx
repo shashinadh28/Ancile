@@ -1,14 +1,18 @@
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { RevealGroup } from './Reveal.jsx';
 import { fadeUp, fadeUpSmall, viewportOnce } from '../utils/motion';
 
 const QUICK_LINKS = [
-  { label: 'Home', href: '#home' },
+  { label: 'Home', href: '/' },
   { label: 'About', href: '#about' },
   { label: 'Industries', href: '#industries' },
   { label: 'Success Stories', href: '#stories' },
   { label: 'Insights', href: '#insights' },
-  { label: 'Careers', href: '#careers' },
+  { label: 'Engineering & Tech', href: '/engineering-technology', isRoute: true },
+  { label: 'Interview Process', href: '/interview-process', isRoute: true },
+  { label: 'Case Interview Prep', href: '/case-interview-prep', isRoute: true },
+  { label: 'Using AI in Applications', href: '/using-ai-application-process', isRoute: true },
 ];
 
 const SERVICES = [
@@ -124,15 +128,27 @@ export default function Footer() {
             >
               {QUICK_LINKS.map((l) => (
                 <motion.li key={l.label} variants={fadeUpSmall}>
-                  <a
-                    href={l.href}
-                    className="group inline-flex items-center text-sm text-white/70 transition-colors hover:text-white"
-                  >
-                    <span className="relative">
-                      {l.label}
-                      <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent-400 transition-all group-hover:w-full" />
-                    </span>
-                  </a>
+                  {l.isRoute ? (
+                    <Link
+                      to={l.href}
+                      className="group inline-flex items-center text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      <span className="relative">
+                        {l.label}
+                        <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent-400 transition-all group-hover:w-full" />
+                      </span>
+                    </Link>
+                  ) : (
+                    <a
+                      href={l.href}
+                      className="group inline-flex items-center text-sm text-white/70 transition-colors hover:text-white"
+                    >
+                      <span className="relative">
+                        {l.label}
+                        <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-accent-400 transition-all group-hover:w-full" />
+                      </span>
+                    </a>
+                  )}
                 </motion.li>
               ))}
             </motion.ul>

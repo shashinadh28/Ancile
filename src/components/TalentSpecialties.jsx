@@ -3,8 +3,8 @@ import { viewportOnce } from '../utils/motion';
 
 const ease = [0.22, 1, 0.36, 1];
 
-/* All cards use one unified accent — the orange from QA/Automation */
-const ACCENT = '#F97316';
+/* All cards use one unified accent — the brand blue */
+const ACCENT = '#2F80ED';
 
 const SPECIALTIES = [
   {
@@ -67,8 +67,8 @@ export default function TalentSpecialties() {
       <PulseRing size={400} bottom="-120px" left="-120px" delay={0.6} />
 
       {/* Ambient glows */}
-      <div aria-hidden className="pointer-events-none absolute -top-32 right-0 w-[600px] h-[500px] rounded-full blur-[120px]" style={{ background: 'rgba(249,115,22,0.07)' }} />
-      <div aria-hidden className="pointer-events-none absolute -bottom-32 left-0 w-[500px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(249,115,22,0.05)' }} />
+      <div aria-hidden className="pointer-events-none absolute -top-32 right-0 w-[600px] h-[500px] rounded-full blur-[120px]" style={{ background: 'rgba(47,128,237,0.07)' }} />
+      <div aria-hidden className="pointer-events-none absolute -bottom-32 left-0 w-[500px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(47,128,237,0.05)' }} />
 
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 relative z-10">
 
@@ -173,12 +173,12 @@ export default function TalentSpecialties() {
                   </p>
                 </div>
 
-                {/* Hover wash — unified orange */}
+                {/* Hover wash — unified brand blue */}
                 <span
                   className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-400 rounded-2xl"
                   style={{ background: `${ACCENT}06` }}
                 />
-                {/* Hover bottom border — unified orange */}
+                {/* Hover bottom border — unified brand blue */}
                 <span
                   className="pointer-events-none absolute inset-x-0 bottom-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
                   style={{ background: `linear-gradient(90deg, transparent, ${ACCENT}, transparent)` }}
@@ -207,10 +207,10 @@ export default function TalentSpecialties() {
               display: 'inline-flex', alignItems: 'center', gap: '10px',
               background: ACCENT, color: '#fff', fontWeight: 700,
               fontSize: '15px', padding: '14px 32px', borderRadius: '50px',
-              textDecoration: 'none', boxShadow: '0 8px 32px rgba(249,115,22,0.35)',
+              textDecoration: 'none', boxShadow: '0 8px 32px rgba(47,128,237,0.35)',
               letterSpacing: '0.01em',
             }}
-            whileHover={{ scale: 1.04, boxShadow: '0 12px 40px rgba(249,115,22,0.5)' }}
+            whileHover={{ scale: 1.04, boxShadow: '0 12px 40px rgba(47,128,237,0.5)' }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
           >

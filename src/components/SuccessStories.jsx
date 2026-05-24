@@ -70,7 +70,7 @@ export default function SuccessStories() {
       <div
         aria-hidden
         className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] blur-[100px]"
-        style={{ background: 'rgba(249,115,22,0.05)' }}
+        style={{ background: 'rgba(47,128,237,0.05)' }}
       />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
@@ -128,10 +128,10 @@ function StoryCard({ story, index }) {
       className="group relative flex flex-col bg-white rounded-2xl overflow-hidden transition-all duration-400 hover:-translate-y-1.5 hover:shadow-xl"
       style={{ border: '1px solid rgba(15,23,42,0.08)', boxShadow: '0 2px 12px rgba(15,23,42,0.06)' }}
     >
-      {/* Top orange accent */}
+      {/* Top brand blue accent */}
       <span
         className="absolute inset-x-0 top-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-        style={{ background: 'linear-gradient(90deg, transparent, #F97316, transparent)' }}
+        style={{ background: 'linear-gradient(90deg, transparent, #2F80ED, transparent)' }}
       />
 
       {/* Profile area */}
@@ -141,7 +141,7 @@ function StoryCard({ story, index }) {
       >
         <div
           className="shrink-0 h-16 w-16 rounded-2xl overflow-hidden"
-          style={{ border: '2px solid rgba(249,115,22,0.2)' }}
+          style={{ border: '2px solid rgba(47,128,237,0.2)' }}
         >
           <img
             src={story.image}
@@ -149,7 +149,7 @@ function StoryCard({ story, index }) {
             className="h-full w-full object-cover"
             onError={(e) => {
               e.target.style.display = 'none';
-              e.target.parentElement.style.background = 'rgba(249,115,22,0.1)';
+              e.target.parentElement.style.background = 'rgba(47,128,237,0.1)';
             }}
           />
         </div>
@@ -158,7 +158,7 @@ function StoryCard({ story, index }) {
           <p className="text-xs text-ink-500 mt-0.5 leading-relaxed">{story.role}</p>
           <span
             className="inline-block mt-1.5 text-[10px] font-bold uppercase tracking-[0.15em] px-2.5 py-0.5 rounded-full"
-            style={{ background: 'rgba(249,115,22,0.1)', color: '#EA580C' }}
+            style={{ background: 'rgba(47,128,237,0.1)', color: '#1E5DB8' }}
           >
             {story.company}
           </span>
@@ -178,7 +178,7 @@ function StoryCard({ story, index }) {
         >
           <path
             d="M0 18V10.8C0 7.2 1.2 4.2 3.6 1.8L6 0l1.8 1.8C6.6 3 5.7 4.5 5.1 6H9V18H0zm15 0V10.8c0-3.6 1.2-6.6 3.6-9L21 0l1.8 1.8C21.6 3 20.7 4.5 20.1 6H24V18H15z"
-            fill="#F97316"
+            fill="#2F80ED"
             fillOpacity="0.25"
           />
         </svg>
@@ -189,18 +189,18 @@ function StoryCard({ story, index }) {
         {/* Stars */}
         <div className="flex items-center gap-0.5 mt-5">
           {[...Array(5)].map((_, i) => (
-            <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#F97316" stroke="none">
+            <svg key={i} width="14" height="14" viewBox="0 0 24 24" fill="#2F80ED" stroke="none">
               <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
             </svg>
           ))}
-          <span className="text-[11px] font-semibold ml-1.5" style={{ color: '#F97316' }}>5.0</span>
+          <span className="text-[11px] font-semibold ml-1.5" style={{ color: '#2F80ED' }}>5.0</span>
         </div>
       </div>
 
       {/* Bottom hover line */}
       <span
         className="absolute inset-x-0 bottom-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-400"
-        style={{ background: '#F97316' }}
+        style={{ background: '#2F80ED' }}
       />
     </motion.div>
   );

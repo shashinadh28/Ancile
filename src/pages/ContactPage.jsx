@@ -51,12 +51,12 @@ export default function ContactPage() {
       <section className="relative pt-36 pb-16 overflow-hidden">
         <div aria-hidden className="pointer-events-none absolute inset-0"
           style={{ backgroundImage: `linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)`, backgroundSize: '48px 48px' }} />
-        <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[500px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(249,115,22,0.09)' }} />
+        <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[500px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(47,128,237,0.09)' }} />
 
         <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 text-center">
           <motion.span initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.6, ease }}
             className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6"
-            style={{ border: '1px solid rgba(249,115,22,0.3)', background: 'rgba(249,115,22,0.1)', color: '#F97316' }}>
+            style={{ border: '1px solid rgba(47,128,237,0.3)', background: 'rgba(47,128,237,0.1)', color: '#2F80ED' }}>
             <span className="h-1.5 w-1.5 rounded-full bg-current" />Get in Touch
           </motion.span>
 
@@ -97,12 +97,12 @@ export default function ContactPage() {
                 {submitted ? (
                   <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.5, ease }}
                     className="flex flex-col items-center text-center py-14">
-                    <div className="h-20 w-20 rounded-full grid place-items-center mb-6" style={{ background: 'rgba(249,115,22,0.1)' }}>
-                      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#F97316" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+                    <div className="h-20 w-20 rounded-full grid place-items-center mb-6" style={{ background: 'rgba(47,128,237,0.1)' }}>
+                      <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2F80ED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
                     </div>
                     <h3 className="font-display text-2xl font-bold text-ink-900 mb-3">Message Sent!</h3>
                     <p className="text-ink-500 text-sm leading-relaxed max-w-sm">Thanks—our team will follow up shortly. We typically respond within one business day.</p>
-                    <button onClick={() => setSubmitted(false)} className="mt-8 text-sm font-semibold" style={{ color: '#F97316', background: 'none', border: 'none', cursor: 'pointer' }}>
+                    <button onClick={() => setSubmitted(false)} className="mt-8 text-sm font-semibold" style={{ color: '#2F80ED', background: 'none', border: 'none', cursor: 'pointer' }}>
                       Send another message →
                     </button>
                   </motion.div>
@@ -111,7 +111,7 @@ export default function ContactPage() {
                     <div className="mb-8">
                       <h2 className="font-display text-2xl font-bold text-ink-900 mb-1.5">Send us a message</h2>
                       <p className="text-sm text-ink-400">Fill in the form and we'll get back to you quickly.</p>
-                      <div style={{ width: '48px', height: '3px', background: '#F97316', borderRadius: '999px', marginTop: '14px' }} />
+                      <div style={{ width: '48px', height: '3px', background: '#2F80ED', borderRadius: '999px', marginTop: '14px' }} />
                     </div>
 
                     {/* Toggle */}
@@ -119,7 +119,7 @@ export default function ContactPage() {
                       {[{ id: 'talent', label: 'I need talent' }, { id: 'project', label: 'I want to start a project' }].map((tab) => (
                         <button key={tab.id} onClick={() => setActiveTab(tab.id)}
                           className="flex-1 px-4 py-2.5 rounded-lg text-sm font-semibold transition-all duration-200"
-                          style={{ color: activeTab === tab.id ? '#fff' : '#64748b', background: activeTab === tab.id ? '#F97316' : 'transparent', border: 'none', cursor: 'pointer' }}>
+                          style={{ color: activeTab === tab.id ? '#fff' : '#64748b', background: activeTab === tab.id ? '#2F80ED' : 'transparent', border: 'none', cursor: 'pointer' }}>
                           {tab.label}
                         </button>
                       ))}
@@ -165,8 +165,8 @@ export default function ContactPage() {
                       </div>
 
                       <motion.button type="submit"
-                        style={{ width: '100%', background: '#F97316', color: '#fff', fontWeight: 700, fontSize: '15px', padding: '15px', borderRadius: '50px', border: 'none', cursor: 'pointer', boxShadow: '0 8px 24px rgba(249,115,22,0.32)' }}
-                        whileHover={{ scale: 1.02, boxShadow: '0 12px 32px rgba(249,115,22,0.5)' }} whileTap={{ scale: 0.98 }}>
+                        style={{ width: '100%', background: '#2F80ED', color: '#fff', fontWeight: 700, fontSize: '15px', padding: '15px', borderRadius: '50px', border: 'none', cursor: 'pointer', boxShadow: '0 8px 24px rgba(47,128,237,0.35)' }}
+                        whileHover={{ scale: 1.02, boxShadow: '0 12px 32px rgba(47,128,237,0.5)' }} whileTap={{ scale: 0.98 }}>
                         Send
                       </motion.button>
                       <p className="text-center text-xs text-ink-400">Your data is secure & never shared.</p>
@@ -204,9 +204,9 @@ export default function ContactPage() {
 
               {/* Email CTA card */}
               <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.55, ease, delay: 0.35 }}
-                className="rounded-2xl p-6" style={{ background: 'rgba(249,115,22,0.06)', border: '1px solid rgba(249,115,22,0.18)' }}>
+                className="rounded-2xl p-6" style={{ background: 'rgba(47,128,237,0.06)', border: '1px solid rgba(47,128,237,0.18)' }}>
                 <p className="text-sm font-semibold text-ink-700 mb-1.5">Prefer email?</p>
-                <a href="mailto:info@ancileinc.com" className="text-sm font-bold transition-colors duration-200" style={{ color: '#F97316' }}>
+                <a href="mailto:info@ancileinc.com" className="text-sm font-bold transition-colors duration-200" style={{ color: '#2F80ED' }}>
                   info@ancileinc.com →
                 </a>
               </motion.div>
@@ -225,7 +225,7 @@ function FF({ label, name, type = 'text', value, onChange, required }) {
   return (
     <div>
       <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-2">
-        {label}{required && <span style={{ color: '#F97316' }}> *</span>}
+        {label}{required && <span style={{ color: '#2F80ED' }}> *</span>}
       </label>
       <input type={type} name={name} value={value} onChange={onChange} required={required}
         className="w-full px-4 py-3 rounded-xl text-sm text-ink-900 bg-white focus:outline-none transition-shadow"

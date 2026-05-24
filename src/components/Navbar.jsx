@@ -10,19 +10,34 @@ const NAV_LINKS = [
     dropdown: [
       { label: 'Talent Solutions', href: '/talent-solutions', isRoute: true },
       { label: 'Technology Services', href: '/technology-services', isRoute: true },
+      { label: 'Pricing & Revenue', href: '/pricing-revenue-management', isRoute: true },
+      { label: 'Artificial Intelligence', href: '/artificial-intelligence', isRoute: true },
     ],
   },
   { label: 'Industries', href: '#industries' },
   { label: 'Success Stories', href: '#stories' },
   { label: 'Insights', href: '#insights' },
   { label: 'About', href: '#about' },
-  { label: 'Careers', href: '#careers' },
+  {
+    label: 'Careers',
+    href: '#careers',
+    dropdown: [
+      { label: 'Engineering & Tech', href: '/engineering-technology', isRoute: true },
+      { label: 'Employee Benefits', href: '/employee-benefits', isRoute: true },
+      { label: 'Values & Culture', href: '/values-and-culture', isRoute: true },
+      { label: 'Interview Process', href: '/interview-process', isRoute: true },
+      { label: 'Case Interview Prep', href: '/case-interview-prep', isRoute: true },
+      { label: 'Using AI in Applications', href: '/using-ai-application-process', isRoute: true },
+      { label: 'Responsible AI in Hiring', href: '/responsible-ai-in-hiring', isRoute: true },
+    ],
+  },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
+  const [mobileDropdownOpen, setMobileDropdownOpen] = useState(null);
   const dropdownTimeout = useRef(null);
   const navigate = useNavigate();
   const location = useLocation();
@@ -109,7 +124,7 @@ export default function Navbar() {
             }}
           >
             Ancile{' '}
-            <span style={{ color: '#F97316' }}>Inc</span>
+            <span style={{ color: '#2F80ED' }}>Inc</span>
           </span>
         </Link>
 
@@ -225,8 +240,8 @@ export default function Navbar() {
                               transition: 'all 0.15s ease',
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.background = '#FFF7ED';
-                              e.currentTarget.style.color = '#EA580C';
+                              e.currentTarget.style.background = '#EAF3FF';
+                              e.currentTarget.style.color = '#1E5DB8';
                             }}
                             onMouseLeave={(e) => {
                               e.currentTarget.style.background = 'transparent';
@@ -249,8 +264,8 @@ export default function Navbar() {
                               transition: 'all 0.15s ease',
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.background = '#FFF7ED';
-                              e.currentTarget.style.color = '#EA580C';
+                              e.currentTarget.style.background = '#EAF3FF';
+                              e.currentTarget.style.color = '#1E5DB8';
                             }}
                             onMouseLeave={(e) => {
                               e.currentTarget.style.background = 'transparent';
@@ -289,7 +304,7 @@ export default function Navbar() {
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#F97316',
+              background: '#2F80ED',
               color: '#ffffff',
               fontWeight: 700,
               fontSize: '14px',
@@ -297,10 +312,10 @@ export default function Navbar() {
               borderRadius: '50px',
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(249,115,22,0.3)',
+              boxShadow: '0 4px 20px rgba(47,128,237,0.3)',
               whiteSpace: 'nowrap',
             }}
-            whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(249,115,22,0.4)' }}
+            whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(47,128,237,0.4)' }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
           >
@@ -362,43 +377,122 @@ export default function Navbar() {
             }}
           >
             {NAV_LINKS.map((link) => (
-              link.isRoute ? (
-                <Link
-                  key={link.label}
-                  to={link.href}
-                  onClick={() => setOpen(false)}
-                  style={{
-                    display: 'block',
-                    padding: '12px 16px',
-                    borderRadius: '10px',
-                    fontSize: '14px',
-                    fontWeight: 500,
-                    color: '#334155',
-                    textDecoration: 'none',
-                    transition: 'all 0.15s ease',
-                  }}
-                >
-                  {link.label}
-                </Link>
-              ) : (
-                <a
-                  key={link.label}
-                  href={link.href}
-                  onClick={(e) => { handleAnchorNav(e, link.href); setOpen(false); }}
-                  style={{
-                    display: 'block',
-                    padding: '12px 16px',
-                    borderRadius: '10px',
-                    fontSize: '14px',
-                    fontWeight: 500,
-                    color: '#334155',
-                    textDecoration: 'none',
-                    transition: 'all 0.15s ease',
-                  }}
-                >
-                  {link.label}
-                </a>
-              )
+              <div key={link.label}>
+                {link.dropdown ? (
+                  <div>
+                    <div 
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        padding: '12px 16px',
+                        fontSize: '14px',
+                        fontWeight: 600,
+                        color: '#1E293B',
+                        cursor: 'pointer',
+                      }}
+                      onClick={() => setMobileDropdownOpen(mobileDropdownOpen === link.label ? null : link.label)}
+                    >
+                      <span>{link.label}</span>
+                      <svg 
+                        width="12" 
+                        height="12" 
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        strokeWidth="2.5"
+                        style={{ 
+                          transform: mobileDropdownOpen === link.label ? 'rotate(180deg)' : 'rotate(0deg)',
+                          transition: 'transform 0.2s ease'
+                        }}
+                      >
+                        <polyline points="6 9 12 15 18 9" strokeLinecap="round" strokeLinejoin="round" />
+                      </svg>
+                    </div>
+                    <AnimatePresence>
+                      {mobileDropdownOpen === link.label && (
+                        <motion.div
+                          initial={{ height: 0, opacity: 0 }}
+                          animate={{ height: 'auto', opacity: 1 }}
+                          exit={{ height: 0, opacity: 0 }}
+                          transition={{ duration: 0.2 }}
+                          style={{ overflow: 'hidden', paddingLeft: '16px', borderLeft: '2px solid #E2E8F0', marginLeft: '16px', marginBottom: '8px' }}
+                        >
+                          {link.dropdown.map((item) => (
+                            item.isRoute ? (
+                              <Link
+                                key={item.label}
+                                to={item.href}
+                                onClick={() => setOpen(false)}
+                                style={{
+                                  display: 'block',
+                                  padding: '10px 16px',
+                                  fontSize: '14px',
+                                  color: '#475569',
+                                  textDecoration: 'none',
+                                }}
+                              >
+                                {item.label}
+                              </Link>
+                            ) : (
+                              <a
+                                key={item.label}
+                                href={item.href}
+                                onClick={(e) => { handleAnchorNav(e, item.href); setOpen(false); }}
+                                style={{
+                                  display: 'block',
+                                  padding: '10px 16px',
+                                  fontSize: '14px',
+                                  color: '#475569',
+                                  textDecoration: 'none',
+                                }}
+                              >
+                                {item.label}
+                              </a>
+                            )
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ) : (
+                  link.isRoute ? (
+                    <Link
+                      to={link.href}
+                      onClick={() => setOpen(false)}
+                      style={{
+                        display: 'block',
+                        padding: '12px 16px',
+                        borderRadius: '10px',
+                        fontSize: '14px',
+                        fontWeight: 500,
+                        color: '#334155',
+                        textDecoration: 'none',
+                        transition: 'all 0.15s ease',
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                  ) : (
+                    <a
+                      href={link.href}
+                      onClick={(e) => { handleAnchorNav(e, link.href); setOpen(false); }}
+                      style={{
+                        display: 'block',
+                        padding: '12px 16px',
+                        borderRadius: '10px',
+                        fontSize: '14px',
+                        fontWeight: 500,
+                        color: '#334155',
+                        textDecoration: 'none',
+                        transition: 'all 0.15s ease',
+                      }}
+                    >
+                      {link.label}
+                    </a>
+                  )
+                )}
+              </div>
             ))}
             <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
               <button
@@ -407,7 +501,7 @@ export default function Navbar() {
                   display: 'block',
                   width: '100%',
                   textAlign: 'center',
-                  background: '#F97316',
+                  background: '#2F80ED',
                   color: '#fff',
                   fontWeight: 700,
                   fontSize: '14px',
