@@ -238,14 +238,14 @@ function TalentPromiseSection() {
     <section id="talent-promise" className="py-24 sm:py-32 overflow-hidden" style={{ backgroundColor: '#F8FAFC' }}>
       <div className="mx-auto max-w-[1280px] px-6 sm:px-10 lg:px-16">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left: Abstract animated visual */}
+          {/* Left: Abstract animated visual with Promise Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={viewportOnce}
             transition={{ duration: 1, ease }}
             className="relative flex items-center justify-center"
-            style={{ minHeight: '400px' }}
+            style={{ minHeight: '580px' }}
           >
             {/* Outer ring */}
             <motion.div
@@ -253,8 +253,8 @@ function TalentPromiseSection() {
               transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
               className="absolute"
               style={{
-                width: 360,
-                height: 360,
+                width: 580,
+                height: 580,
                 border: '1.5px dashed rgba(47,128,237,0.25)',
                 borderRadius: '50%',
               }}
@@ -265,8 +265,8 @@ function TalentPromiseSection() {
               transition={{ duration: 26, repeat: Infinity, ease: 'linear' }}
               className="absolute"
               style={{
-                width: 260,
-                height: 260,
+                width: 480,
+                height: 480,
                 border: '1.5px dashed rgba(96,165,250,0.25)',
                 borderRadius: '50%',
               }}
@@ -275,49 +275,49 @@ function TalentPromiseSection() {
             <div
               className="absolute rounded-full blur-3xl"
               style={{
-                width: 200,
-                height: 200,
+                width: 320,
+                height: 320,
                 background: 'radial-gradient(circle, rgba(47,128,237,0.2) 0%, transparent 70%)',
               }}
             />
-            {/* Center card */}
-            <div
-              className="relative z-10 rounded-3xl p-10 text-center shadow-2xl"
+            {/* Orbit dots */}
+            {[0, 72, 144, 216, 288].map((deg, i) => (
+              <motion.div
+                key={i}
+                className="absolute h-2.5 w-2.5 rounded-full"
+                style={{
+                  backgroundColor: '#2F80ED',
+                  top: '50%',
+                  left: '50%',
+                  marginTop: -5,
+                  marginLeft: -5,
+                  transformOrigin: '5px 5px',
+                  zIndex: 5,
+                }}
+                animate={{
+                  rotate: [deg, deg + 360],
+                  x: [Math.cos((deg * Math.PI) / 180) * 265, Math.cos(((deg + 360) * Math.PI) / 180) * 265],
+                  y: [Math.sin((deg * Math.PI) / 180) * 265, Math.sin(((deg + 360) * Math.PI) / 180) * 265],
+                }}
+                transition={{ duration: 14 + i * 2, repeat: Infinity, ease: 'linear' }}
+              />
+            ))}
+            {/* Center Image */}
+            <motion.div
+              className="relative z-10 rounded-3xl overflow-hidden shadow-2xl"
               style={{
-                background: '#0B1A2E',
-                border: '1px solid rgba(47,128,237,0.2)',
-                width: 'min(90%, 300px)',
+                width: 'min(95%, 480px)',
+                border: '1px solid rgba(255, 255, 255, 0.1)',
               }}
+              whileHover={{ scale: 1.02 }}
+              transition={{ duration: 0.3 }}
             >
-              {/* Orbit dots */}
-              {[0, 72, 144, 216, 288].map((deg, i) => (
-                <motion.div
-                  key={i}
-                  className="absolute h-2.5 w-2.5 rounded-full"
-                  style={{
-                    backgroundColor: '#2F80ED',
-                    top: '50%',
-                    left: '50%',
-                    marginTop: -5,
-                    marginLeft: -5,
-                    transformOrigin: '5px 5px',
-                  }}
-                  animate={{
-                    rotate: [deg, deg + 360],
-                    x: [Math.cos((deg * Math.PI) / 180) * 155, Math.cos(((deg + 360) * Math.PI) / 180) * 155],
-                    y: [Math.sin((deg * Math.PI) / 180) * 155, Math.sin(((deg + 360) * Math.PI) / 180) * 155],
-                  }}
-                  transition={{ duration: 14 + i * 2, repeat: Infinity, ease: 'linear' }}
-                />
-              ))}
-              <AIShieldIcon />
-              <p className="mt-4 text-white font-extrabold text-lg leading-tight">
-                AI Talent Promise
-              </p>
-              <p className="mt-2 text-xs leading-relaxed" style={{ color: 'rgba(255,255,255,0.55)' }}>
-                Human-led · Transparent · Ethical
-              </p>
-            </div>
+              <img
+                src="/responsible-ai-in-hiring/Our-Promise.webp"
+                alt="Our Promise"
+                className="w-full h-auto object-cover rounded-3xl"
+              />
+            </motion.div>
           </motion.div>
 
           {/* Right: Text */}

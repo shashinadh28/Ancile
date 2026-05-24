@@ -85,19 +85,19 @@ export default function Navbar() {
         transition: 'all 0.4s ease',
         ...(scrolled
           ? {
-              background: 'rgba(255,255,255,0.95)',
-              backdropFilter: 'blur(20px)',
-              WebkitBackdropFilter: 'blur(20px)',
-              borderBottom: '1px solid rgba(0,0,0,0.06)',
-              boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
-              paddingTop: '12px',
-              paddingBottom: '12px',
-            }
+            background: 'rgba(255,255,255,0.95)',
+            backdropFilter: 'blur(20px)',
+            WebkitBackdropFilter: 'blur(20px)',
+            borderBottom: '1px solid rgba(0,0,0,0.06)',
+            boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
+            paddingTop: '12px',
+            paddingBottom: '12px',
+          }
           : {
-              background: 'transparent',
-              paddingTop: '20px',
-              paddingBottom: '20px',
-            }),
+            background: 'transparent',
+            paddingTop: '20px',
+            paddingBottom: '20px',
+          }),
       }}
     >
       <nav
@@ -114,7 +114,7 @@ export default function Navbar() {
         {/* Logo — click always goes to home */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
           <img
-            src={scrolled ? '/LOGO/Ancile_INC_white.webp' : '/LOGO/LOGO_BLACK.png'}
+            src={scrolled ? '/LOGO/LOGO_WHITE.png' : '/LOGO/LOGO_BLACK.png'}
             alt="Ancile Inc"
             style={{
               height: scrolled ? '36px' : '42px',
@@ -377,7 +377,7 @@ export default function Navbar() {
               <div key={link.label}>
                 {link.dropdown ? (
                   <div>
-                    <div 
+                    <div
                       style={{
                         display: 'flex',
                         alignItems: 'center',
@@ -391,14 +391,14 @@ export default function Navbar() {
                       onClick={() => setMobileDropdownOpen(mobileDropdownOpen === link.label ? null : link.label)}
                     >
                       <span>{link.label}</span>
-                      <svg 
-                        width="12" 
-                        height="12" 
-                        viewBox="0 0 24 24" 
-                        fill="none" 
-                        stroke="currentColor" 
+                      <svg
+                        width="12"
+                        height="12"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
                         strokeWidth="2.5"
-                        style={{ 
+                        style={{
                           transform: mobileDropdownOpen === link.label ? 'rotate(180deg)' : 'rotate(0deg)',
                           transition: 'transform 0.2s ease'
                         }}
