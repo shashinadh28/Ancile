@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { viewportOnce } from '../utils/motion.js';
@@ -28,8 +28,11 @@ export default function InterviewProcessPage() {
 /* ────────────────────────────────────────────────────── HERO ─── */
 function HeroSection() {
   return (
-    <section className="relative min-h-[75vh] flex flex-col justify-center items-center overflow-hidden pt-24" style={{ backgroundColor: '#0B1120' }}>
-      {/* Background patterns */}
+    <section
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      style={{ backgroundColor: '#0B1120' }}
+    >
+      {/* Background grid */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -39,96 +42,221 @@ function HeroSection() {
           backgroundSize: '48px 48px',
         }}
       />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-0 right-0 w-[600px] h-[500px] rounded-full blur-[120px]"
-        style={{ background: 'rgba(47,128,237,0.08)' }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[350px] rounded-full blur-[100px]"
-        style={{ background: 'rgba(99,102,241,0.06)' }}
-      />
 
-      <div className="relative z-10 mx-auto max-w-[1000px] px-6 sm:px-8 lg:px-12 py-20 flex flex-col items-center text-center">
-        {/* Badge */}
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease }}
-          className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6"
+      {/* Full-bleed background image */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/Interview-Timeline/Interview-Process.webp"
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.22 }}
+        />
+        <div
+          className="absolute inset-0"
           style={{
-            border: '1px solid rgba(47,128,237,0.3)',
-            background: 'rgba(47,128,237,0.1)',
-            color: '#2F80ED',
+            background:
+              'linear-gradient(180deg, rgba(11,17,32,0.92) 0%, rgba(11,17,32,0.55) 40%, rgba(11,17,32,0.65) 70%, rgba(11,17,32,0.97) 100%)',
           }}
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-current" />
-          Careers & Hiring
-        </motion.span>
-
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.1 }}
-          className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white"
-        >
-          Interview <span style={{ color: '#2F80ED' }}>Process</span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.25 }}
-          className="mt-6 text-lg sm:text-xl leading-relaxed max-w-3xl"
-          style={{ color: 'rgba(255,255,255,0.72)' }}
-        >
-          Our consulting interview process is a two-way conversation. As you learn about us, we’ll get to know your skills, achievements, and experiences. We value diverse voices and want you to bring your personality to life.
-        </motion.p>
-
-        {/* CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.4 }}
-          className="mt-10 flex flex-wrap gap-4 justify-center"
-        >
-          <a
-            href="#expect"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-sm"
-            style={{
-              backgroundColor: '#2F80ED',
-              boxShadow: '0 8px 32px rgba(47,128,237,0.4)',
-              textDecoration: 'none',
-            }}
-          >
-            What To Expect
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-          <a
-            href="#criteria"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm transition-all duration-300"
-            style={{
-              border: '1.5px solid rgba(255,255,255,0.25)',
-              color: 'rgba(255,255,255,0.85)',
-              textDecoration: 'none',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.06)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-            }}
-          >
-            Hiring Criteria
-          </a>
-        </motion.div>
+        />
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(11,17,32,0.85) 0%, rgba(11,17,32,0.4) 50%, transparent 100%)',
+          }}
+        />
       </div>
+
+      {/* Glow orbs */}
+      <motion.div
+        aria-hidden
+        animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.18, 0.08] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        className="pointer-events-none absolute top-[-80px] right-[-60px] w-[700px] h-[600px] rounded-full blur-[130px]"
+        style={{ background: 'rgba(47,128,237,0.15)', zIndex: 1 }}
+      />
+      <motion.div
+        aria-hidden
+        animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.13, 0.06] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+        className="pointer-events-none absolute bottom-0 left-[-80px] w-[500px] h-[400px] rounded-full blur-[110px]"
+        style={{ background: 'rgba(99,102,241,0.12)', zIndex: 1 }}
+      />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-[1280px] w-full px-6 sm:px-8 lg:px-12 pt-36 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+          {/* LEFT */}
+          <div>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease }}
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-7"
+              style={{
+                border: '1px solid rgba(47,128,237,0.35)',
+                background: 'rgba(47,128,237,0.1)',
+                color: '#2F80ED',
+              }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+              Careers & Hiring
+            </motion.span>
+
+            <motion.h1
+              initial={{ opacity: 0, y: 36 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, ease, delay: 0.1 }}
+              className="font-display font-extrabold leading-[1.06] tracking-tight text-white mb-6"
+              style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
+            >
+              Interview{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #60A5FA 0%, #93C5FD 60%, #BFDBFE 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Process
+              </span>
+            </motion.h1>
+
+            <motion.div
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.9, ease, delay: 0.55 }}
+              style={{
+                height: '1.5px',
+                background: 'linear-gradient(90deg, rgba(47,128,237,0.7), transparent)',
+                maxWidth: '340px',
+                marginBottom: '1.6rem',
+              }}
+            />
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 0.28 }}
+              className="text-base sm:text-lg leading-[1.8] mb-10 max-w-lg"
+              style={{ color: 'rgba(255,255,255,0.68)' }}
+            >
+              Our consulting interview process is a two-way conversation. As you learn about us, we'll get to know your skills, achievements, and experiences. We value diverse voices and want you to bring your personality to life.
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 0.42 }}
+              className="flex flex-wrap gap-4"
+            >
+              <a
+                href="#expect"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-bold text-sm transition-all duration-300"
+                style={{ backgroundColor: '#2F80ED', boxShadow: '0 8px 32px rgba(47,128,237,0.42)', textDecoration: 'none' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1E5DB8'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#2F80ED'; }}
+              >
+                What To Expect
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+              <a
+                href="#criteria"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300"
+                style={{ border: '1.5px solid rgba(255,255,255,0.22)', color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
+              >
+                Hiring Criteria
+              </a>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 0.62 }}
+              className="mt-14 flex flex-wrap gap-8"
+            >
+              {[
+                { val: '4', label: 'Interview Stages' },
+                { val: '2-4', label: 'Weeks Process' },
+                { val: '100%', label: 'Human Decision' },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-extrabold font-display text-white leading-none">{s.val}</div>
+                  <div className="text-[11px] mt-1 font-semibold uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.42)' }}>{s.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* RIGHT: Framed image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.0, ease, delay: 0.3 }}
+            className="relative hidden lg:block"
+          >
+            <div
+              className="relative rounded-[28px] overflow-hidden"
+              style={{
+                height: '520px',
+                boxShadow: '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08)',
+              }}
+            >
+              <img
+                src="/Interview-Timeline/Interview-Process.webp"
+                alt="Interview Process"
+                className="w-full h-full object-cover object-center"
+                style={{ opacity: 0.88 }}
+              />
+              <div
+                className="absolute inset-0"
+                style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(11,17,32,0.7) 100%)' }}
+              />
+              <div
+                className="absolute bottom-5 left-5 px-4 py-2.5 rounded-xl flex items-center gap-2.5 backdrop-blur-md"
+                style={{ background: 'rgba(11,17,32,0.65)', border: '1px solid rgba(255,255,255,0.14)' }}
+              >
+                <span className="h-2 w-2 rounded-full bg-[#2F80ED] animate-pulse" />
+                <span className="text-white text-[11px] font-bold uppercase tracking-wider">Ancile Hiring</span>
+              </div>
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute top-5 right-5 rounded-2xl px-4 py-3"
+                style={{ background: 'rgba(11,17,32,0.7)', border: '1px solid rgba(47,128,237,0.35)', backdropFilter: 'blur(12px)' }}
+              >
+                <div className="text-lg font-extrabold text-white leading-none">4 Steps</div>
+                <div className="text-[10px] mt-0.5 font-semibold uppercase tracking-wider" style={{ color: 'rgba(96,165,250,0.85)' }}>To Your Role</div>
+              </motion.div>
+            </div>
+            <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full -z-10" style={{ background: 'rgba(47,128,237,0.12)', filter: 'blur(32px)' }} />
+            <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full -z-10" style={{ background: 'rgba(99,102,241,0.1)', filter: 'blur(24px)' }} />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* Scroll cue */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+      >
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>Scroll</span>
+        <motion.div
+          animate={{ y: [0, 7, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="h-8 w-5 rounded-full border border-white/20 flex items-start justify-center pt-1.5"
+        >
+          <div className="h-1.5 w-1.5 rounded-full bg-white/35" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
@@ -137,120 +265,208 @@ function HeroSection() {
 function ExpectSection() {
   const steps = [
     {
-      num: 'Step 1',
+      id: 1,
       title: 'Application',
-      desc: 'Submit your application by clicking on “Apply” and logging into our portal.',
+      description: 'Submit your application by clicking on “Apply” and logging into our portal.',
+      image: '/Interview-Timeline/Application.webp',
       link: 'Using AI In Your Application Process',
       href: '/using-ai-application-process',
       isRoute: true,
-      color: '#2F80ED', // Blue Accent
     },
     {
-      num: 'Step 2',
+      id: 2,
       title: 'Skill Interview',
-      desc: 'In this traditional interview, we will explore your experience, skills, and motivation for joining Ancile; your chance to go beyond your resume.',
+      description: 'In this traditional interview, we explore your experience, skills, and motivation.',
+      image: '/Interview-Timeline/Skill-Interview.webp',
       link: null,
-      color: '#a855f7', // Purple
     },
     {
-      num: 'Step 3',
+      id: 3,
       title: 'Case Interview',
-      desc: 'For client facing roles, we’ll assess your problem-solving and analytical skills in a case interview.',
+      description: 'For client facing roles, we assess problem-solving and analytical skills in a case interview.',
+      image: '/Interview-Timeline/Case-Interview.webp',
       link: 'Case Interview Preparation',
       href: '/case-interview-prep',
       isRoute: true,
-      color: '#3b82f6', // Blue
     },
     {
-      num: 'Step 4',
+      id: 4,
       title: 'Team Interview',
-      desc: 'If you’re applying for a client-facing role, we will assess your problem-solving, analytical, and communication skills.',
+      description: 'If you’re applying for a client-facing role, we will assess your problem-solving and communication.',
+      image: '/Interview-Timeline/Team-Interview.webp',
       link: null,
-      color: '#1E5DB8', // Blue
     },
   ];
 
   return (
-    <section id="expect" className="py-20 sm:py-28 bg-white overflow-hidden">
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-        {/* Header */}
+    <section id="expect" className="py-24 lg:py-32 relative overflow-hidden" style={{ backgroundColor: '#F8FAFC' }}>
+      {/* Background blobs */}
+      <div className="absolute inset-0 opacity-[0.4] pointer-events-none overflow-hidden">
+        <div className="absolute top-20 left-10 w-96 h-96 bg-[#2F80ED] rounded-full blur-[140px]" />
+        <div className="absolute bottom-20 right-10 w-[28rem] h-[28rem] bg-[#60A5FA] rounded-full blur-[140px]" />
+      </div>
+
+      <div className="max-w-[1360px] mx-auto px-6 lg:px-8 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 28 }}
+          className="text-center mb-16 lg:mb-24"
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={viewportOnce}
-          transition={{ duration: 0.75, ease }}
-          className="mb-16 max-w-3xl"
+          transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <span
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-4"
+          <motion.span
+            className="inline-flex items-center gap-2 rounded-full px-5 py-2 text-xs font-bold uppercase tracking-[0.18em] mb-6 shadow-sm"
             style={{
               background: 'rgba(47,128,237,0.1)',
               border: '1px solid rgba(47,128,237,0.25)',
               color: '#2F80ED',
             }}
+            whileHover={{ scale: 1.05, boxShadow: '0 10px 25px rgba(47,128,237,0.15)' }}
+            transition={{ duration: 0.3 }}
           >
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />
+            <span className="h-1.5 w-1.5 rounded-full bg-[#2F80ED]" />
             Interview Timeline
-          </span>
-          <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 leading-[1.05] tracking-tight mb-5">
-            What to expect
-          </h2>
-          <p className="text-base sm:text-lg leading-relaxed text-slate-500">
-            Throughout our consulting interview process, you’ll have the chance to showcase your problem-solving skills, curiosity, and collaboration style. We aim to get to know you—your experience, strengths, and aspirations—while giving you a real sense of what it’s like to work at Ancile.
-          </p>
+          </motion.span>
+          <motion.h2
+            className="text-4xl sm:text-5xl font-display font-extrabold text-slate-900 leading-[1.1] mb-5"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2, duration: 0.6 }}
+          >
+            What to <span style={{ color: '#2F80ED' }}>expect</span>
+          </motion.h2>
+          <motion.p
+            className="text-slate-500 text-lg max-w-2xl mx-auto"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.3, duration: 0.6 }}
+          >
+            Throughout our consulting interview process, you’ll have the chance to showcase your problem-solving skills, curiosity, and collaboration style.
+          </motion.p>
         </motion.div>
 
-        {/* Timeline Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 items-stretch">
-          {steps.map((st, i) => (
-            <motion.div
-              key={st.title}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={viewportOnce}
-              transition={{ duration: 0.7, ease, delay: i * 0.12 }}
-              className="flex flex-col justify-between pl-6 relative transition-all duration-300 min-h-[220px]"
-            >
-              {/* Colored left border accent line */}
-              <span
-                className="absolute left-0 top-0 bottom-0 w-[3px] rounded-full"
-                style={{ backgroundColor: st.color }}
-              />
-
-              <div>
-                <span className="text-sm font-bold uppercase tracking-wider block mb-1" style={{ color: st.color }}>
-                  {st.num}
-                </span>
-                <h3 className="font-display text-2xl font-extrabold text-slate-900 mt-2 mb-3">
-                  {st.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-500 max-w-sm">
-                  {st.desc}
-                </p>
-              </div>
-
-              {st.link && (
-                <div className="mt-6">
-                  {st.isRoute ? (
-                    <Link
-                      to={st.href}
-                      className="inline-flex items-center gap-1 text-xs font-bold border-b pb-0.5 border-slate-800 text-slate-800 hover:text-blue-500 hover:border-blue-500 transition-all duration-200"
-                      style={{ textDecoration: 'none' }}
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-4 items-start">
+          {steps.map((step, index) => (
+            <React.Fragment key={step.id}>
+              <motion.div
+                className="flex-1 relative flex flex-col items-center"
+                initial={{ opacity: 0, y: 40, scale: 0.95 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.85, delay: index * 0.15, ease: [0.25, 0.46, 0.45, 0.94] }}
+                whileHover={{ y: -8, transition: { duration: 0.3 } }}
+              >
+                <div className="relative mb-8 flex justify-center w-full">
+                  <div className="relative">
+                    <motion.div
+                      className="w-48 h-48 sm:w-56 sm:h-56 rounded-full border-[3px] border-dashed absolute inset-0"
+                      style={{ borderColor: 'rgba(47,128,237,0.35)' }}
+                      animate={{ rotate: 360 }}
+                      transition={{ duration: 25, repeat: Infinity, ease: 'linear' }}
+                    />
+                    <div className="w-48 h-48 sm:w-56 sm:h-56 rounded-full flex items-center justify-center relative">
+                      <div className="w-40 h-40 sm:w-48 sm:h-48 rounded-full overflow-hidden shadow-lg border-4 border-white relative group">
+                        <img src={step.image} alt={step.title} className="w-full h-full object-cover rounded-full group-hover:scale-110 transition-transform duration-700" />
+                        <div className="absolute inset-0 bg-[#2F80ED]/10 group-hover:bg-transparent transition-colors duration-500" />
+                      </div>
+                      <div className="absolute -top-2 -left-2 w-12 h-12 sm:w-14 sm:h-14 bg-[#2F80ED] text-white rounded-full flex items-center justify-center text-lg sm:text-xl font-bold shadow-xl border-4 border-[#F8FAFC]">
+                        {String(step.id).padStart(2, '0')}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+                <div className="text-center px-2 flex flex-col items-center flex-1">
+                  <motion.h3
+                    className="text-xl sm:text-2xl font-display font-bold text-slate-900 mb-3"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.3, duration: 0.5 }}
+                    whileHover={{ scale: 1.03, color: '#2F80ED' }}
+                  >
+                    {step.title}
+                  </motion.h3>
+                  <motion.p
+                    className="text-slate-500 leading-relaxed text-sm sm:text-base max-w-xs mx-auto mb-5"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.1 + 0.4, duration: 0.5 }}
+                  >
+                    {step.description}
+                  </motion.p>
+                  
+                  {step.link && (
+                    <motion.div
+                      initial={{ opacity: 0, y: 10 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      transition={{ delay: index * 0.1 + 0.5, duration: 0.5 }}
+                      className="mt-auto pt-2"
                     >
-                      {st.link}
-                    </Link>
-                  ) : (
-                    <a
-                      href={st.href || '#'}
-                      className="inline-flex items-center gap-1 text-xs font-bold border-b pb-0.5 border-slate-800 text-slate-800 hover:text-blue-500 hover:border-blue-500 transition-all duration-200"
-                      style={{ textDecoration: 'none' }}
-                    >
-                      {st.link}
-                    </a>
+                      {step.isRoute ? (
+                        <Link
+                          to={step.href}
+                          className="inline-flex items-center gap-1 text-xs font-bold border-b pb-0.5 border-[#2F80ED]/30 text-[#2F80ED] hover:text-[#1E5DB8] hover:border-[#1E5DB8] transition-all duration-200"
+                        >
+                          {step.link}
+                        </Link>
+                      ) : (
+                        <a
+                          href={step.href || '#'}
+                          className="inline-flex items-center gap-1 text-xs font-bold border-b pb-0.5 border-[#2F80ED]/30 text-[#2F80ED] hover:text-[#1E5DB8] hover:border-[#1E5DB8] transition-all duration-200"
+                        >
+                          {step.link}
+                        </a>
+                      )}
+                    </motion.div>
                   )}
                 </div>
+              </motion.div>
+
+              {index < steps.length - 1 && (
+                <motion.div
+                  className="hidden lg:flex items-center justify-center px-2 -mt-24"
+                  initial={{ opacity: 0, scale: 0 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={viewportOnce}
+                  transition={{ delay: index * 0.15 + 0.6, duration: 0.4, type: 'spring', bounce: 0.3 }}
+                >
+                  <div className="relative flex items-center justify-center w-12 h-12">
+                    <motion.div
+                      animate={{ x: [0, 6, 0] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#2F80ED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                        <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                      </svg>
+                    </motion.div>
+                    <motion.div
+                      className="absolute inset-0 bg-[#2F80ED] rounded-full opacity-15 blur-md"
+                      animate={{ scale: [1, 1.4, 1], opacity: [0.15, 0.3, 0.15] }}
+                      transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                    />
+                  </div>
+                </motion.div>
               )}
-            </motion.div>
+              
+              {index < steps.length - 1 && (
+                <motion.div
+                  className="lg:hidden flex justify-center my-6"
+                  initial={{ opacity: 0, y: 15 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={viewportOnce}
+                  transition={{ delay: index * 0.15 + 0.8 }}
+                >
+                  <motion.div
+                    animate={{ y: [0, 6, 0] }}
+                    transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#2F80ED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="rotate-90">
+                      <path d="M5 12h14"/><path d="m12 5 7 7-7 7"/>
+                    </svg>
+                  </motion.div>
+                </motion.div>
+              )}
+            </React.Fragment>
           ))}
         </div>
       </div>
@@ -362,113 +578,8 @@ function LookForSection() {
 }
 
 /* ───────────────────────────────────────────────────────── TIPS ─── */
-function TipsSection() {
-  const tips = [
-    {
-      img: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80',
-      tag: 'First Impressions',
-      text: 'Hear What Ancilers Expected During the Interview Process.',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80',
-      tag: 'What Surprised You?',
-      text: 'Learn How Interview Differed From Expectations.',
-    },
-    {
-      img: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&h=400&q=80',
-      tag: 'The Interview Process',
-      text: 'Get An Overview Of How Interviewing At Ancile Unfolds.',
-    },
-  ];
-
-  return (
-    <section className="py-20 sm:py-28 bg-white">
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-        {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 28 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={viewportOnce}
-          transition={{ duration: 0.75, ease }}
-          className="mb-14"
-        >
-          <span
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-4"
-            style={{
-              background: 'rgba(47,128,237,0.1)',
-              border: '1px solid rgba(47,128,237,0.25)',
-              color: '#2F80ED',
-            }}
-          >
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />
-            Advice & Insights
-          </span>
-          <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 leading-[1.05] tracking-tight">
-            Ancile consultant interview tips
-          </h2>
-          <p className="mt-4 text-base sm:text-lg text-slate-500">
-            Explore tips to help you succeed at every stage of the consulting interview process.
-          </p>
-        </motion.div>
-
-        {/* Video Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {tips.map((t, i) => (
-            <motion.div
-              key={t.tag}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={viewportOnce}
-              transition={{ duration: 0.7, ease, delay: i * 0.12 }}
-              className="group flex flex-col cursor-pointer"
-            >
-              {/* Thumbnail Container: Split layout matching Screenshot 3 */}
-              <div className="relative h-[220px] rounded-[24px] overflow-hidden flex shadow-md mb-5 group-hover:shadow-lg transition-shadow duration-300">
-                {/* Left half: Blurred city skyline + title box */}
-                <div className="w-1/2 relative overflow-hidden flex items-center justify-center">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center filter blur-[1.5px] scale-110"
-                    style={{ backgroundImage: `url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=400&q=80')` }}
-                  />
-                  <div className="absolute inset-0 bg-slate-950/70" />
-                  
-                  {/* Centered White Square Border with Text */}
-                  <div className="relative z-10 border-[3.5px] border-white w-[82%] h-[82%] flex items-center justify-center p-3 text-center">
-                    <span className="font-display font-black text-white text-xs sm:text-sm tracking-wide uppercase leading-tight">
-                      {t.tag}
-                    </span>
-                  </div>
-                </div>
-
-                {/* Right half: Consultant Photo */}
-                <div className="w-1/2 relative">
-                  <img 
-                    src={t.img} 
-                    alt="Ancile Consultant" 
-                    className="w-full h-full object-cover object-top filter contrast-[1.05]"
-                  />
-                  <div className="absolute inset-0 bg-slate-950/10 group-hover:bg-transparent transition-colors duration-300" />
-                </div>
-
-                {/* Floating Play Circular Button in center of split */}
-                <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 h-11 w-11 rounded-full bg-[#2F80ED] flex items-center justify-center shadow-lg border border-white/20 group-hover:scale-110 transition-transform duration-300 z-20">
-                  <svg width="12" height="12" viewBox="0 0 24 24" fill="#ffffff" className="ml-0.5">
-                    <polygon points="5 3 19 12 5 21 5 3" />
-                  </svg>
-                </div>
-              </div>
-
-              {/* Card Label */}
-              <p className="font-display font-bold text-slate-800 text-lg leading-snug group-hover:text-[#2F80ED] transition-colors duration-200">
-                {t.text}
-              </p>
-            </motion.div>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
+// TEMPORARILY HIDDEN: Advice & Insights — Ancile consultant interview tips
+function TipsSection() { return null; }
 
 /* ───────────────────────────────────────────── READY TO APPLY ─── */
 function ReadyToApplySection() {

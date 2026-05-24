@@ -87,9 +87,11 @@ export default function Footer() {
           {/* Company Info */}
           <motion.div variants={fadeUp}>
             <a href="#" className="flex items-center gap-2.5">
-              <span className="font-display text-xl font-bold tracking-tight text-white">
-                Ancile <span className="text-accent-400">Inc</span>
-              </span>
+              <img
+                src="/LOGO/LOGO_BLACK.png"
+                alt="Ancile Inc"
+                style={{ height: '40px', width: 'auto', objectFit: 'contain' }}
+              />
             </a>
             <p className="mt-3 text-sm leading-relaxed text-white/60">
               Talent + Technology to accelerate delivery.

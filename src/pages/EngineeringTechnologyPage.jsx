@@ -28,8 +28,11 @@ export default function EngineeringTechnologyPage() {
 /* ────────────────────────────────────────────────────── HERO ─── */
 function HeroSection() {
   return (
-    <section className="relative min-h-[85vh] flex flex-col justify-center items-center overflow-hidden pt-24" style={{ backgroundColor: '#0B1120' }}>
-      {/* Background grid overlay */}
+    <section
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      style={{ backgroundColor: '#0B1120' }}
+    >
+      {/* ── Background grid ── */}
       <div
         aria-hidden
         className="pointer-events-none absolute inset-0"
@@ -39,125 +42,268 @@ function HeroSection() {
           backgroundSize: '48px 48px',
         }}
       />
-      {/* High tech glow rings */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute top-0 right-0 w-[600px] h-[500px] rounded-full blur-[120px]"
-        style={{ background: 'rgba(47,128,237,0.08)' }}
-      />
-      <div
-        aria-hidden
-        className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[350px] rounded-full blur-[100px]"
-        style={{ background: 'rgba(99,102,241,0.06)' }}
-      />
 
-      <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 py-16 flex flex-col items-center text-center">
-        {/* Tag Badge */}
-        <motion.span
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease }}
-          className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6 animate-pulse"
+      {/* ── Full-bleed background image — faded into dark ── */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/engineering-technology/Engineering-and-Technology.webp"
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.22 }}
+        />
+        {/* Dark gradient — stronger at top/bottom, lets the image breathe in the middle */}
+        <div
+          className="absolute inset-0"
           style={{
-            border: '1px solid rgba(47,128,237,0.3)',
-            background: 'rgba(47,128,237,0.1)',
-            color: '#2F80ED',
+            background:
+              'linear-gradient(180deg, rgba(11,17,32,0.92) 0%, rgba(11,17,32,0.55) 40%, rgba(11,17,32,0.65) 70%, rgba(11,17,32,0.97) 100%)',
           }}
-        >
-          <span className="h-1.5 w-1.5 rounded-full bg-current" />
-          Careers & Innovation
-        </motion.span>
-
-        {/* Heading */}
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.1 }}
-          className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.05] tracking-tight text-white max-w-4xl"
-        >
-          Engineering and <span style={{ color: '#2F80ED' }}>Technology</span>
-        </motion.h1>
-
-        {/* Subtitle */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.25 }}
-          className="mt-6 text-lg sm:text-xl leading-relaxed max-w-3xl"
-          style={{ color: 'rgba(255,255,255,0.72)' }}
-        >
-          Create, deliver, and implement the latest digital technology solutions to drive meaningful action for our business and clients.
-        </motion.p>
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease, delay: 0.4 }}
-          className="mt-10 flex flex-wrap gap-4 justify-center"
-        >
-          <a
-            href="#roles"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full text-white font-bold text-sm"
-            style={{
-              backgroundColor: '#2F80ED',
-              boxShadow: '0 8px 32px rgba(47,128,237,0.4)',
-              textDecoration: 'none',
-            }}
-          >
-            Explore Open Roles
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
-          <a
-            href="#why-join"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-full font-bold text-sm transition-all duration-300"
-            style={{
-              border: '1.5px solid rgba(255,255,255,0.25)',
-              color: 'rgba(255,255,255,0.85)',
-              textDecoration: 'none',
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.06)';
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.backgroundColor = 'transparent';
-            }}
-          >
-            Why Join Us
-          </a>
-        </motion.div>
-
-        {/* Big Premium Image Banner Placeholder */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease, delay: 0.55 }}
-          className="mt-16 w-full max-w-[1180px] rounded-[32px] overflow-hidden relative shadow-2xl group border border-white/10"
-          style={{ height: 'clamp(280px, 45vw, 540px)' }}
-        >
-          <img
-            src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80"
-            alt="Engineering & Technology Hero Banner"
-            className="w-full h-full object-cover group-hover:scale-102 transition-transform duration-1000"
-          />
-          {/* Glass info tag */}
-          <div
-            className="absolute bottom-6 left-6 sm:bottom-8 sm:left-8 px-5 py-3 rounded-2xl flex items-center gap-3 backdrop-blur-md"
-            style={{
-              background: 'rgba(15,23,42,0.6)',
-              border: '1px solid rgba(255,255,255,0.15)',
-            }}
-          >
-            <span className="h-2 w-2 rounded-full bg-[#2F80ED]" />
-            <span className="text-white text-xs font-bold uppercase tracking-wider">
-              Ancile Tech Hub
-            </span>
-          </div>
-        </motion.div>
+        />
+        {/* Left-side vignette so content stays readable */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(11,17,32,0.85) 0%, rgba(11,17,32,0.4) 50%, transparent 100%)',
+          }}
+        />
       </div>
+
+      {/* ── Glow orbs ── */}
+      <motion.div
+        aria-hidden
+        animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.18, 0.08] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        className="pointer-events-none absolute top-[-80px] right-[-60px] w-[700px] h-[600px] rounded-full blur-[130px]"
+        style={{ background: 'rgba(47,128,237,0.15)', zIndex: 1 }}
+      />
+      <motion.div
+        aria-hidden
+        animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.13, 0.06] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+        className="pointer-events-none absolute bottom-0 left-[-80px] w-[500px] h-[400px] rounded-full blur-[110px]"
+        style={{ background: 'rgba(99,102,241,0.12)', zIndex: 1 }}
+      />
+
+      {/* ── Content ── */}
+      <div className="relative z-10 mx-auto max-w-[1280px] w-full px-6 sm:px-8 lg:px-12 pt-36 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+
+          {/* LEFT: Text content */}
+          <div>
+            {/* Badge */}
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease }}
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-7"
+              style={{
+                border: '1px solid rgba(47,128,237,0.35)',
+                background: 'rgba(47,128,237,0.1)',
+                color: '#2F80ED',
+              }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+              Careers & Innovation
+            </motion.span>
+
+            {/* Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 36 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, ease, delay: 0.1 }}
+              className="font-display font-extrabold leading-[1.06] tracking-tight text-white mb-6"
+              style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
+            >
+              Engineering and{' '}
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #60A5FA 0%, #93C5FD 60%, #BFDBFE 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
+                Technology
+              </span>
+            </motion.h1>
+
+            {/* Divider */}
+            <motion.div
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.9, ease, delay: 0.55 }}
+              style={{
+                height: '1.5px',
+                background: 'linear-gradient(90deg, rgba(47,128,237,0.7), transparent)',
+                maxWidth: '340px',
+                marginBottom: '1.6rem',
+              }}
+            />
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 0.28 }}
+              className="text-base sm:text-lg leading-[1.8] mb-10 max-w-lg"
+              style={{ color: 'rgba(255,255,255,0.68)' }}
+            >
+              Create, deliver, and implement the latest digital technology solutions to drive
+              meaningful action for our business and clients.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 0.42 }}
+              className="flex flex-wrap gap-4"
+            >
+              <a
+                href="#roles"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-bold text-sm transition-all duration-300"
+                style={{
+                  backgroundColor: '#2F80ED',
+                  boxShadow: '0 8px 32px rgba(47,128,237,0.42)',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1E5DB8'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#2F80ED'; }}
+              >
+                Explore Open Roles
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+              <a
+                href="#why-join"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300"
+                style={{
+                  border: '1.5px solid rgba(255,255,255,0.22)',
+                  color: 'rgba(255,255,255,0.82)',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
+              >
+                Why Join Us
+              </a>
+            </motion.div>
+
+            {/* Stat strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 0.62 }}
+              className="mt-14 flex flex-wrap gap-8"
+            >
+              {[
+                { val: '54+', label: 'Countries' },
+                { val: '10K+', label: 'Consultants' },
+                { val: '15+', label: 'Years of Excellence' },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-extrabold font-display text-white leading-none">{s.val}</div>
+                  <div className="text-[11px] mt-1 font-semibold uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.42)' }}>{s.label}</div>
+                </div>
+              ))}
+            </motion.div>
+          </div>
+
+          {/* RIGHT: Framed image card */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.0, ease, delay: 0.3 }}
+            className="relative hidden lg:block"
+          >
+            {/* Main image frame */}
+            <div
+              className="relative rounded-[28px] overflow-hidden"
+              style={{
+                height: '520px',
+                boxShadow: '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08)',
+              }}
+            >
+              <img
+                src="/engineering-technology/Engineering-and-Technology.webp"
+                alt="Engineering & Technology"
+                className="w-full h-full object-cover object-center"
+                style={{ opacity: 0.88 }}
+              />
+              {/* Subtle inner overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(180deg, transparent 50%, rgba(11,17,32,0.7) 100%)',
+                }}
+              />
+
+              {/* Glass info tag — bottom left */}
+              <div
+                className="absolute bottom-5 left-5 px-4 py-2.5 rounded-xl flex items-center gap-2.5 backdrop-blur-md"
+                style={{
+                  background: 'rgba(11,17,32,0.65)',
+                  border: '1px solid rgba(255,255,255,0.14)',
+                }}
+              >
+                <span className="h-2 w-2 rounded-full bg-[#2F80ED] animate-pulse" />
+                <span className="text-white text-[11px] font-bold uppercase tracking-wider">
+                  Ancile Tech Hub
+                </span>
+              </div>
+
+              {/* Floating stat chip — top right */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute top-5 right-5 rounded-2xl px-4 py-3"
+                style={{
+                  background: 'rgba(11,17,32,0.7)',
+                  border: '1px solid rgba(47,128,237,0.35)',
+                  backdropFilter: 'blur(12px)',
+                }}
+              >
+                <div className="text-lg font-extrabold text-white leading-none">+20%</div>
+                <div className="text-[10px] mt-0.5 font-semibold uppercase tracking-wider" style={{ color: 'rgba(96,165,250,0.85)' }}>
+                  Tech Roles YoY
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Decorative ring behind image */}
+            <div
+              className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full -z-10"
+              style={{ background: 'rgba(47,128,237,0.12)', filter: 'blur(32px)' }}
+            />
+            <div
+              className="absolute -top-6 -left-6 w-32 h-32 rounded-full -z-10"
+              style={{ background: 'rgba(99,102,241,0.1)', filter: 'blur(24px)' }}
+            />
+          </motion.div>
+        </div>
+      </div>
+
+      {/* ── Scroll cue ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+      >
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 7, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="h-8 w-5 rounded-full border border-white/20 flex items-start justify-center pt-1.5"
+        >
+          <div className="h-1.5 w-1.5 rounded-full bg-white/35" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
@@ -239,17 +385,17 @@ function SolutionsSection() {
 function WhyJoinSection() {
   const cards = [
     {
-      img: 'https://images.unsplash.com/photo-1531535934202-f0d45380def1?auto=format&fit=crop&w=600&q=80',
+      img: '/engineering-technology/Gain-diverse-work-experience.webp',
       title: 'Gain diverse work experience',
       desc: 'At Ancile, no two days—or projects—are alike. Our clients span a wide variety of industries and regions, which gives you the chance to work with diverse, collaborative teams and build a well-rounded skill set that will benefit you in your career at Ancile—and beyond.',
     },
     {
-      img: 'https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=600&q=80',
+      img: '/engineering-technology/Access-world-class-learning-programs.webp',
       title: 'Access world class learning programs',
       desc: 'Our aim is to be the best place for our people to grow and thrive. Through our personalized career-step programs, our vast repository of learning resource modules, and our apprenticeship culture, we facilitate continuous learning for employees.',
     },
     {
-      img: 'https://images.unsplash.com/photo-1588196749597-9ff075ee6b5b?auto=format&fit=crop&w=600&q=80',
+      img: '/engineering-technology/Take-advantage-of-flexible-working-opportunities.webp',
       title: 'Take advantage of flexible working opportunities',
       desc: 'How, where, and when people work is not a one-size-fits-all approach. From reduced working hours to hybrid work and more, we empower Ancilers to define their work environment and patterns to suit personal, client, and business needs.',
     },

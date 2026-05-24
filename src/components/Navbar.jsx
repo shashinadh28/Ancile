@@ -113,19 +113,16 @@ export default function Navbar() {
       >
         {/* Logo — click always goes to home */}
         <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <span
+          <img
+            src={scrolled ? '/LOGO/Ancile_INC_white.webp' : '/LOGO/LOGO_BLACK.png'}
+            alt="Ancile Inc"
             style={{
-              fontFamily: '"Plus Jakarta Sans", Inter, sans-serif',
-              fontSize: '20px',
-              fontWeight: 800,
-              letterSpacing: '-0.02em',
-              color: scrolled ? '#0F172A' : '#ffffff',
-              transition: 'color 0.4s ease',
+              height: scrolled ? '36px' : '42px',
+              width: 'auto',
+              objectFit: 'contain',
+              transition: 'all 0.4s ease',
             }}
-          >
-            Ancile{' '}
-            <span style={{ color: '#2F80ED' }}>Inc</span>
-          </span>
+          />
         </Link>
 
         {/* Desktop Nav Links */}

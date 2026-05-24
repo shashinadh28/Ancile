@@ -31,119 +31,284 @@ function CountUp({ to, suffix = '', duration = 2 }) {
   return <span ref={ref}>{display}{suffix}</span>;
 }
 
-/* ──────────────────────────── HERO SECTION ──────────────────────────── */
+/* ────────────────────────────────────────────────────── HERO ─── */
 function HeroSection() {
   return (
-    <section className="relative min-h-[88vh] flex items-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #0F172A 0%, #1E3A6E 55%, #2F80ED 100%)' }}>
+    <section
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      style={{ backgroundColor: '#0B1120' }}
+    >
+      {/* ── Background grid ── */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      />
 
-      {/* Animated grid overlay */}
-      <div aria-hidden className="pointer-events-none absolute inset-0"
-        style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '56px 56px' }} />
+      {/* ── Full-bleed background image — faded into dark ── */}
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/employee-benefits/Employee-Benefits-homepage.webp"
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.22 }}
+        />
+        {/* Dark gradient — stronger at top/bottom, lets the image breathe in the middle */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(11,17,32,0.92) 0%, rgba(11,17,32,0.55) 40%, rgba(11,17,32,0.65) 70%, rgba(11,17,32,0.97) 100%)',
+          }}
+        />
+        {/* Left-side vignette so content stays readable */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background:
+              'linear-gradient(90deg, rgba(11,17,32,0.85) 0%, rgba(11,17,32,0.4) 50%, transparent 100%)',
+          }}
+        />
+      </div>
 
-      {/* Animated blob orbs */}
-      <motion.div aria-hidden
-        animate={{ scale: [1, 1.15, 1], opacity: [0.2, 0.35, 0.2] }}
-        transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
-        className="pointer-events-none absolute -top-32 -right-32 w-[700px] h-[700px] rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(47,128,237,0.3) 0%, transparent 65%)' }} />
-      <motion.div aria-hidden
-        animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.28, 0.15] }}
-        transition={{ duration: 10, repeat: Infinity, ease: 'easeInOut', delay: 2 }}
-        className="pointer-events-none absolute -bottom-40 -left-20 w-[500px] h-[500px] rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(30,93,184,0.35) 0%, transparent 65%)' }} />
+      {/* ── Glow orbs ── */}
+      <motion.div
+        aria-hidden
+        animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.18, 0.08] }}
+        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
+        className="pointer-events-none absolute top-[-80px] right-[-60px] w-[700px] h-[600px] rounded-full blur-[130px]"
+        style={{ background: 'rgba(47,128,237,0.15)', zIndex: 1 }}
+      />
+      <motion.div
+        aria-hidden
+        animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.13, 0.06] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }}
+        className="pointer-events-none absolute bottom-0 left-[-80px] w-[500px] h-[400px] rounded-full blur-[110px]"
+        style={{ background: 'rgba(99,102,241,0.12)', zIndex: 1 }}
+      />
 
-      {/* Floating decorative rings */}
-      {[80, 160, 240].map((size, i) => (
-        <motion.div key={i} aria-hidden
-          animate={{ rotate: 360 }}
-          transition={{ duration: 30 + i * 10, repeat: Infinity, ease: 'linear' }}
-          className="pointer-events-none absolute right-[10%] top-1/2 -translate-y-1/2 rounded-full border border-white/5"
-          style={{ width: size, height: size, marginRight: -(size / 2), marginTop: -(size / 2) }} />
-      ))}
+      {/* ── Content ── */}
+      <div className="relative z-10 mx-auto max-w-[1280px] w-full px-6 sm:px-8 lg:px-12 pt-36 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-      <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 py-28">
-        <div className="max-w-3xl">
-          {/* Badge */}
-          <motion.span
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-8"
-            style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.2)', color: '#EAF3FF' }}>
-            <span className="h-1.5 w-1.5 rounded-full bg-[#60A5FA]" />
-            Benefits &amp; Wellbeing
-          </motion.span>
-
-          {/* Heading */}
-          <div className="overflow-hidden mb-6">
-            <motion.h1
-              initial={{ opacity: 0, y: 60 }}
+          {/* LEFT: Text content */}
+          <div>
+            {/* Badge */}
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.9, ease, delay: 0.1 }}
-              className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.04] tracking-tight text-white">
+              transition={{ duration: 0.6, ease }}
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-7"
+              style={{
+                border: '1px solid rgba(47,128,237,0.35)',
+                background: 'rgba(47,128,237,0.1)',
+                color: '#2F80ED',
+              }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+              Benefits & Wellbeing
+            </motion.span>
+
+            {/* Heading */}
+            <motion.h1
+              initial={{ opacity: 0, y: 36 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.85, ease, delay: 0.1 }}
+              className="font-display font-extrabold leading-[1.06] tracking-tight text-white mb-6"
+              style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}
+            >
               Employee{' '}
-              <span style={{ background: 'linear-gradient(135deg, #60A5FA 0%, #93C5FD 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, #60A5FA 0%, #93C5FD 60%, #BFDBFE 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                }}
+              >
                 Benefits
               </span>
             </motion.h1>
+
+            {/* Divider */}
+            <motion.div
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.9, ease, delay: 0.55 }}
+              style={{
+                height: '1.5px',
+                background: 'linear-gradient(90deg, rgba(47,128,237,0.7), transparent)',
+                maxWidth: '340px',
+                marginBottom: '1.6rem',
+              }}
+            />
+
+            {/* Subtitle */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 0.28 }}
+              className="text-base sm:text-lg leading-[1.8] mb-10 max-w-lg"
+              style={{ color: 'rgba(255,255,255,0.68)' }}
+            >
+              We invest in every Anciler with our employee benefits package, crafted to support financial wellbeing, physical wellbeing, mental health, and work-life balance.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 0.42 }}
+              className="flex flex-wrap gap-4"
+            >
+              <a
+                href="#benefits"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-bold text-sm transition-all duration-300"
+                style={{
+                  backgroundColor: '#2F80ED',
+                  boxShadow: '0 8px 32px rgba(47,128,237,0.42)',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1E5DB8'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#2F80ED'; }}
+              >
+                Explore Benefits
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
+              </a>
+              <a
+                href="#stats"
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300"
+                style={{
+                  border: '1.5px solid rgba(255,255,255,0.22)',
+                  color: 'rgba(255,255,255,0.82)',
+                  textDecoration: 'none',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}
+              >
+                Our Global Reach
+              </a>
+            </motion.div>
+
+            {/* Stat strip */}
+            <motion.div
+              initial={{ opacity: 0, y: 16 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 0.62 }}
+              className="mt-14 flex flex-wrap gap-8"
+            >
+              {[
+                { val: '1000+', label: 'Total Benefits' },
+                { val: '54', label: 'Countries Covered' },
+                { val: '98%', label: 'Satisfaction' },
+              ].map((s) => (
+                <div key={s.label}>
+                  <div className="text-2xl font-extrabold font-display text-white leading-none">{s.val}</div>
+                  <div className="text-[11px] mt-1 font-semibold uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.42)' }}>{s.label}</div>
+                </div>
+              ))}
+            </motion.div>
           </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.85, ease, delay: 0.28 }}
-            className="text-lg sm:text-xl leading-relaxed max-w-2xl mb-10"
-            style={{ color: 'rgba(234,243,255,0.78)' }}>
-            We invest in every Anciler with our employee benefits package, crafted to support
-            financial wellbeing, physical wellbeing, mental health, and work-life balance.
-          </motion.p>
-
+          {/* RIGHT: Framed image card */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease, delay: 0.45 }}
-            className="flex flex-wrap gap-4">
-            <a href="#benefits"
-              className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white transition-all duration-300"
-              style={{ background: '#2F80ED', boxShadow: '0 8px 32px rgba(47,128,237,0.45)' }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#1E5DB8'; e.currentTarget.style.boxShadow = '0 12px 40px rgba(47,128,237,0.6)'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#2F80ED'; e.currentTarget.style.boxShadow = '0 8px 32px rgba(47,128,237,0.45)'; }}>
-              Explore Benefits
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-            </a>
-            <a href="#stats"
-              className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold transition-all duration-300"
-              style={{ border: '1.5px solid rgba(255,255,255,0.25)', color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.08)'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}>
-              Our Global Reach
-            </a>
+            initial={{ opacity: 0, x: 50 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1.0, ease, delay: 0.3 }}
+            className="relative hidden lg:block"
+          >
+            {/* Main image frame */}
+            <div
+              className="relative rounded-[28px] overflow-hidden"
+              style={{
+                height: '520px',
+                boxShadow: '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08)',
+              }}
+            >
+              <img
+                src="/employee-benefits/Employee-Benefits-homepage.webp"
+                alt="Employee Benefits"
+                className="w-full h-full object-cover object-center"
+                style={{ opacity: 0.88 }}
+              />
+              {/* Subtle inner overlay */}
+              <div
+                className="absolute inset-0"
+                style={{
+                  background:
+                    'linear-gradient(180deg, transparent 50%, rgba(11,17,32,0.7) 100%)',
+                }}
+              />
+
+              {/* Glass info tag — bottom left */}
+              <div
+                className="absolute bottom-5 left-5 px-4 py-2.5 rounded-xl flex items-center gap-2.5 backdrop-blur-md"
+                style={{
+                  background: 'rgba(11,17,32,0.65)',
+                  border: '1px solid rgba(255,255,255,0.14)',
+                }}
+              >
+                <span className="h-2 w-2 rounded-full bg-[#2F80ED] animate-pulse" />
+                <span className="text-white text-[11px] font-bold uppercase tracking-wider">
+                  Employee Wellness
+                </span>
+              </div>
+
+              {/* Floating stat chip — top right */}
+              <motion.div
+                animate={{ y: [0, -6, 0] }}
+                transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
+                className="absolute top-5 right-5 rounded-2xl px-4 py-3"
+                style={{
+                  background: 'rgba(11,17,32,0.7)',
+                  border: '1px solid rgba(47,128,237,0.35)',
+                  backdropFilter: 'blur(12px)',
+                }}
+              >
+                <div className="text-lg font-extrabold text-white leading-none">24/7</div>
+                <div className="text-[10px] mt-0.5 font-semibold uppercase tracking-wider" style={{ color: 'rgba(96,165,250,0.85)' }}>
+                  Support Access
+                </div>
+              </motion.div>
+            </div>
+
+            {/* Decorative ring behind image */}
+            <div
+              className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full -z-10"
+              style={{ background: 'rgba(47,128,237,0.12)', filter: 'blur(32px)' }}
+            />
+            <div
+              className="absolute -top-6 -left-6 w-32 h-32 rounded-full -z-10"
+              style={{ background: 'rgba(99,102,241,0.1)', filter: 'blur(24px)' }}
+            />
           </motion.div>
         </div>
-
-        {/* Hero stats strip */}
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, ease, delay: 0.65 }}
-          className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-6">
-          {[
-            { val: '1000', suffix: '+', label: 'Total Benefits' },
-            { val: '54', suffix: '', label: 'Countries Covered' },
-            { val: '98', suffix: '%', label: 'Employee Satisfaction' },
-            { val: '24', suffix: '/7', label: 'Wellness Support' },
-          ].map((s, i) => (
-            <div key={s.label} className="rounded-2xl p-5 flex flex-col"
-              style={{ background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)', backdropFilter: 'blur(12px)' }}>
-              <span className="font-display text-3xl font-extrabold text-white mb-1">
-                <CountUp to={parseInt(s.val)} suffix={s.suffix} duration={2 + i * 0.3} />
-              </span>
-              <span className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'rgba(234,243,255,0.55)' }}>{s.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
+
+      {/* ── Scroll cue ── */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.4, duration: 0.6 }}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10"
+      >
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>
+          Scroll
+        </span>
+        <motion.div
+          animate={{ y: [0, 7, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }}
+          className="h-8 w-5 rounded-full border border-white/20 flex items-start justify-center pt-1.5"
+        >
+          <div className="h-1.5 w-1.5 rounded-full bg-white/35" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
@@ -237,37 +402,37 @@ function WellbeingSection() {
 function BenefitsGridSection() {
   const benefits = [
     {
-      icon: <MedicalIcon />,
+      img: '/employee-benefits/Medical-Dental -Vision-Insurance.webp',
       title: 'Medical, Dental & Vision Insurance',
       desc: 'Comprehensive health coverage for you and your dependents, including dental and vision care.',
       color: '#3B82F6',
     },
     {
-      icon: <MindIcon />,
+      img: '/employee-benefits/Mental-Health-Wellbeing-Resources.webp',
       title: 'Mental Health & Wellbeing Resources',
       desc: 'Access to counseling, therapy platforms, mindfulness tools and mental wellness programs.',
       color: '#8B5CF6',
     },
     {
-      icon: <FitnessIcon />,
+      img: '/employee-benefits/Annual-Fitness-Reimbursement.webp',
       title: 'Annual Fitness Reimbursement',
       desc: 'Yearly allowance to cover gym memberships, fitness apps, sports equipment or classes.',
       color: '#0EA5E9',
     },
     {
-      icon: <InsuranceIcon />,
+      img: '/employee-benefits/Disability-Insurance.webp',
       title: 'Life & Disability Insurance',
       desc: 'Robust life insurance and short/long-term disability coverage to protect your financial future.',
       color: '#2F80ED',
     },
     {
-      icon: <RxIcon />,
+      img: '/employee-benefits/Medical-Second-Opinions.webp',
       title: 'Medical Second Opinions',
       desc: 'Access to world-class specialists for second medical opinions whenever you need them.',
       color: '#60A5FA',
     },
     {
-      icon: <RetirementIcon />,
+      img: '/employee-benefits/Retirement-Savings-Plans.webp',
       title: 'Retirement & Savings Plans',
       desc: 'Competitive retirement plans with employer matching to help you build long-term financial security.',
       color: '#1E5DB8',
@@ -309,12 +474,9 @@ function BenefitsGridSection() {
               whileHover={{ y: -6, boxShadow: `0 20px 48px ${b.color}20` }}
               className="group bg-white rounded-3xl p-8 flex flex-col cursor-default transition-all duration-350"
               style={{ border: '1px solid #E2E8F0', boxShadow: '0 2px 12px rgba(15,23,42,0.05)' }}>
-              {/* Icon bubble */}
-              <div className="h-16 w-16 mb-7 flex items-center justify-center rounded-2xl transition-all duration-300"
-                style={{ background: `${b.color}12`, color: b.color, border: `1px solid ${b.color}20` }}
-                onMouseEnter={e => { e.currentTarget.style.background = `${b.color}22`; }}
-                onMouseLeave={e => { e.currentTarget.style.background = `${b.color}12`; }}>
-                {b.icon}
+              {/* Image banner */}
+              <div className="w-full h-48 mb-6 overflow-hidden rounded-2xl relative shadow-sm border border-slate-100">
+                <img src={b.img} alt={b.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
               </div>
               {/* Accent line */}
               <div className="h-[3px] w-10 rounded-full mb-5 transition-all duration-300 group-hover:w-16"
