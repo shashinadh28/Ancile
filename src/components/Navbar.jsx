@@ -283,18 +283,6 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <a
-            href="#"
-            style={{
-              fontSize: '14px',
-              fontWeight: 500,
-              color: scrolled ? 'rgba(15,23,42,0.55)' : 'rgba(255,255,255,0.6)',
-              textDecoration: 'none',
-              transition: 'color 0.3s ease',
-            }}
-          >
-            For Candidates
-          </a>
           <motion.button
             onClick={() => navigate('/contact')}
             style={{
