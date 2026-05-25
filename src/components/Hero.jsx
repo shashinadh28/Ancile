@@ -69,7 +69,7 @@ export default function Hero() {
           }}
         >
           {/* ── LEFT: Text ─────────────────────────────────────── */}
-          <div>
+          <div className="hero-text-col" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
             {/* Badge */}
             <motion.div
               custom={0} variants={item} initial="hidden" animate="visible"
@@ -125,6 +125,7 @@ export default function Hero() {
             {/* CTA Buttons */}
             <motion.div
               custom={4} variants={item} initial="hidden" animate="visible"
+              className="hero-cta-row"
               style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}
             >
               <motion.a
@@ -163,6 +164,7 @@ export default function Hero() {
             {/* Stats */}
             <motion.div
               custom={5} variants={item} initial="hidden" animate="visible"
+              className="hero-stats-row"
               style={{ display: 'flex', alignItems: 'center', gap: '2rem', marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.08)', flexWrap: 'wrap' }}
             >
               <Stat value="500+" label="Talents Placed" />

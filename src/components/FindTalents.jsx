@@ -46,10 +46,10 @@ export default function FindTalents() {
       }}
     >
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div className="find-talents-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
 
           {/* ── LEFT: Content ───────────────────────────────────── */}
-          <div>
+          <div className="find-talents-text-col">
             {/* Badge */}
             <motion.span
               initial={{ opacity: 0, scale: 0.9 }}

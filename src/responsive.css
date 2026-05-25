@@ -1,0 +1,261 @@
+/* ============================================================
+   RESPONSIVE OVERRIDES — Mobile-first, small screens centered
+   ============================================================ */
+
+/* ── Prevent overflow globally ──────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+img,
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Navbar ─────────────────────────────────────────────────── */
+/* Desktop nav links: show on lg+, hide on mobile */
+@media (max-width: 1023px) {
+  .nav-desktop-links {
+    display: none !important;
+  }
+  /* Mobile hamburger button: override inline display:none */
+  .nav-mobile-btn {
+    display: inline-flex !important;
+  }
+  /* Reduce nav padding on mobile */
+  .nav-inner {
+    padding-left: 1.25rem !important;
+    padding-right: 1.25rem !important;
+  }
+}
+@media (min-width: 1024px) {
+  .nav-desktop-links {
+    display: flex !important;
+  }
+  .nav-mobile-btn {
+    display: none !important;
+  }
+}
+
+/* ── Hero Section ──────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  /* Center-align hero text column on small screens */
+  .hero-text-col {
+    text-align: center !important;
+    align-items: center !important;
+  }
+  .hero-text-col h1,
+  .hero-text-col p,
+  .hero-text-col span {
+    text-align: center;
+  }
+  /* Center the subtitle paragraph */
+  .hero-text-col p {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  /* Center CTA buttons row */
+  .hero-cta-row {
+    justify-content: center !important;
+  }
+  /* Center stats row */
+  .hero-stats-row {
+    justify-content: center !important;
+  }
+}
+
+/* ── FindTalents Section ────────────────────────────────────── */
+@media (max-width: 1023px) {
+  /* Stack the two-column grid */
+  .find-talents-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  /* Center-align left text content */
+  .find-talents-text-col {
+    text-align: center !important;
+    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+  }
+  .find-talents-text-col h2,
+  .find-talents-text-col p,
+  .find-talents-text-col span {
+    text-align: center !important;
+  }
+  /* But keep differentiator cards left-aligned for readability */
+  .find-talents-text-col .group {
+    text-align: left;
+  }
+}
+
+/* ── FinalCTA Section ───────────────────────────────────────── */
+@media (max-width: 1023px) {
+  /* Stack the two-column grid */
+  .finalcta-grid {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+  }
+  /* Center-align left steps column */
+  .finalcta-left {
+    text-align: center !important;
+    align-items: center !important;
+  }
+  .finalcta-left h2,
+  .finalcta-left p,
+  .finalcta-left span {
+    text-align: center !important;
+  }
+  /* But keep step list items left-aligned */
+  .finalcta-left .flex.items-start {
+    text-align: left;
+  }
+}
+
+/* ── Page OrangeCTASection (in TalentSolutionsPage etc.) ─── */
+@media (max-width: 1023px) {
+  .page-cta-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .page-cta-left {
+    text-align: center !important;
+    align-items: center !important;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ── FeatureCards / Pillar Cards ───────────────────────────── */
+@media (max-width: 1023px) {
+  /* Already uses grid-cols-1 lg:grid-cols-2 which Tailwind handles */
+  /* Ensure text center for section headers */
+  .feature-section-header {
+    text-align: center;
+  }
+}
+
+/* ── Industries Grid ────────────────────────────────────────── */
+@media (max-width: 639px) {
+  /* Already uses grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 from Tailwind */
+  /* Section header already centered */
+}
+
+/* ── TalentSpecialties Grid ─────────────────────────────────── */
+/* Already uses grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 from Tailwind */
+
+/* ── SuccessStories Grid ────────────────────────────────────── */
+/* Already uses grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 from Tailwind */
+
+/* ── Insights Grid ──────────────────────────────────────────── */
+/* Already uses grid-cols-1 md:grid-cols-2 lg:grid-cols-3 from Tailwind */
+
+/* ── Footer ─────────────────────────────────────────────────── */
+/* Footer already uses grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 */
+@media (max-width: 639px) {
+  /* Center footer brand/company info on mobile */
+  .footer-company-col {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-company-col a {
+    justify-content: center;
+  }
+  .footer-company-col p,
+  .footer-company-col div {
+    text-align: center;
+  }
+}
+
+/* ── Foundation section ─────────────────────────────────────── */
+@media (max-width: 1023px) {
+  /* Already uses grid-cols-1 lg:grid-cols-12 */
+  /* Right text content centering on mobile */
+  .foundation-text-right {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+/* ── StudyAbroadCTA ─────────────────────────────────────────── */
+@media (max-width: 1023px) {
+  /* Already uses grid-cols-1 lg:grid-cols-12 */
+  .study-abroad-text {
+    text-align: center;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+/* ── Page hero sections: always centered ───────────────────── */
+/* These pages already have items-center text-center, so they're fine */
+
+/* ── General mobile padding ─────────────────────────────────── */
+@media (max-width: 479px) {
+  /* Reduce section vertical padding slightly */
+  .py-20 {
+    padding-top: 3rem !important;
+    padding-bottom: 3rem !important;
+  }
+  .py-28 {
+    padding-top: 4rem !important;
+    padding-bottom: 4rem !important;
+  }
+  /* Reduce horizontal padding */
+  .px-6 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+}
+
+/* ── Typography: scale down hero on very small screens ─────── */
+@media (max-width: 399px) {
+  h1 {
+    font-size: clamp(1.8rem, 8vw, 2.5rem) !important;
+    line-height: 1.1 !important;
+  }
+  h2 {
+    font-size: clamp(1.5rem, 7vw, 2rem) !important;
+  }
+}
+
+/* ── Cards: no horizontal scroll on mobile ─────────────────── */
+@media (max-width: 639px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  /* But allow tailwind sm:grid-cols-2 to still work */
+}
+
+/* ── Navbar logo — don't break on small screens ─────────────── */
+@media (max-width: 399px) {
+  .nav-logo {
+    height: 28px !important;
+  }
+}
+
+/* ── Mobile menu inner scroll if very tall ──────────────────── */
+@media (max-width: 639px) {
+  .mobile-menu-panel {
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+}
+
+/* ── Smooth scrolling ────────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+}

@@ -60,10 +60,10 @@ export default function FinalCTA() {
       <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-20 w-[350px] h-[350px] rounded-full blur-[90px]" style={{ background: 'rgba(99,102,241,0.07)' }} />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+        <div className="finalcta-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
           {/* ── LEFT: Steps ───────────────────────────────────── */}
-          <div>
+          <div className="finalcta-left">
             {/* Badge */}
             <motion.span
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}

@@ -101,6 +101,7 @@ export default function Navbar() {
       }}
     >
       <nav
+        className="nav-inner"
         style={{
           maxWidth: '1280px',
           margin: '0 auto',
@@ -126,7 +127,7 @@ export default function Navbar() {
         </Link>
 
         {/* Desktop Nav Links */}
-        <ul style={{ display: 'flex', alignItems: 'center', gap: '4px', listStyle: 'none', margin: 0, padding: 0 }}>
+        <ul className="nav-desktop-links" style={{ display: 'flex', alignItems: 'center', gap: '4px', listStyle: 'none', margin: 0, padding: 0 }}>
           {NAV_LINKS.map((link) => (
             <li
               key={link.label}
@@ -315,6 +316,7 @@ export default function Navbar() {
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen((v) => !v)}
+            className="nav-mobile-btn"
             style={{
               display: 'none',
               width: '40px',
@@ -327,7 +329,6 @@ export default function Navbar() {
               justifyContent: 'center',
               cursor: 'pointer',
             }}
-            className="lg:hidden"
           >
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
               {open ? (
