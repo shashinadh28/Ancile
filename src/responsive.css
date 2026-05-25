@@ -27,6 +27,9 @@ video {
   .nav-desktop-links {
     display: none !important;
   }
+  .nav-desktop-contact-btn {
+    display: none !important;
+  }
   /* Mobile hamburger button: override inline display:none */
   .nav-mobile-btn {
     display: inline-flex !important;
@@ -40,6 +43,9 @@ video {
 @media (min-width: 1024px) {
   .nav-desktop-links {
     display: flex !important;
+  }
+  .nav-desktop-contact-btn {
+    display: inline-flex !important;
   }
   .nav-mobile-btn {
     display: none !important;

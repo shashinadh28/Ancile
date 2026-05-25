@@ -286,6 +286,7 @@ export default function Navbar() {
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
           <motion.button
             onClick={() => navigate('/contact')}
+            className="nav-desktop-contact-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
@@ -353,6 +354,7 @@ export default function Navbar() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
             transition={{ duration: 0.22 }}
+            className="mobile-menu-panel"
             style={{
               margin: '8px 16px',
               background: '#ffffff',
@@ -481,24 +483,34 @@ export default function Navbar() {
               </div>
             ))}
             <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
-              <button
+              <motion.button
                 onClick={() => { setOpen(false); navigate('/contact'); }}
                 style={{
-                  display: 'block',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '8px',
                   width: '100%',
-                  textAlign: 'center',
                   background: '#2F80ED',
-                  color: '#fff',
+                  color: '#ffffff',
                   fontWeight: 700,
                   fontSize: '14px',
                   padding: '12px',
                   borderRadius: '50px',
                   border: 'none',
                   cursor: 'pointer',
+                  boxShadow: '0 4px 20px rgba(47,128,237,0.3)',
                 }}
+                whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(47,128,237,0.4)' }}
+                whileTap={{ scale: 0.98 }}
+                transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               >
                 Contact Us
-              </button>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" />
+                  <polyline points="12 5 19 12 12 19" />
+                </svg>
+              </motion.button>
             </div>
           </motion.div>
         )}
