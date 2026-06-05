@@ -7,30 +7,30 @@ const DIFFERENTIATORS = [
   {
     num: '01',
     title: 'Speed with precision',
-    description: 'High-quality shortlists delivered fast—so your projects stay on track without sacrificing talent quality.',
+    description: 'Pre-vetted AI engineers and IAM architects delivered in days — never weeks. Our specialist network means you never sacrifice quality for speed.',
     icon: SpeedIcon,
-    color: '#2F80ED',
+    color: '#1565D8',
   },
   {
     num: '02',
     title: 'Outcome-aligned delivery',
-    description: 'Not just filling roles, but driving real impact. Every engagement is structured around measurable business outcomes.',
+    description: 'We do not just fill roles or hand off code. Every engagement is structured around your business outcomes — with measurable checkpoints and clear accountability.',
     icon: TargetIcon,
     color: '#6366f1',
   },
   {
     num: '03',
     title: 'Transparent governance',
-    description: 'Clear reporting, open communication, and full accountability at every stage of your engagement.',
+    description: 'Full visibility into every engagement. Clear SLAs, open reporting, named delivery owners, and proactive escalation before problems become delays.',
     icon: ShieldIcon,
-    color: '#0ea5e9',
+    color: '#0B6E56',
   },
   {
     num: '04',
-    title: 'Flexible models',
-    description: 'From staff augmentation to fully managed delivery—choose the engagement model that fits your needs.',
+    title: 'Flexible engagement models',
+    description: 'From a single AI engineer to a full delivery team with a PMO — choose the model that fits your need, timeline, and budget.',
     icon: FlexIcon,
-    color: '#2F80ED',
+    color: '#3C3489',
   },
 ];
 
@@ -70,8 +70,8 @@ export default function FindTalents() {
               transition={{ duration: 0.85, ease, delay: 0.08 }}
               className="mt-5 font-display text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight text-ink-900"
             >
-              Why teams choose{' '}
-              <span style={{ color: '#2F80ED' }}>Ancile</span>
+              Why leading technology organizations choose{' '}
+              <span style={{ color: '#1565D8' }}>Ancile.</span>
             </motion.h2>
 
             {/* Sub */}
@@ -82,8 +82,7 @@ export default function FindTalents() {
               transition={{ duration: 0.7, ease, delay: 0.16 }}
               className="mt-4 text-base leading-relaxed text-ink-500 max-w-lg"
             >
-              Deep domain expertise meets operational discipline — built to deliver
-              results that actually move the needle.
+              Deep domain expertise in AI and identity security meets operational discipline — built to deliver outcomes that move the needle.
             </motion.p>
 
             {/* Differentiator rows */}

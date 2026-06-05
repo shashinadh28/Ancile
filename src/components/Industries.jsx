@@ -8,32 +8,32 @@ const INDUSTRIES = [
   {
     name: 'Financial Services',
     img: '/Industries/financial_services.webp',
-    desc: 'Modernizing core systems and scaling risk & compliance talent across banking, fintech, and insurance.',
+    desc: 'From AI fraud detection and LLM-powered compliance tooling to IAM governance across banking, fintech, and insurance — we understand what regulated modernization requires.',
   },
   {
     name: 'Healthcare',
     img: '/Industries/Healthcare.webp',
-    desc: 'Enabling faster delivery for EHR platforms, health-tech, and care coordination systems.',
+    desc: 'AI-assisted care coordination, EHR platform engineering, HIPAA-aligned IAM implementation, and identity lifecycle management for health-tech organizations.',
   },
   {
     name: 'Retail & eCommerce',
     img: '/Industries/Retail-eCommerce.webp',
-    desc: 'Data platforms, commerce engineering, and scalable QA for high-velocity retail brands.',
+    desc: 'Product recommendation engines, AI-powered search, Customer Identity and Access Management (CIAM) deployment, and real-time data platform builds for enterprise retail.',
   },
   {
     name: 'Manufacturing',
     img: '/Industries/Manufacturing.webp',
-    desc: 'Industrial IoT, ERP modernization, and supply-chain engineering at scale.',
+    desc: 'Operational technology IAM, AI-powered predictive maintenance, Industrial IoT integration, and ERP modernization for manufacturing organizations.',
   },
   {
     name: 'Telecommunications',
     img: '/Industries/Telecommunications.webp',
-    desc: 'Network engineering, OSS/BSS transformation, and cloud-native platform delivery.',
+    desc: 'Network IAM, AI-driven operations (AIOps), OSS/BSS platform modernization, and Zero Trust architecture for telecom infrastructure at scale.',
   },
   {
     name: 'Technology / SaaS',
     img: '/Industries/Technology-SaaS.webp',
-    desc: 'Product engineering, platform reliability, and AI/ML delivery for high-growth tech companies.',
+    desc: 'LLM product integration, MLOps platform builds, SaaS IAM implementation, and AI/ML specialist placement for high-growth technology companies.',
   },
 ];
 
@@ -73,8 +73,8 @@ export default function Industries() {
             transition={{ duration: 0.85, ease, delay: 0.1 }}
             className="mt-6 font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-ink-900"
           >
-            Experience across{' '}
-            <span style={{ color: '#2F80ED' }}>industries</span>
+            Deep expertise in the industries being{' '}
+            <span style={{ color: '#1565D8' }}>transformed by AI and identity security.</span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -83,7 +83,7 @@ export default function Industries() {
             transition={{ duration: 0.7, ease, delay: 0.2 }}
             className="mt-5 text-base sm:text-lg leading-relaxed text-ink-500 max-w-2xl"
           >
-            Deep domain expertise across the sectors that matter most to your business.
+            We understand your compliance requirements, your threat landscape, and the talent market in your sector.
           </motion.p>
         </motion.div>
 

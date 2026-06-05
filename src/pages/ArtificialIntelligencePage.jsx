@@ -5,9 +5,11 @@ import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 
 const ease = [0.22, 1, 0.36, 1];
+
+/* CaseInterviewPrep/AgenticAI-inspired: subtle dark dots on warm off-white */
 const DOT_BG = {
-  backgroundImage: 'radial-gradient(circle, rgba(47,128,237,0.07) 1.5px, transparent 1.5px)',
-  backgroundSize: '28px 28px',
+  backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.10) 1.5px, transparent 1.5px)',
+  backgroundSize: '26px 26px',
 };
 
 /* ── Arrow SVG ── */
@@ -34,110 +36,87 @@ function CountUp({ to, suffix = '', duration = 2 }) {
 /* ═══════════════════════════════════════════════════════════ HERO ═══ */
 function HeroSection() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden"
-      style={{ background: 'linear-gradient(135deg, #020817 0%, #0F1F45 45%, #1E3A6E 75%, #2F80ED 100%)' }}>
+    <section
+      className="relative min-h-screen flex flex-col justify-center overflow-hidden"
+      style={{ backgroundColor: '#0B1120' }}
+    >
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage:
+            'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+          backgroundSize: '48px 48px',
+        }}
+      />
+      <div className="absolute inset-0 z-0">
+        <img
+          src="/artificial-intelligence/home-page.webp"
+          alt=""
+          aria-hidden
+          className="w-full h-full object-cover object-center"
+          style={{ opacity: 0.22 }}
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(11,17,32,0.92) 0%, rgba(11,17,32,0.55) 40%, rgba(11,17,32,0.65) 70%, rgba(11,17,32,0.97) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(90deg, rgba(11,17,32,0.85) 0%, rgba(11,17,32,0.4) 50%, transparent 100%)' }} />
+      </div>
+      <motion.div aria-hidden animate={{ scale: [1, 1.2, 1], opacity: [0.08, 0.18, 0.08] }} transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }} className="pointer-events-none absolute top-[-80px] right-[-60px] w-[700px] h-[600px] rounded-full blur-[130px]" style={{ background: 'rgba(47,128,237,0.15)', zIndex: 1 }} />
+      <motion.div aria-hidden animate={{ scale: [1, 1.15, 1], opacity: [0.06, 0.13, 0.06] }} transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 4 }} className="pointer-events-none absolute bottom-0 left-[-80px] w-[500px] h-[400px] rounded-full blur-[110px]" style={{ background: 'rgba(99,102,241,0.12)', zIndex: 1 }} />
 
-      {/* Animated grid */}
-      <div aria-hidden className="pointer-events-none absolute inset-0"
-        style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px)', backgroundSize: '60px 60px' }} />
+      <div className="relative z-10 mx-auto max-w-[1280px] w-full px-6 sm:px-8 lg:px-12 pt-36 pb-24">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+          <div>
+            <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }} className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-7" style={{ border: '1px solid rgba(47,128,237,0.35)', background: 'rgba(47,128,237,0.1)', color: '#2F80ED' }}>
+              <span className="h-1.5 w-1.5 rounded-full bg-current animate-pulse" />
+              Artificial Intelligence
+            </motion.span>
+            <motion.h1 initial={{ opacity: 0, y: 36 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.85, ease, delay: 0.1 }} className="font-display font-extrabold leading-[1.06] tracking-tight text-white mb-6" style={{ fontSize: 'clamp(2.4rem, 5vw, 4rem)' }}>
+              Artificial Intelligence{' '}
+              <span style={{ background: 'linear-gradient(135deg, #60A5FA 0%, #93C5FD 60%, #BFDBFE 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>at Scale</span>
+            </motion.h1>
+            <motion.div initial={{ scaleX: 0, originX: 0 }} animate={{ scaleX: 1 }} transition={{ duration: 0.9, ease, delay: 0.55 }} style={{ height: '1.5px', background: 'linear-gradient(90deg, rgba(47,128,237,0.7), transparent)', maxWidth: '340px', marginBottom: '1.6rem' }} />
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.28 }} className="text-base sm:text-lg leading-[1.8] mb-6 max-w-lg" style={{ color: 'rgba(255,255,255,0.68)' }}>
+              With artificial intelligence at a crucial inflection point, Ancile is helping organizations weave together human and technological capabilities to maximize value potential, productivity, and innovation from AI.
+            </motion.p>
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.35 }} className="text-sm leading-[1.7] mb-10 max-w-lg" style={{ color: 'rgba(255,255,255,0.52)' }}>
+              When predictive AI is complemented by generative AI, their combined power offers stronger capabilities and greater, sustained AI value creation. Building from a proven strategic playbook, our AI strategy consulting team empowers clients to focus on key strategic opportunities and execute a comprehensive AI business transformation.
+            </motion.p>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.42 }} className="flex flex-wrap gap-4">
+              <a href="#services" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full text-white font-bold text-sm transition-all duration-300" style={{ backgroundColor: '#2F80ED', boxShadow: '0 8px 32px rgba(47,128,237,0.42)', textDecoration: 'none' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = '#1E5DB8'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = '#2F80ED'; }}>
+                Explore AI Services
+                <ArrowRight />
+              </a>
+              <a href="#approach" className="inline-flex items-center gap-2 px-7 py-3.5 rounded-full font-bold text-sm transition-all duration-300" style={{ border: '1.5px solid rgba(255,255,255,0.22)', color: 'rgba(255,255,255,0.82)', textDecoration: 'none' }} onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.07)'; }} onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'transparent'; }}>
+                Our Approach
+              </a>
+            </motion.div>
+          </div>
 
-      {/* Neural network dots */}
-      {[...Array(20)].map((_, i) => (
-        <motion.div key={i} aria-hidden
-          className="pointer-events-none absolute rounded-full"
-          style={{
-            width: Math.random() * 4 + 2,
-            height: Math.random() * 4 + 2,
-            left: `${Math.random() * 100}%`,
-            top: `${Math.random() * 100}%`,
-            background: `rgba(${[47, 96, 147][i % 3]},${[128, 165, 197][i % 3]},237,${Math.random() * 0.5 + 0.2})`,
-          }}
-          animate={{ opacity: [0.2, 0.8, 0.2], scale: [1, 1.5, 1] }}
-          transition={{ duration: 3 + Math.random() * 4, repeat: Infinity, delay: Math.random() * 3 }} />
-      ))}
-
-      {/* Big glow orbs */}
-      <motion.div aria-hidden animate={{ scale: [1, 1.2, 1], opacity: [0.15, 0.3, 0.15] }}
-        transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="pointer-events-none absolute -top-40 right-0 w-[800px] h-[800px] rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(47,128,237,0.25) 0%, transparent 60%)' }} />
-      <motion.div aria-hidden animate={{ scale: [1, 1.3, 1], opacity: [0.1, 0.22, 0.1] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
-        className="pointer-events-none absolute bottom-0 -left-40 w-[600px] h-[600px] rounded-full"
-        style={{ background: 'radial-gradient(circle, rgba(30,93,184,0.3) 0%, transparent 60%)' }} />
-
-      {/* Rotating rings */}
-      {[120, 240, 380].map((s, i) => (
-        <motion.div key={i} aria-hidden animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-          transition={{ duration: 25 + i * 12, repeat: Infinity, ease: 'linear' }}
-          className="pointer-events-none absolute right-[8%] top-1/2 -translate-y-1/2 rounded-full border border-white/[0.04]"
-          style={{ width: s, height: s }} />
-      ))}
-
-      <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 py-32">
-        <div className="max-w-[800px]">
-          <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-8"
-            style={{ background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.16)', color: '#93C5FD' }}>
-            <span className="h-1.5 w-1.5 rounded-full bg-[#60A5FA] animate-pulse" />
-            Artificial Intelligence
-          </motion.span>
-
-          <motion.h1 initial={{ opacity: 0, y: 56 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, ease, delay: 0.1 }}
-            className="font-display text-5xl sm:text-6xl lg:text-[4.5rem] font-extrabold leading-[1.04] tracking-tight text-white mb-7">
-            Artificial Intelligence{' '}
-            <span style={{ background: 'linear-gradient(135deg,#60A5FA 0%,#93C5FD 50%,#BFDBFE 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
-              at Scale
-            </span>
-          </motion.h1>
-
-          <motion.p initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.25 }}
-            className="text-base sm:text-lg leading-relaxed max-w-2xl mb-6" style={{ color: 'rgba(219,234,254,0.78)' }}>
-            With artificial intelligence at a crucial inflection point, Ancile is helping organizations weave together human and technological capabilities to maximize value potential, productivity, and innovation from AI.
-          </motion.p>
-          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.38 }}
-            className="text-sm sm:text-base leading-relaxed max-w-2xl mb-12" style={{ color: 'rgba(191,219,254,0.62)' }}>
-            When predictive AI is complemented by generative AI, their combined power offers stronger capabilities and greater, sustained AI value creation. Building from a proven strategic playbook, our AI strategy consulting team empowers clients to focus on key strategic opportunities and execute a comprehensive AI business transformation.
-          </motion.p>
-
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.5 }}
-            className="flex flex-wrap gap-4">
-            <a href="#services"
-              className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold text-white transition-all duration-300"
-              style={{ background: '#2F80ED', boxShadow: '0 8px 32px rgba(47,128,237,0.5)' }}
-              onMouseEnter={e => { e.currentTarget.style.background = '#1E5DB8'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = '#2F80ED'; }}>
-              Explore AI Services <ArrowRight />
-            </a>
-            <a href="#approach"
-              className="inline-flex items-center gap-2 rounded-full px-8 py-4 text-sm font-bold transition-all duration-300"
-              style={{ border: '1.5px solid rgba(255,255,255,0.22)', color: 'rgba(255,255,255,0.85)', textDecoration: 'none' }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.07)'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'transparent'; }}>
-              Our Approach
-            </a>
+          <motion.div initial={{ opacity: 0, x: 50 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 1.0, ease, delay: 0.3 }} className="relative hidden lg:block">
+            <div className="relative rounded-[28px] overflow-hidden" style={{ height: '520px', boxShadow: '0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.08)' }}>
+              <img src="/artificial-intelligence/home-page.webp" alt="Artificial Intelligence" className="w-full h-full object-cover object-center" style={{ opacity: 0.88 }} />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(11,17,32,0.7) 100%)' }} />
+              <div className="absolute bottom-5 left-5 px-4 py-2.5 rounded-xl flex items-center gap-2.5 backdrop-blur-md" style={{ background: 'rgba(11,17,32,0.65)', border: '1px solid rgba(255,255,255,0.14)' }}>
+                <span className="h-2 w-2 rounded-full bg-[#2F80ED] animate-pulse" />
+                <span className="text-white text-[11px] font-bold uppercase tracking-wider">AI at Scale</span>
+              </div>
+              <motion.div animate={{ y: [0, -6, 0] }} transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }} className="absolute top-5 right-5 rounded-2xl px-4 py-3" style={{ background: 'rgba(11,17,32,0.7)', border: '1px solid rgba(47,128,237,0.35)', backdropFilter: 'blur(12px)' }}>
+                <div className="text-lg font-extrabold text-white leading-none">10-20-70</div>
+                <div className="text-[10px] mt-0.5 font-semibold uppercase tracking-wider" style={{ color: 'rgba(96,165,250,0.85)' }}>AI Framework</div>
+              </motion.div>
+            </div>
+            <div className="absolute -bottom-8 -right-8 w-48 h-48 rounded-full -z-10" style={{ background: 'rgba(47,128,237,0.12)', filter: 'blur(32px)' }} />
+            <div className="absolute -top-6 -left-6 w-32 h-32 rounded-full -z-10" style={{ background: 'rgba(99,102,241,0.1)', filter: 'blur(24px)' }} />
           </motion.div>
         </div>
-
-        {/* Hero stats */}
-        <motion.div initial={{ opacity: 0, y: 40 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.9, ease, delay: 0.7 }}
-          className="mt-20 grid grid-cols-2 sm:grid-cols-4 gap-5">
-          {[
-            { val: 10, suffix: '-20-70', label: 'AI Value Framework' },
-            { val: 72, suffix: '%', label: 'AI Value in Core Functions' },
-            { val: 60, suffix: '%', label: 'Companies Using GenAI' },
-            { val: 15, suffix: '+', label: 'AI Partners Worldwide' },
-          ].map((s, i) => (
-            <div key={s.label} className="rounded-2xl p-5 flex flex-col gap-1"
-              style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.09)', backdropFilter: 'blur(14px)' }}>
-              <span className="font-display text-2xl sm:text-3xl font-extrabold text-white">
-                <CountUp to={s.val} suffix={s.suffix} duration={2 + i * 0.2} />
-              </span>
-              <span className="text-[11px] font-semibold uppercase tracking-wider" style={{ color: 'rgba(191,219,254,0.5)' }}>{s.label}</span>
-            </div>
-          ))}
-        </motion.div>
       </div>
+
+      <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.4, duration: 0.6 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 z-10">
+        <span className="text-[10px] font-bold uppercase tracking-[0.2em]" style={{ color: 'rgba(255,255,255,0.28)' }}>Scroll</span>
+        <motion.div animate={{ y: [0, 7, 0] }} transition={{ duration: 1.5, repeat: Infinity, ease: 'easeInOut' }} className="h-8 w-5 rounded-full border border-white/20 flex items-start justify-center pt-1.5">
+          <div className="h-1.5 w-1.5 rounded-full bg-white/35" />
+        </motion.div>
+      </motion.div>
     </section>
   );
 }
@@ -207,7 +186,7 @@ function AIServicesSection() {
   const svc = AI_SERVICES[active];
 
   return (
-    <section id="services" className="py-24 sm:py-32 bg-white overflow-hidden">
+    <section id="services" className="py-24 sm:py-32 overflow-hidden bg-white border-b border-slate-100">
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.8, ease }} className="mb-16">
@@ -341,7 +320,7 @@ function ApproachSection() {
   const play = DRI_PLAYS[activePlay];
 
   return (
-    <section id="approach" className="py-24 sm:py-32 overflow-hidden" style={{ backgroundColor: '#F8FAFC', ...DOT_BG }}>
+    <section id="approach" className="py-24 sm:py-32 overflow-hidden border-b border-slate-100" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         {/* Header */}
         <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.8, ease }} className="max-w-3xl mb-16">
@@ -455,55 +434,54 @@ const NEWS = [
 
 function NewsSectionFull() {
   return (
-    <section className="py-24 sm:py-32 bg-white overflow-hidden">
+    <section className="py-24 sm:py-32 overflow-hidden bg-white border-b border-slate-100">
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
 
         {/* CEO Data Point highlight */}
-        <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.8, ease }}
-          className="rounded-3xl mb-16 p-10 sm:p-14 relative overflow-hidden"
-          style={{ background: 'linear-gradient(135deg,#0F172A 0%,#1E3A6E 60%,#2F80ED 100%)', border: '1px solid rgba(255,255,255,0.06)' }}>
-          {/* Animated grid */}
-          <div aria-hidden className="pointer-events-none absolute inset-0"
-            style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.02) 1px,transparent 1px)', backgroundSize: '40px 40px' }} />
-          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-6"
-                style={{ background: 'rgba(255,255,255,0.1)', border: '1px solid rgba(255,255,255,0.18)', color: '#93C5FD' }}>
-                <span className="h-1.5 w-1.5 rounded-full bg-[#60A5FA]" />
-                CEO Data Point Interactive
-              </span>
-              <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight mb-5">
-                Explore the trends shaping CEO priorities with insights powered by AI.
-              </h2>
-              <p className="text-base leading-relaxed mb-8" style={{ color: 'rgba(191,219,254,0.72)' }}>
-                Powered by Ancile AI and deep industry expertise, it analyzes thousands of earnings call transcripts and keywords to reveal the trends gaining and losing momentum in CEO conversations.
-              </p>
-              <a href="#"
-                className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold transition-all duration-300"
-                style={{ background: '#60A5FA', color: '#0F172A', textDecoration: 'none', boxShadow: '0 6px 24px rgba(96,165,250,0.4)' }}
-                onMouseEnter={e => { e.currentTarget.style.background = '#93C5FD'; }}
-                onMouseLeave={e => { e.currentTarget.style.background = '#60A5FA'; }}>
-                Explore the Data <ArrowRight />
-              </a>
-            </div>
-            {/* Visual right panel */}
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="relative">
-                {/* Animated concentric rings */}
-                {[80, 140, 200, 260].map((r, i) => (
-                  <motion.div key={i} animate={{ rotate: i % 2 === 0 ? 360 : -360 }}
-                    transition={{ duration: 20 + i * 8, repeat: Infinity, ease: 'linear' }}
-                    className="absolute rounded-full border border-white/10"
-                    style={{ width: r, height: r, top: '50%', left: '50%', transform: `translate(-50%,-50%)` }} />
-                ))}
-                <div className="relative z-10 h-32 w-32 rounded-full flex items-center justify-center"
-                  style={{ background: 'rgba(47,128,237,0.2)', border: '2px solid rgba(96,165,250,0.4)', backdropFilter: 'blur(12px)' }}>
-                  <svg className="h-12 w-12 text-blue-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/>
-                  </svg>
-                </div>
-              </div>
-            </div>
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={viewportOnce}
+          transition={{ duration: 0.75, ease }}
+          whileHover={{ y: -5, boxShadow: '0 20px 40px rgba(11,26,46,0.4)' }}
+          className="group relative rounded-[28px] overflow-hidden flex flex-col justify-between p-8 sm:p-10 cursor-pointer transition-all duration-300 mb-16"
+          style={{
+            backgroundColor: '#0B1A2E',
+            minHeight: '280px',
+            border: '1px solid rgba(255,255,255,0.06)',
+          }}
+        >
+          {/* Geometric stripes background overlay */}
+          <div className="absolute right-0 top-0 bottom-0 w-1/3 pointer-events-none opacity-20 flex flex-col justify-center items-end pr-6">
+            <svg width="100%" height="80%" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M50 0L100 50L50 100L0 50L50 0Z" fill="#2F80ED" />
+              <path d="M70 10L110 50L70 90" stroke="#60A5FA" strokeWidth="6" />
+            </svg>
+          </div>
+
+          <div>
+            <h3 className="font-display text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+              CEO Data Point Interactive
+            </h3>
+            <p className="text-base font-semibold mt-4 text-[#60A5FA] leading-relaxed max-w-xl">
+              Explore the trends shaping CEO priorities with insights powered by AI.
+            </p>
+            <p className="text-sm leading-relaxed mt-3 max-w-2xl" style={{ color: 'rgba(255,255,255,0.65)' }}>
+              Powered by Ancile AI and deep industry expertise, it analyzes thousands of earnings call transcripts and keywords to reveal the trends gaining and losing momentum in CEO conversations.
+            </p>
+          </div>
+
+          <div className="mt-8 self-start">
+            <a
+              href="#"
+              className="inline-flex items-center gap-2 rounded-full px-6 py-3 text-xs font-bold uppercase tracking-wider text-white transition-all duration-300 group-hover:scale-105"
+              style={{
+                backgroundColor: '#2F80ED',
+                textDecoration: 'none',
+              }}
+            >
+              Explore the Data
+            </a>
           </div>
         </motion.div>
 
@@ -541,11 +519,22 @@ function NewsSectionFull() {
 }
 
 /* ════════════════════════════════════════════ PARTNERS SECTION ═══ */
-const PARTNERS = ['AWS', 'Google', 'IBM', 'Microsoft', 'Salesforce', 'SAP', 'OpenAI', 'Anthropic', 'LangChain', 'Palantir'];
+const AI_PARTNERS = [
+  { name: 'AWS', icon: <img width="48" height="48" src="https://img.icons8.com/color/48/amazon-web-services.png" alt="amazon-web-services" /> },
+  { name: 'Google Cloud', icon: <img width="48" height="48" src="https://img.icons8.com/color/48/google-cloud.png" alt="google-cloud" /> },
+  { name: 'Microsoft Azure', icon: <img width="48" height="48" src="/agentic-ai/Ecosystem/azure-icon-svgrepo-com.svg" alt="Microsoft Azure" /> },
+  { name: 'Salesforce', icon: <img width="48" height="48" src="https://img.icons8.com/color/48/salesforce.png" alt="salesforce" /> },
+  { name: 'ServiceNow', icon: <img width="48" height="48" src="/agentic-ai/Ecosystem/ServiceNow-Logo.svg" alt="ServiceNow" /> },
+  { name: 'Snowflake', icon: <img width="48" height="48" src="/agentic-ai/Ecosystem/snowflake-svgrepo-com.svg" alt="Snowflake" /> },
+  { name: 'OpenAI', icon: <img width="50" height="50" src="https://img.icons8.com/ios/50/chatgpt.png" alt="chatgpt" /> },
+  { name: 'Anthropic', icon: <img width="48" height="48" src="https://img.icons8.com/fluency/48/claude-ai.png" alt="claude-ai" /> },
+  { name: 'LangChain', icon: <div style={{ width: 48, height: 48, borderRadius: '50%', background: '#1C1C1C', display: 'flex', alignItems: 'center', justifyContent: 'center' }}><span style={{ color: '#fff', fontWeight: 900, fontSize: '13px', letterSpacing: '-0.02em' }}>LC</span></div> },
+  { name: 'Palantir', icon: <img width="48" height="48" src="/agentic-ai/Ecosystem/Palantir.svg" alt="Palantir" /> },
+];
 
 function PartnersSection() {
   return (
-    <section className="py-24 sm:py-32 overflow-hidden" style={{ backgroundColor: '#F8FAFC', ...DOT_BG }}>
+    <section className="py-24 sm:py-32 overflow-hidden border-b border-slate-100" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewportOnce} transition={{ duration: 0.9, ease }}>
@@ -558,7 +547,7 @@ function PartnersSection() {
               Our AI &amp; GenAI Collaborations
             </h2>
             <p className="text-base leading-relaxed text-slate-500 mb-6">
-              Ancile is more than just a strategic consultant. Our clients benefit from our global ecosystem of AI and GenAI collaborations, including those with leading tech companies like AWS, Google, IBM, Microsoft, Salesforce, and SAP—and with AI-centered enterprises such as OpenAI, Anthropic, LangChain, and Palantir.
+              Ancile is more than just a strategic consultant. Our clients benefit from our global ecosystem of AI and GenAI collaborations, including those with leading tech companies like AWS, Google Cloud, Microsoft Azure, Salesforce, and ServiceNow—and with AI-centered enterprises such as OpenAI, Anthropic, LangChain, and Palantir.
             </p>
             <p className="text-base leading-relaxed text-slate-500 mb-10">
               Working together, we deliver unprecedented value across four critical transformation pillars: optimizing existing technology, reshaping business functions, inventing new business opportunities, and reimagining entire organizations.
@@ -570,17 +559,18 @@ function PartnersSection() {
             </a>
           </motion.div>
 
-          {/* Partner grid */}
+          {/* Partner icon grid */}
           <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewportOnce} transition={{ duration: 0.9, ease, delay: 0.15 }}
-            className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3 gap-4">
-            {PARTNERS.map((p, i) => (
-              <motion.div key={p}
+            className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-4">
+            {AI_PARTNERS.map((p, i) => (
+              <motion.div key={p.name}
                 initial={{ opacity: 0, scale: 0.9 }} whileInView={{ opacity: 1, scale: 1 }} viewport={viewportOnce}
                 transition={{ duration: 0.5, ease, delay: i * 0.07 }}
-                whileHover={{ y: -3, boxShadow: '0 12px 32px rgba(47,128,237,0.15)' }}
-                className="bg-white rounded-2xl p-5 flex items-center justify-center text-center transition-all duration-300 cursor-default"
-                style={{ border: '1px solid #E2E8F0', minHeight: '72px' }}>
-                <span className="font-display font-extrabold text-slate-700 text-sm tracking-tight">{p}</span>
+                whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(47,128,237,0.18)', borderColor: 'rgba(47,128,237,0.35)' }}
+                className="group bg-white rounded-2xl p-5 flex flex-col items-center justify-center gap-3 text-center transition-all duration-300 cursor-default"
+                style={{ border: '1px solid #E2E8F0', minHeight: '110px' }}>
+                <div className="transition-transform duration-300 group-hover:scale-110">{p.icon}</div>
+                <span className="font-bold text-xs text-slate-700 leading-tight tracking-tight">{p.name}</span>
               </motion.div>
             ))}
           </motion.div>
@@ -617,7 +607,7 @@ const INSIGHTS = [
 
 function InsightsSection() {
   return (
-    <section className="py-24 sm:py-32 bg-white overflow-hidden">
+    <section className="py-24 sm:py-32 overflow-hidden bg-white border-b border-slate-100">
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <motion.div initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce} transition={{ duration: 0.8, ease }}
           className="flex flex-col sm:flex-row sm:items-end justify-between gap-6 mb-14">
@@ -676,25 +666,36 @@ function InsightsSection() {
 /* ══════════════════════════════════ ANCILE ANSWER + EXPLORE MORE ═══ */
 function ExploreMoreSection() {
   return (
-    <section className="overflow-hidden" style={{ backgroundColor: '#F8FAFC', ...DOT_BG }}>
+    <section className="overflow-hidden border-b border-slate-100" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
       {/* Ancile Answer banner */}
-      <div className="py-16 sm:py-20" style={{ background: 'linear-gradient(135deg,#EAF3FF 0%,#DBEAFE 60%,#EFF6FF 100%)' }}>
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="relative py-20 sm:py-28 overflow-hidden" style={{ background: 'linear-gradient(135deg, #0B1120 0%, #0F1F45 50%, #1E3A6E 100%)' }}>
+        {/* Decorative grid overlay */}
+        <div aria-hidden className="pointer-events-none absolute inset-0"
+          style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.03) 1px,transparent 1px)', backgroundSize: '48px 48px' }} />
+        {/* Glow orbs */}
+        <motion.div aria-hidden animate={{ scale: [1, 1.2, 1], opacity: [0.06, 0.14, 0.06] }} transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }} className="pointer-events-none absolute top-[-60px] right-[-80px] w-[500px] h-[400px] rounded-full" style={{ background: 'rgba(47,128,237,0.18)', filter: 'blur(80px)' }} />
+        <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <motion.div initial={{ opacity: 0, x: -40 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewportOnce} transition={{ duration: 0.85, ease }}>
-              <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] mb-5 px-3 py-1 rounded-full"
-                style={{ background: 'rgba(47,128,237,0.12)', color: '#2F80ED', border: '1px solid rgba(47,128,237,0.22)' }}>
+              <span className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] mb-6 px-4 py-1.5 rounded-full"
+                style={{ background: 'rgba(47,128,237,0.15)', color: '#93C5FD', border: '1px solid rgba(47,128,237,0.35)' }}>
+                <span className="h-1.5 w-1.5 rounded-full bg-[#60A5FA] animate-pulse" />
                 New AI-Powered Feature
               </span>
-              <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 leading-[1.06] tracking-tight mb-5">
+              <h2 className="font-display text-4xl sm:text-5xl font-extrabold leading-[1.06] tracking-tight mb-6"
+                style={{ background: 'linear-gradient(135deg, #ffffff 0%, #BFDBFE 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>
                 Ancile Answer
               </h2>
-              <p className="text-base leading-relaxed text-slate-600 mb-8 max-w-md">
-                Discover the answer to your most important business challenges. Ancile Answer delivers integrated insights powered by our cross-functional expertise and the latest thinking shaping today's business decisions. Bringing together our most relevant perspectives, Ancile Answer guides you to what matters most right now.
+              <div style={{ height: '1.5px', background: 'linear-gradient(90deg, rgba(47,128,237,0.7), transparent)', maxWidth: '280px', marginBottom: '1.5rem' }} />
+              <p className="text-base leading-[1.85] mb-4 max-w-lg" style={{ color: 'rgba(255,255,255,0.72)' }}>
+                Discover the answer to your most important business challenges. Ancile Answer delivers integrated insights powered by our cross-functional expertise and the latest thinking shaping today's business decisions.
+              </p>
+              <p className="text-sm leading-[1.8] mb-10 max-w-lg" style={{ color: 'rgba(191,219,254,0.58)' }}>
+                Bringing together our most relevant perspectives, Ancile Answer guides you to what matters most right now — faster, smarter, and with greater confidence.
               </p>
               <a href="#"
                 className="inline-flex items-center gap-2 rounded-full px-7 py-3.5 text-sm font-bold text-white transition-all duration-300"
-                style={{ background: '#2F80ED', boxShadow: '0 6px 24px rgba(47,128,237,0.35)', textDecoration: 'none' }}
+                style={{ background: '#2F80ED', boxShadow: '0 8px 32px rgba(47,128,237,0.45)', textDecoration: 'none' }}
                 onMouseEnter={e => { e.currentTarget.style.background = '#1E5DB8'; }}
                 onMouseLeave={e => { e.currentTarget.style.background = '#2F80ED'; }}>
                 Ask Us a Question <ArrowRight />

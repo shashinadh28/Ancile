@@ -3,13 +3,19 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import Navbar from './components/Navbar.jsx';
 import Hero from './components/Hero.jsx';
 import FeatureCards from './components/FeatureCards.jsx';
+import AIIAMIntersection from './components/AIIAMIntersection.jsx';
 import FindTalents from './components/FindTalents.jsx';
 import Industries from './components/Industries.jsx';
-import SuccessStories from './components/SuccessStories.jsx';
+import TechPartners from './components/TechPartners.jsx';
+import IAMMaturityModel from './components/IAMMaturityModel.jsx';
+import ComplianceBadges from './components/ComplianceBadges.jsx';
 import TalentSpecialties from './components/TalentSpecialties.jsx';
+import SuccessStories from './components/SuccessStories.jsx';
 import Insights from './components/Insights.jsx';
+import AIReadinessCTA from './components/AIReadinessCTA.jsx';
 import FinalCTA from './components/FinalCTA.jsx';
 import Footer from './components/Footer.jsx';
+
 import TalentSolutionsPage from './pages/TalentSolutionsPage.jsx';
 import TechnologyServicesPage from './pages/TechnologyServicesPage.jsx';
 import PricingRevenuePage from './pages/PricingRevenuePage.jsx';
@@ -22,6 +28,22 @@ import ResponsibleAIHiringPage from './pages/ResponsibleAIHiringPage.jsx';
 import EmployeeBenefitsPage from './pages/EmployeeBenefitsPage.jsx';
 import ArtificialIntelligencePage from './pages/ArtificialIntelligencePage.jsx';
 import ValuesCulturePage from './pages/ValuesCulturePage.jsx';
+
+// New Pages
+import AIReadinessPage from './pages/AIReadinessPage.jsx';
+import IAMMaturityCheckPage from './pages/IAMMaturityCheckPage.jsx';
+import PrivacyPolicyPage from './pages/PrivacyPolicyPage.jsx';
+import BlogPage from './pages/BlogPage.jsx';
+import AgenticAIPage from './pages/AgenticAIPage.jsx';
+import DevOpsAgilePage from './pages/DevOpsAgilePage.jsx';
+import RiskAndSecurityPage from './pages/RiskAndSecurityPage.jsx';
+import WorkforceDevelopmentPage from './pages/WorkforceDevelopmentPage.jsx';
+import GridModernizationPage from './pages/GridModernizationPage.jsx';
+import JBHuntPage from './pages/JBHuntPage.jsx';
+import DatabricksGoogleCloudPage from './pages/DatabricksGoogleCloudPage.jsx';
+import PartnershipsPage from './pages/PartnershipsPage.jsx';
+import LaborConditionApplicationsPage from './pages/LaborConditionApplicationsPage.jsx';
+import CompanyLeadershipPage from './pages/CompanyLeadershipPage.jsx';
 
 function HomePage() {
   const location = useLocation();
@@ -54,11 +76,16 @@ function HomePage() {
       <main>
         <Hero />
         <FeatureCards />
+        <AIIAMIntersection />
         <FindTalents />
         <Industries />
-        <SuccessStories />
+        <TechPartners />
+        <IAMMaturityModel />
+        <ComplianceBadges />
         <TalentSpecialties />
+        <SuccessStories />
         <Insights />
+        <AIReadinessCTA />
         <FinalCTA />
       </main>
       <Footer />
@@ -82,6 +109,22 @@ export default function App() {
       <Route path="/employee-benefits" element={<EmployeeBenefitsPage />} />
       <Route path="/artificial-intelligence" element={<ArtificialIntelligencePage />} />
       <Route path="/values-and-culture" element={<ValuesCulturePage />} />
+      
+      {/* New routes */}
+      <Route path="/ai-readiness-assessment" element={<AIReadinessPage />} />
+      <Route path="/iam-maturity-check" element={<IAMMaturityCheckPage />} />
+      <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+      <Route path="/blog" element={<BlogPage />} />
+      <Route path="/agentic-ai" element={<AgenticAIPage />} />
+      <Route path="/devops-agile" element={<DevOpsAgilePage />} />
+      <Route path="/risk-and-security" element={<RiskAndSecurityPage />} />
+      <Route path="/workforce-development" element={<WorkforceDevelopmentPage />} />
+      <Route path="/grid-modernization-integrated-ecosystems" element={<GridModernizationPage />} />
+      <Route path="/jb-hunt-the-road-to-better-data-gcp-bigquery" element={<JBHuntPage />} />
+      <Route path="/databricks-google-cloud" element={<DatabricksGoogleCloudPage />} />
+      <Route path="/partnerships" element={<PartnershipsPage />} />
+      <Route path="/labor-condition-applications" element={<LaborConditionApplicationsPage />} />
+      <Route path="/company-leadership" element={<CompanyLeadershipPage />} />
     </Routes>
   );
 }

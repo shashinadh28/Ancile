@@ -8,33 +8,64 @@ const NAV_LINKS = [
     label: 'Services',
     href: '#services',
     dropdown: [
+      { label: 'Agentic AI', href: '/agentic-ai', isRoute: true },
+      { label: 'AI Implementation', href: '/artificial-intelligence', isRoute: true },
+      { label: 'DevOps & Agile', href: '/devops-agile', isRoute: true },
+      { label: 'Risk & Security', href: '/risk-and-security', isRoute: true },
+      { label: 'IAM Solutions', href: '#iam' },
+      { label: 'Data & Cloud', href: '/technology-services', isRoute: true },
       { label: 'Talent Solutions', href: '/talent-solutions', isRoute: true },
-      { label: 'Technology Services', href: '/technology-services', isRoute: true },
+      { label: 'Workforce Development', href: '/workforce-development', isRoute: true },
+      { label: 'Technology Partnerships', href: '/partnerships', isRoute: true },
       { label: 'Pricing & Revenue', href: '/pricing-revenue-management', isRoute: true },
-      { label: 'Artificial Intelligence', href: '/artificial-intelligence', isRoute: true },
     ],
   },
   { label: 'Industries', href: '#industries' },
-  { label: 'Success Stories', href: '#stories' },
+  {
+    label: 'Success Stories',
+    href: '#stories',
+    dropdown: [
+      { label: 'Grid Modernization', href: '/grid-modernization-integrated-ecosystems', isRoute: true },
+      { label: 'J.B. Hunt', href: '/jb-hunt-the-road-to-better-data-gcp-bigquery', isRoute: true },
+      { label: 'Databricks Google Cloud', href: '/databricks-google-cloud', isRoute: true },
+    ],
+  },
+  {
+    label: 'Interactive',
+    href: '#interactive',
+    dropdown: [
+      { label: 'AI Readiness Quiz', href: '/ai-readiness-assessment', isRoute: true },
+      { label: 'IAM Security Game', href: '/iam-maturity-check', isRoute: true },
+      { label: 'Blog Directory', href: '/blog', isRoute: true },
+      { label: 'Privacy Policy', href: '/privacy-policy', isRoute: true },
+    ],
+  },
   { label: 'Insights', href: '#insights' },
-  { label: 'About', href: '#about' },
   {
     label: 'Careers',
     href: '#careers',
     dropdown: [
       { label: 'Engineering & Tech', href: '/engineering-technology', isRoute: true },
-      { label: 'Employee Benefits', href: '/employee-benefits', isRoute: true },
       { label: 'Values & Culture', href: '/values-and-culture', isRoute: true },
+      { label: 'Employee Benefits', href: '/employee-benefits', isRoute: true },
       { label: 'Interview Process', href: '/interview-process', isRoute: true },
       { label: 'Case Interview Prep', href: '/case-interview-prep', isRoute: true },
       { label: 'Using AI in Applications', href: '/using-ai-application-process', isRoute: true },
-      { label: 'Responsible AI in Hiring', href: '/responsible-ai-in-hiring', isRoute: true },
+    ],
+  },
+  {
+    label: 'More',
+    href: '#more',
+    dropdown: [
+      { label: 'Company Leadership', href: '/company-leadership', isRoute: true },
+      { label: 'Labor Condition Applications', href: '/labor-condition-applications', isRoute: true },
     ],
   },
 ];
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [forceWhite, setForceWhite] = useState(false);
   const [open, setOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(null);
   const [mobileDropdownOpen, setMobileDropdownOpen] = useState(null);
@@ -59,7 +90,15 @@ export default function Navbar() {
     const onScroll = () => setScrolled(window.scrollY > 60);
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    const onForce = () => setForceWhite(true);
+    const onRelease = () => setForceWhite(false);
+    window.addEventListener('forceNavWhite', onForce);
+    window.addEventListener('releaseNavWhite', onRelease);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('forceNavWhite', onForce);
+      window.removeEventListener('releaseNavWhite', onRelease);
+    };
   }, []);
 
   const handleDropdownEnter = (label) => {
@@ -83,21 +122,21 @@ export default function Navbar() {
         right: 0,
         zIndex: 50,
         transition: 'all 0.4s ease',
-        ...(scrolled
+        ...((forceWhite || scrolled)
           ? {
-            background: 'rgba(255,255,255,0.95)',
-            backdropFilter: 'blur(20px)',
-            WebkitBackdropFilter: 'blur(20px)',
-            borderBottom: '1px solid rgba(0,0,0,0.06)',
-            boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
-            paddingTop: '12px',
-            paddingBottom: '12px',
-          }
+              background: 'rgba(255,255,255,0.98)',
+              backdropFilter: 'blur(20px)',
+              WebkitBackdropFilter: 'blur(20px)',
+              borderBottom: '1px solid rgba(0,0,0,0.06)',
+              boxShadow: '0 2px 20px rgba(0,0,0,0.06)',
+              paddingTop: '12px',
+              paddingBottom: '12px',
+            }
           : {
-            background: 'transparent',
-            paddingTop: '20px',
-            paddingBottom: '20px',
-          }),
+              background: 'transparent',
+              paddingTop: '20px',
+              paddingBottom: '20px',
+            }),
       }}
     >
       <nav
@@ -112,13 +151,13 @@ export default function Navbar() {
           justifyContent: 'space-between',
         }}
       >
-        {/* Logo — click always goes to home */}
-        <Link to="/" style={{ textDecoration: 'none', display: 'flex', alignItems: 'center', gap: '8px' }}>
+        {/* Logo */}
+        <Link to="/" onClick={() => window.scrollTo(0, 0)} style={{ textDecoration: 'none', display: 'flex', flexDirection: 'column', gap: '2px' }}>
           <img
-            src={scrolled ? '/LOGO/LOGO_WHITE.png' : '/LOGO/LOGO_BLACK.png'}
+            src={(forceWhite || scrolled) ? '/LOGO/LOGO_WHITE.png' : '/LOGO/LOGO_BLACK.png'}
             alt="Ancile Inc"
             style={{
-              height: scrolled ? '36px' : '42px',
+              height: (forceWhite || scrolled) ? '36px' : '42px',
               width: 'auto',
               objectFit: 'contain',
               transition: 'all 0.4s ease',
@@ -138,7 +177,7 @@ export default function Navbar() {
               {link.isRoute ? (
                 <Link
                   to={link.href}
-                  onClick={() => { setOpen(false); setDropdownOpen(null); }}
+                  onClick={() => { setOpen(false); setDropdownOpen(null); window.scrollTo(0, 0); }}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',
@@ -146,22 +185,58 @@ export default function Navbar() {
                     padding: '8px 14px',
                     fontSize: '14px',
                     fontWeight: 500,
-                    color: scrolled ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.8)',
+                    color: (forceWhite || scrolled) ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.8)',
                     textDecoration: 'none',
                     borderRadius: '8px',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = scrolled ? '#0F172A' : '#ffffff';
-                    e.currentTarget.style.background = scrolled ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.07)';
+                    e.currentTarget.style.color = (forceWhite || scrolled) ? '#0F172A' : '#ffffff';
+                    e.currentTarget.style.background = (forceWhite || scrolled) ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.07)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = scrolled ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.8)';
+                    e.currentTarget.style.color = (forceWhite || scrolled) ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.8)';
                     e.currentTarget.style.background = 'transparent';
                   }}
                 >
                   {link.label}
                 </Link>
+              ) : link.isHighlight ? (
+                // AI & IAM — special highlighted link with blue dot
+                <a
+                  href={link.href}
+                  onClick={(e) => handleAnchorNav(e, link.href)}
+                  style={{
+                    display: 'inline-flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                    padding: '8px 14px',
+                    fontSize: '14px',
+                    fontWeight: 600,
+                    color: '#1565D8',
+                    textDecoration: 'none',
+                    borderRadius: '8px',
+                    transition: 'all 0.2s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.background = 'rgba(21,101,216,0.08)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.background = 'transparent';
+                  }}
+                >
+                  <span
+                    style={{
+                      width: '6px',
+                      height: '6px',
+                      borderRadius: '50%',
+                      background: '#1565D8',
+                      flexShrink: 0,
+                      boxShadow: '0 0 6px rgba(21,101,216,0.6)',
+                    }}
+                  />
+                  {link.label}
+                </a>
               ) : (
                 <a
                   href={link.href}
@@ -173,17 +248,17 @@ export default function Navbar() {
                     padding: '8px 14px',
                     fontSize: '14px',
                     fontWeight: 500,
-                    color: scrolled ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.8)',
+                    color: (forceWhite || scrolled) ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.8)',
                     textDecoration: 'none',
                     borderRadius: '8px',
                     transition: 'all 0.2s ease',
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.color = scrolled ? '#0F172A' : '#ffffff';
-                    e.currentTarget.style.background = scrolled ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.07)';
+                    e.currentTarget.style.color = (forceWhite || scrolled) ? '#0F172A' : '#ffffff';
+                    e.currentTarget.style.background = (forceWhite || scrolled) ? 'rgba(0,0,0,0.04)' : 'rgba(255,255,255,0.07)';
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.color = scrolled ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.8)';
+                    e.currentTarget.style.color = (forceWhite || scrolled) ? 'rgba(15,23,42,0.7)' : 'rgba(255,255,255,0.8)';
                     e.currentTarget.style.background = 'transparent';
                   }}
                 >
@@ -214,7 +289,7 @@ export default function Navbar() {
                   >
                     <div
                       style={{
-                        width: '220px',
+                        width: '230px',
                         background: '#ffffff',
                         border: '1px solid rgba(0,0,0,0.08)',
                         borderRadius: '14px',
@@ -227,7 +302,7 @@ export default function Navbar() {
                           <Link
                             key={item.label}
                             to={item.href}
-                            onClick={() => setDropdownOpen(null)}
+                            onClick={() => { setDropdownOpen(null); window.scrollTo(0, 0); }}
                             style={{
                               display: 'block',
                               padding: '10px 14px',
@@ -239,7 +314,7 @@ export default function Navbar() {
                             }}
                             onMouseEnter={(e) => {
                               e.currentTarget.style.background = '#EAF3FF';
-                              e.currentTarget.style.color = '#1E5DB8';
+                              e.currentTarget.style.color = '#1565D8';
                             }}
                             onMouseLeave={(e) => {
                               e.currentTarget.style.background = 'transparent';
@@ -252,6 +327,7 @@ export default function Navbar() {
                           <a
                             key={item.label}
                             href={item.href}
+                            onClick={(e) => handleAnchorNav(e, item.href)}
                             style={{
                               display: 'block',
                               padding: '10px 14px',
@@ -263,7 +339,7 @@ export default function Navbar() {
                             }}
                             onMouseEnter={(e) => {
                               e.currentTarget.style.background = '#EAF3FF';
-                              e.currentTarget.style.color = '#1E5DB8';
+                              e.currentTarget.style.color = '#1565D8';
                             }}
                             onMouseLeave={(e) => {
                               e.currentTarget.style.background = 'transparent';
@@ -284,14 +360,15 @@ export default function Navbar() {
 
         {/* Right actions */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-          <motion.button
-            onClick={() => navigate('/contact')}
+          <motion.a
+            href="#contact"
+            onClick={(e) => handleAnchorNav(e, '#contact')}
             className="nav-desktop-contact-btn"
             style={{
               display: 'inline-flex',
               alignItems: 'center',
               gap: '8px',
-              background: '#2F80ED',
+              background: '#1565D8',
               color: '#ffffff',
               fontWeight: 700,
               fontSize: '14px',
@@ -299,10 +376,11 @@ export default function Navbar() {
               borderRadius: '50px',
               border: 'none',
               cursor: 'pointer',
-              boxShadow: '0 4px 20px rgba(47,128,237,0.3)',
+              boxShadow: '0 4px 20px rgba(21,101,216,0.3)',
               whiteSpace: 'nowrap',
+              textDecoration: 'none',
             }}
-            whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(47,128,237,0.4)' }}
+            whileHover={{ scale: 1.04, boxShadow: '0 8px 28px rgba(21,101,216,0.4)' }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: 'spring', stiffness: 400, damping: 20 }}
           >
@@ -311,7 +389,7 @@ export default function Navbar() {
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />
             </svg>
-          </motion.button>
+          </motion.a>
 
           {/* Mobile menu button */}
           <button
@@ -323,9 +401,9 @@ export default function Navbar() {
               width: '40px',
               height: '40px',
               borderRadius: '10px',
-              border: `1px solid ${scrolled ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.2)'}`,
-              background: scrolled ? '#ffffff' : 'rgba(255,255,255,0.08)',
-              color: scrolled ? '#0F172A' : '#ffffff',
+              border: `1px solid ${(forceWhite || scrolled) ? 'rgba(0,0,0,0.12)' : 'rgba(255,255,255,0.2)'}`,
+              background: (forceWhite || scrolled) ? '#ffffff' : 'rgba(255,255,255,0.08)',
+              color: (forceWhite || scrolled) ? '#0F172A' : '#ffffff',
               alignItems: 'center',
               justifyContent: 'center',
               cursor: 'pointer',
@@ -411,7 +489,7 @@ export default function Navbar() {
                               <Link
                                 key={item.label}
                                 to={item.href}
-                                onClick={() => setOpen(false)}
+                                onClick={() => { setOpen(false); window.scrollTo(0, 0); }}
                                 style={{
                                   display: 'block',
                                   padding: '10px 16px',
@@ -443,55 +521,73 @@ export default function Navbar() {
                       )}
                     </AnimatePresence>
                   </div>
+                ) : link.isRoute ? (
+                  <Link
+                    to={link.href}
+                    onClick={() => setOpen(false)}
+                    style={{
+                      display: 'block',
+                      padding: '12px 16px',
+                      borderRadius: '10px',
+                      fontSize: '14px',
+                      fontWeight: 500,
+                      color: '#334155',
+                      textDecoration: 'none',
+                      transition: 'all 0.15s ease',
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                ) : link.isHighlight ? (
+                  <a
+                    href={link.href}
+                    onClick={(e) => { handleAnchorNav(e, link.href); setOpen(false); }}
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '6px',
+                      padding: '12px 16px',
+                      borderRadius: '10px',
+                      fontSize: '14px',
+                      fontWeight: 600,
+                      color: '#1565D8',
+                      textDecoration: 'none',
+                    }}
+                  >
+                    <span style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#1565D8', flexShrink: 0 }} />
+                    {link.label}
+                  </a>
                 ) : (
-                  link.isRoute ? (
-                    <Link
-                      to={link.href}
-                      onClick={() => setOpen(false)}
-                      style={{
-                        display: 'block',
-                        padding: '12px 16px',
-                        borderRadius: '10px',
-                        fontSize: '14px',
-                        fontWeight: 500,
-                        color: '#334155',
-                        textDecoration: 'none',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      {link.label}
-                    </Link>
-                  ) : (
-                    <a
-                      href={link.href}
-                      onClick={(e) => { handleAnchorNav(e, link.href); setOpen(false); }}
-                      style={{
-                        display: 'block',
-                        padding: '12px 16px',
-                        borderRadius: '10px',
-                        fontSize: '14px',
-                        fontWeight: 500,
-                        color: '#334155',
-                        textDecoration: 'none',
-                        transition: 'all 0.15s ease',
-                      }}
-                    >
-                      {link.label}
-                    </a>
-                  )
+                  <a
+                    href={link.href}
+                    onClick={(e) => { handleAnchorNav(e, link.href); setOpen(false); }}
+                    style={{
+                      display: 'block',
+                      padding: '12px 16px',
+                      borderRadius: '10px',
+                      fontSize: '14px',
+                      fontWeight: 500,
+                      color: '#334155',
+                      textDecoration: 'none',
+                      transition: 'all 0.15s ease',
+                    }}
+                  >
+                    {link.label}
+                  </a>
                 )}
               </div>
             ))}
             <div style={{ marginTop: '12px', paddingTop: '12px', borderTop: '1px solid rgba(0,0,0,0.06)' }}>
-              <motion.button
-                onClick={() => { setOpen(false); navigate('/contact'); }}
+              <motion.a
+                href="#contact"
+                onClick={(e) => { handleAnchorNav(e, '#contact'); setOpen(false); }}
                 style={{
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
                   gap: '8px',
                   width: '100%',
-                  background: '#2F80ED',
+                  background: '#1565D8',
                   color: '#ffffff',
                   fontWeight: 700,
                   fontSize: '14px',
@@ -499,9 +595,10 @@ export default function Navbar() {
                   borderRadius: '50px',
                   border: 'none',
                   cursor: 'pointer',
-                  boxShadow: '0 4px 20px rgba(47,128,237,0.3)',
+                  boxShadow: '0 4px 20px rgba(21,101,216,0.3)',
+                  textDecoration: 'none',
                 }}
-                whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(47,128,237,0.4)' }}
+                whileHover={{ scale: 1.02, boxShadow: '0 6px 24px rgba(21,101,216,0.4)' }}
                 whileTap={{ scale: 0.98 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               >
@@ -510,7 +607,7 @@ export default function Navbar() {
                   <line x1="5" y1="12" x2="19" y2="12" />
                   <polyline points="12 5 19 12 12 19" />
                 </svg>
-              </motion.button>
+              </motion.a>
             </div>
           </motion.div>
         )}

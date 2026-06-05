@@ -8,42 +8,90 @@ const STEPS = [
   {
     num: '01',
     title: 'Define Your Need',
-    desc: 'Share your talent requirements or project goals—we align fast on scope, stack, and timeline.',
+    desc: 'Share your technical requirements, stack preferences, timeline, and budget range. The more detail, the faster we can match.',
     icon: DefineIcon,
   },
   {
     num: '02',
     title: 'We Source & Vet',
-    desc: 'Our domain specialists surface and screen candidates against precise technical and cultural criteria.',
+    desc: 'Our domain specialists surface and screen candidates and delivery partners against precise technical and cultural criteria — not just keyword matching.',
     icon: SearchIcon,
   },
   {
     num: '03',
-    title: 'Receive a Shortlist',
-    desc: 'You get a concise, high-quality shortlist—typically within days, not weeks.',
+    title: 'You Receive a Shortlist',
+    desc: 'A concise, high-quality shortlist — typically within 3–5 business days for talent, 5–7 days for project delivery.',
     icon: ListIcon,
   },
   {
     num: '04',
     title: 'Governed Delivery',
-    desc: 'We stay engaged with clear SLAs, open reporting, and proactive communication throughout.',
+    desc: 'We stay engaged. Clear SLAs, open reporting, named points of contact, and proactive communication throughout the engagement.',
     icon: ShieldIcon,
   },
 ];
 
+const TOGGLE_OPTIONS = [
+  { id: 'ai-iam-talent', label: 'I need AI or IAM talent' },
+  { id: 'project', label: 'I want to start a project' },
+  { id: 'general-talent', label: 'I need general tech talent' },
+];
+
+const DROPDOWN_OPTIONS = {
+  'ai-iam-talent': {
+    label: 'What type of role?',
+    options: [
+      'AI / ML Engineer',
+      'IAM / Identity Architect',
+      'LLM / GenAI Engineer',
+      'MLOps Engineer',
+      'Security / IAM Analyst',
+      'AI Product Manager',
+      'Okta / SailPoint / CyberArk Specialist',
+      'Other AI or IAM role',
+    ],
+  },
+  project: {
+    label: 'What type of project?',
+    options: [
+      'AI Implementation / LLM Integration',
+      'IAM Platform Implementation',
+      'Zero Trust Architecture',
+      'Data Platform Build',
+      'MLOps / AI Operations',
+      'Application Modernization',
+      'Other',
+    ],
+  },
+  'general-talent': {
+    label: 'What technology area?',
+    options: [
+      'Software Engineering',
+      'Data Engineering',
+      'Cloud / DevOps',
+      'QA / Automation',
+      'Cybersecurity',
+      'Product / PMO / BA',
+      'Other',
+    ],
+  },
+};
+
 export default function FinalCTA() {
-  const [activeTab, setActiveTab] = useState('talent');
+  const [activeTab, setActiveTab] = useState('ai-iam-talent');
   const [submitted, setSubmitted] = useState(false);
   const [form, setForm] = useState({ first: '', last: '', email: '', company: '', title: '', need: '', message: '' });
 
   const handleChange = (e) => setForm((p) => ({ ...p, [e.target.name]: e.target.value }));
   const handleSubmit = (e) => { e.preventDefault(); setSubmitted(true); };
 
+  const currentDropdown = DROPDOWN_OPTIONS[activeTab];
+
   return (
     <section
-      id="cta"
+      id="contact"
       className="relative py-20 sm:py-28 overflow-hidden"
-      style={{ backgroundColor: '#0B1120' }}
+      style={{ backgroundColor: '#0A1628' }}
     >
       {/* Grid overlay */}
       <div
@@ -55,9 +103,8 @@ export default function FinalCTA() {
         }}
       />
       {/* Glow orbs */}
-      {/* Glow orbs */}
-      <div aria-hidden className="pointer-events-none absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(47,128,237,0.10)' }} />
-      <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-20 w-[350px] h-[350px] rounded-full blur-[90px]" style={{ background: 'rgba(99,102,241,0.07)' }} />
+      <div aria-hidden className="pointer-events-none absolute -top-20 -right-20 w-[400px] h-[400px] rounded-full blur-[100px]" style={{ background: 'rgba(21,101,216,0.10)' }} />
+      <div aria-hidden className="pointer-events-none absolute -bottom-20 -left-20 w-[350px] h-[350px] rounded-full blur-[90px]" style={{ background: 'rgba(60,52,137,0.07)' }} />
 
       <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <div className="finalcta-grid grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
@@ -69,7 +116,7 @@ export default function FinalCTA() {
               initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce} transition={{ duration: 0.6, ease }}
               className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-6"
-              style={{ background: 'rgba(47,128,237,0.1)', border: '1px solid rgba(47,128,237,0.25)', color: '#2F80ED' }}
+              style={{ background: 'rgba(21,101,216,0.1)', border: '1px solid rgba(21,101,216,0.25)', color: '#1565D8' }}
             >
               <span className="h-1.5 w-1.5 rounded-full bg-current" />
               Let's Connect
@@ -80,8 +127,8 @@ export default function FinalCTA() {
               viewport={viewportOnce} transition={{ duration: 0.85, ease, delay: 0.08 }}
               className="font-display text-4xl sm:text-5xl font-extrabold leading-[1.05] tracking-tight text-white mb-5"
             >
-              Let's talk about your{' '}
-              <span style={{ color: '#2F80ED' }}>hiring or delivery goals.</span>
+              Tell us what you are building.{' '}
+              <span style={{ color: '#1565D8' }}>We will respond within 24 hours.</span>
             </motion.h2>
 
             <motion.p
@@ -90,7 +137,7 @@ export default function FinalCTA() {
               className="text-base leading-[1.8] max-w-md mb-10"
               style={{ color: 'rgba(255,255,255,0.55)' }}
             >
-              Tell us what you're building—our team will respond quickly with next steps and a tailored plan.
+              Whether you need an IAM architect, an AI engineering team, or a technology delivery partner — share the details and we will come back with a tailored plan.
             </motion.p>
 
             {/* Steps */}
@@ -106,20 +153,19 @@ export default function FinalCTA() {
                     transition={{ duration: 0.65, ease, delay: 0.2 + i * 0.1 }}
                     className="flex items-start gap-4"
                   >
-                    {/* Icon box */}
                     <span
                       className="shrink-0 grid h-11 w-11 place-items-center rounded-xl"
                       style={{
                         background: 'rgba(255,255,255,0.06)',
                         border: '1px solid rgba(255,255,255,0.12)',
-                        color: '#2F80ED',
+                        color: '#1565D8',
                       }}
                     >
                       <Icon />
                     </span>
                     <div className="pt-1">
                       <h4 className="text-white font-bold text-sm mb-1">
-                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] mr-2" style={{ color: '#2F80ED' }}>{s.num}</span>
+                        <span className="text-[10px] font-bold uppercase tracking-[0.2em] mr-2" style={{ color: '#1565D8' }}>{s.num}</span>
                         {s.title}
                       </h4>
                       <p className="text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.45)' }}>{s.desc}</p>
@@ -173,42 +219,40 @@ export default function FinalCTA() {
                 >
                   <div
                     className="h-20 w-20 rounded-full grid place-items-center mb-6"
-                    style={{ background: 'rgba(47,128,237,0.1)' }}
+                    style={{ background: 'rgba(21,101,216,0.1)' }}
                   >
-                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#2F80ED" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                    <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="#1565D8" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
                   <h3 className="font-display text-2xl font-bold text-ink-900 mb-3">Message Sent!</h3>
-                  <p className="text-ink-500 text-sm leading-relaxed max-w-xs">Thanks—our team will follow up shortly. We typically respond within one business day.</p>
-                  <button onClick={() => setSubmitted(false)} className="mt-8 text-sm font-semibold" style={{ color: '#2F80ED' }}>Send another →</button>
+                  <p className="text-ink-500 text-sm leading-relaxed max-w-xs">Thanks — our team will follow up within 24 hours. We look forward to learning more about what you're building.</p>
+                  <button onClick={() => setSubmitted(false)} className="mt-8 text-sm font-semibold" style={{ color: '#1565D8' }}>Send another →</button>
                 </motion.div>
               ) : (
                 <>
                   <div className="mb-7">
                     <h3 className="text-xl font-bold text-ink-900 mb-1">Send us a message</h3>
-                    <p className="text-sm text-ink-400">Fill in the form and we'll get back to you quickly.</p>
-                    {/* Blue underline accent */}
-                    <div style={{ width: '48px', height: '3px', background: '#2F80ED', borderRadius: '999px', marginTop: '14px' }} />
+                    <p className="text-sm text-ink-400">Fill in the form and we'll get back to you within 24 hours.</p>
+                    <div style={{ width: '48px', height: '3px', background: '#1565D8', borderRadius: '999px', marginTop: '14px' }} />
                   </div>
 
-                  {/* Tab toggle */}
+                  {/* 3-option Tab toggle */}
                   <div
-                    className="inline-flex rounded-xl p-1 mb-7 w-full"
+                    className="flex flex-col sm:flex-row rounded-xl p-1 mb-7 w-full gap-1"
                     style={{ background: 'rgba(15,23,42,0.05)', border: '1px solid rgba(15,23,42,0.08)' }}
                   >
-                    {[
-                      { id: 'talent', label: 'I need talent' },
-                      { id: 'project', label: 'I want to start a project' },
-                    ].map((tab) => (
+                    {TOGGLE_OPTIONS.map((tab) => (
                       <button
                         key={tab.id}
-                        onClick={() => setActiveTab(tab.id)}
-                        className="flex-1 px-3 py-2.5 rounded-lg text-xs font-semibold transition-all duration-200"
+                        id={`contact-toggle-${tab.id}`}
+                        onClick={() => { setActiveTab(tab.id); setForm(f => ({ ...f, need: '' })); }}
+                        className="flex-1 px-2 py-2.5 rounded-lg text-xs font-semibold transition-all duration-200 text-center"
                         style={{
                           color: activeTab === tab.id ? '#fff' : '#64748b',
-                          background: activeTab === tab.id ? '#2F80ED' : 'transparent',
+                          background: activeTab === tab.id ? '#1565D8' : 'transparent',
                           border: 'none', cursor: 'pointer',
+                          lineHeight: 1.3,
                         }}
                       >
                         {tab.label}
@@ -225,37 +269,31 @@ export default function FinalCTA() {
                     <FormField label="Company" name="company" value={form.company} onChange={handleChange} required />
                     <FormField label="Title / Role" name="title" value={form.title} onChange={handleChange} />
 
-                    {activeTab === 'talent' && (
-                      <div>
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-2">What roles do you need?</label>
-                        <select name="need" value={form.need} onChange={handleChange} className="w-full px-4 py-3 rounded-xl text-sm text-ink-700 bg-white focus:outline-none" style={{ border: '1.5px solid #e5e7eb' }}>
-                          <option value="">Select a role category...</option>
-                          <option>Software Engineering</option>
-                          <option>Data Engineering</option>
-                          <option>Cloud / DevOps</option>
-                          <option>QA / Automation</option>
-                          <option>Cybersecurity</option>
-                          <option>Product / PMO / BA</option>
-                        </select>
-                      </div>
-                    )}
-
-                    {activeTab === 'project' && (
-                      <div>
-                        <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-2">Service area</label>
-                        <select name="need" value={form.need} onChange={handleChange} className="w-full px-4 py-3 rounded-xl text-sm text-ink-700 bg-white focus:outline-none" style={{ border: '1.5px solid #e5e7eb' }}>
-                          <option value="">Select a service area...</option>
-                          <option>Application Modernization</option>
-                          <option>Data Engineering & Platforms</option>
-                          <option>Analytics / AI/ML Enablement</option>
-                          <option>Cloud & Data Modernization</option>
-                        </select>
-                      </div>
-                    )}
+                    {/* Conditional dropdown */}
+                    <div>
+                      <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-2">
+                        {currentDropdown.label}
+                      </label>
+                      <select
+                        name="need"
+                        value={form.need}
+                        onChange={handleChange}
+                        id="contact-role-dropdown"
+                        className="w-full px-4 py-3 rounded-xl text-sm text-ink-700 bg-white focus:outline-none"
+                        style={{ border: '1.5px solid #e5e7eb' }}
+                      >
+                        <option value="">Select an option...</option>
+                        {currentDropdown.options.map((opt) => (
+                          <option key={opt}>{opt}</option>
+                        ))}
+                      </select>
+                    </div>
 
                     <div>
                       <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-2">Message</label>
-                      <textarea name="message" rows={3} value={form.message} onChange={handleChange} placeholder="Tell us more about what you're looking for..."
+                      <textarea
+                        name="message" rows={3} value={form.message} onChange={handleChange}
+                        placeholder="Tell us more — what are you building, what are your constraints, what does success look like?"
                         className="w-full px-4 py-3 rounded-xl text-sm text-ink-900 bg-white focus:outline-none resize-none"
                         style={{ border: '1.5px solid #e5e7eb' }}
                       />
@@ -263,13 +301,14 @@ export default function FinalCTA() {
 
                     <motion.button
                       type="submit"
-                      style={{ width: '100%', background: '#2F80ED', color: '#fff', fontWeight: 700, fontSize: '15px', padding: '14px', borderRadius: '50px', border: 'none', cursor: 'pointer', boxShadow: '0 8px 24px rgba(47,128,237,0.35)' }}
-                      whileHover={{ scale: 1.02, boxShadow: '0 12px 32px rgba(47,128,237,0.5)' }}
+                      id="contact-submit-btn"
+                      style={{ width: '100%', background: '#1565D8', color: '#fff', fontWeight: 700, fontSize: '15px', padding: '14px', borderRadius: '50px', border: 'none', cursor: 'pointer', boxShadow: '0 8px 24px rgba(21,101,216,0.35)' }}
+                      whileHover={{ scale: 1.02, boxShadow: '0 12px 32px rgba(21,101,216,0.5)' }}
                       whileTap={{ scale: 0.98 }}
                     >
-                      Send
+                      Send Message →
                     </motion.button>
-                    <p className="text-center text-xs text-ink-400">Your data is secure & never shared.</p>
+                    <p className="text-center text-xs text-ink-400">Your data is secure and never shared with third parties.</p>
                   </form>
                 </>
               )}
@@ -287,7 +326,7 @@ function FormField({ label, name, type = 'text', value, onChange, required }) {
   return (
     <div>
       <label className="block text-xs font-semibold uppercase tracking-wider text-ink-500 mb-1.5">
-        {label}{required && <span style={{ color: '#2F80ED' }}> *</span>}
+        {label}{required && <span style={{ color: '#1565D8' }}> *</span>}
       </label>
       <input
         type={type} name={name} value={value} onChange={onChange} required={required}

@@ -1,6 +1,5 @@
 import { useRef } from 'react';
 import { motion } from 'framer-motion';
-import { stagger, easePremium } from '../utils/motion';
 
 const ease = [0.22, 1, 0.36, 1];
 
@@ -14,6 +13,8 @@ const item = {
   }),
 };
 
+const LOGOS = ['Google', 'GM', 'Oracle', 'FedEx', 'HP', 'Verizon'];
+
 export default function Hero() {
   const ref = useRef(null);
 
@@ -22,9 +23,35 @@ export default function Hero() {
       ref={ref}
       id="home"
       className="relative isolate overflow-hidden"
-      style={{ backgroundColor: '#0B1120', minHeight: '100vh' }}
+      style={{ backgroundColor: '#0A1628', minHeight: '100vh' }}
     >
-      {/* ── BACKGROUND: Big orange circle slides in from right ── */}
+      {/* Dot grid texture */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: 'radial-gradient(circle, rgba(255,255,255,0.04) 1px, transparent 1px)',
+          backgroundSize: '32px 32px',
+        }}
+      />
+
+      {/* Blue glow top-right */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute"
+        style={{
+          top: '-10%',
+          right: '-5%',
+          width: '600px',
+          height: '600px',
+          borderRadius: '50%',
+          background: 'radial-gradient(circle, rgba(21,101,216,0.18) 0%, transparent 70%)',
+          filter: 'blur(40px)',
+          zIndex: 0,
+        }}
+      />
+
+      {/* Background blue circle decoration */}
       <motion.img
         src="/SVG/Orange_Circle.png"
         alt=""
@@ -70,56 +97,67 @@ export default function Hero() {
         >
           {/* ── LEFT: Text ─────────────────────────────────────── */}
           <div className="hero-text-col" style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start' }}>
-            {/* Badge */}
+            {/* Eyebrow Badge */}
             <motion.div
               custom={0} variants={item} initial="hidden" animate="visible"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '10px', marginBottom: '1.75rem' }}
             >
-              <span style={{ display: 'inline-block', width: '32px', height: '3px', background: '#2F80ED', borderRadius: '2px' }} />
-              <span style={{ fontSize: '12px', fontWeight: 700, color: '#2F80ED', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
+              <span style={{ display: 'inline-block', width: '32px', height: '3px', background: '#1565D8', borderRadius: '2px' }} />
+              <span style={{ fontSize: '12px', fontWeight: 700, color: '#1565D8', letterSpacing: '0.12em', textTransform: 'uppercase' }}>
                 Welcome to Ancile
               </span>
             </motion.div>
 
-            {/* Heading */}
+            {/* Main Headline */}
             <motion.h1
               custom={1} variants={item} initial="hidden" animate="visible"
               style={{
-                fontSize: 'clamp(2.4rem, 5.5vw, 4.25rem)',
+                fontSize: 'clamp(2.2rem, 5vw, 3.75rem)',
                 fontWeight: 800,
-                lineHeight: 1.06,
-                letterSpacing: '-0.035em',
+                lineHeight: 1.1,
+                letterSpacing: '-0.03em',
                 color: '#FFFFFF',
                 fontFamily: '"Plus Jakarta Sans", Inter, sans-serif',
-                marginBottom: '1.5rem',
+                marginBottom: '1.75rem',
               }}
             >
-              Talent + Technology<br />
-              to Accelerate<br />
-              <span style={{ color: '#2F80ED' }}>Delivery.</span>
+              AI Implementation +{' '}
+              <span style={{ display: 'inline' }}>Identity Security</span>
+              <br />
+              <span style={{ color: '#1565D8' }}>for the Enterprise.</span>
             </motion.h1>
 
-            {/* Subtitle */}
+            {/* Subheadline */}
             <motion.p
               custom={2} variants={item} initial="hidden" animate="visible"
               style={{
-                fontSize: 'clamp(0.95rem, 1.8vw, 1.05rem)',
-                lineHeight: 1.75,
-                color: 'rgba(255,255,255,0.6)',
-                maxWidth: '440px',
-                marginBottom: '1rem',
+                fontSize: 'clamp(0.9rem, 1.6vw, 1rem)',
+                lineHeight: 1.8,
+                color: 'rgba(255,255,255,0.65)',
+                maxWidth: '460px',
+                marginBottom: '1.25rem',
+                fontWeight: 400,
               }}
             >
-              Ancile helps organizations scale with specialized talent and technology
-              services—built for speed, accountability, and measurable impact.
+              We build and secure AI-powered enterprises. From LLM integration and agentic
+              workflows to Zero Trust IAM and identity governance — Ancile delivers the
+              technology expertise and engineering talent you need to move fast and stay protected.
             </motion.p>
 
             {/* Trust line */}
             <motion.p
               custom={3} variants={item} initial="hidden" animate="visible"
-              style={{ fontSize: '12px', color: 'rgba(255,255,255,0.35)', letterSpacing: '0.04em', marginBottom: '2.5rem' }}
+              style={{
+                fontSize: '11.5px',
+                color: 'rgba(255,255,255,0.35)',
+                letterSpacing: '0.05em',
+                marginBottom: '2.5rem',
+                borderLeft: '2px solid rgba(21,101,216,0.5)',
+                paddingLeft: '10px',
+                lineHeight: 1.6,
+              }}
             >
-              Trusted by teams across industries in the U.S. and globally.
+              Trusted by technology, financial services, and healthcare organizations across the U.S. and globally.
             </motion.p>
 
             {/* CTA Buttons */}
@@ -132,16 +170,16 @@ export default function Hero() {
                 href="#contact"
                 style={{
                   display: 'inline-flex', alignItems: 'center', gap: '10px',
-                  background: '#2F80ED', color: '#fff', fontWeight: 700,
+                  background: '#1565D8', color: '#fff', fontWeight: 700,
                   fontSize: '15px', padding: '14px 28px', borderRadius: '50px',
-                  textDecoration: 'none', boxShadow: '0 8px 32px rgba(47,128,237,0.35)',
+                  textDecoration: 'none', boxShadow: '0 8px 32px rgba(21,101,216,0.4)',
                   letterSpacing: '0.01em',
                 }}
-                whileHover={{ scale: 1.04, boxShadow: '0 12px 40px rgba(47,128,237,0.5)' }}
+                whileHover={{ scale: 1.04, boxShadow: '0 12px 40px rgba(21,101,216,0.55)' }}
                 whileTap={{ scale: 0.97 }}
                 transition={{ type: 'spring', stiffness: 400, damping: 20 }}
               >
-                Talk to Sales
+                Talk to an Expert
                 <span style={{ display: 'inline-flex', alignItems: 'center', justifyContent: 'center', width: '32px', height: '32px', borderRadius: '50%', background: 'rgba(255,255,255,0.2)' }}>
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
@@ -154,24 +192,26 @@ export default function Hero() {
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', color: 'rgba(255,255,255,0.7)', fontWeight: 600, fontSize: '14px', textDecoration: 'none' }}
                 whileHover={{ color: '#fff' }}
               >
-                View Capabilities
+                See AI + IAM Services
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                 </svg>
               </motion.a>
             </motion.div>
 
-            {/* Stats */}
+            {/* Stats Row — 4 stats */}
             <motion.div
               custom={5} variants={item} initial="hidden" animate="visible"
               className="hero-stats-row"
               style={{ display: 'flex', alignItems: 'center', gap: '2rem', marginTop: '3rem', paddingTop: '2rem', borderTop: '1px solid rgba(255,255,255,0.08)', flexWrap: 'wrap' }}
             >
-              <Stat value="500+" label="Talents Placed" />
+              <Stat value="500+" label="Talent Engagements" />
               <div style={{ width: '1px', height: '40px', background: 'rgba(255,255,255,0.1)' }} />
               <Stat value="20+" label="Industries Served" />
               <div style={{ width: '1px', height: '40px', background: 'rgba(255,255,255,0.1)' }} />
               <Stat value="98%" label="Client Retention" />
+              <div style={{ width: '1px', height: '40px', background: 'rgba(255,255,255,0.1)' }} />
+              <Stat value="18k+" label="Enterprise Connections" />
             </motion.div>
           </div>
 
@@ -191,14 +231,14 @@ export default function Hero() {
               style={{ position: 'absolute', top: '-70px', left: '156px', zIndex: 2, width: '35px', objectFit: 'contain', pointerEvents: 'none' }}
             />
 
-            {/* Tall rectangle behind white circle — slides up */}
+            {/* Tall rectangle behind white circle */}
             <motion.div
               initial={{ opacity: 0, y: 40 }} animate={{ opacity: 0.2, y: 0 }}
               transition={{ delay: 1.1, duration: 0.8, ease }}
               style={{ position: 'absolute', top: '-50px', left: '156px', zIndex: 1, width: '35px', height: '150px', background: '#ffffff', borderRadius: '4px', pointerEvents: 'none' }}
             />
 
-            {/* Orange Circle mid-left — slides up, rotated to brand blue */}
+            {/* Blue Circle mid-left */}
             <motion.img
               src="/SVG/Orange_Circle.png" alt="" aria-hidden="true"
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
@@ -206,7 +246,7 @@ export default function Hero() {
               style={{ position: 'absolute', top: '-34px', left: '105px', zIndex: 2, width: '35px', objectFit: 'contain', pointerEvents: 'none', filter: 'hue-rotate(190deg) saturate(1.2)' }}
             />
 
-            {/* White Circle bottom-left — slides up */}
+            {/* White Circle bottom-left */}
             <motion.img
               src="/SVG/white_circle.png" alt="" aria-hidden="true"
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
@@ -214,21 +254,21 @@ export default function Hero() {
               style={{ position: 'absolute', top: '-8px', left: '54px', zIndex: 2, width: '35px', objectFit: 'contain', pointerEvents: 'none' }}
             />
 
-            {/* Rectangle behind orange circle — slides up */}
+            {/* Rectangle behind blue circle */}
             <motion.div
               initial={{ opacity: 0, y: 40 }} animate={{ opacity: 0.2, y: 0 }}
               transition={{ delay: 1.15, duration: 0.8, ease }}
               style={{ position: 'absolute', top: '-10px', left: '105px', zIndex: 1, width: '35px', height: '150px', background: '#ffffff', borderRadius: '4px', pointerEvents: 'none' }}
             />
 
-            {/* Rectangle far left — slides up */}
+            {/* Rectangle far left */}
             <motion.div
               initial={{ opacity: 0, y: 40 }} animate={{ opacity: 0.2, y: 0 }}
               transition={{ delay: 1.2, duration: 0.8, ease }}
               style={{ position: 'absolute', top: '15px', left: '54px', zIndex: 1, width: '35px', height: '150px', background: '#ffffff', borderRadius: '4px', pointerEvents: 'none' }}
             />
 
-            {/* Stars — slides up */}
+            {/* Stars */}
             <motion.img
               src="/SVG/stars.png" alt="" aria-hidden="true"
               initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }}
@@ -236,14 +276,14 @@ export default function Hero() {
               style={{ position: 'absolute', top: '80%', left: '-80px', zIndex: 1, width: '80px', objectFit: 'contain', pointerEvents: 'none' }}
             />
 
-            {/* 18k+ Clients badge */}
+            {/* 18k+ Enterprise Connections badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 1.25, duration: 0.8, ease }}
               style={{ position: 'absolute', left: '-20px', top: '42%', zIndex: 10, background: 'white', borderRadius: '50px', padding: '8px 16px 8px 8px', display: 'flex', alignItems: 'center', gap: '10px', boxShadow: '0 8px 32px rgba(0,0,0,0.18)' }}
             >
               <div style={{ display: 'flex' }}>
-                {['#6366f1', '#2F80ED', '#0EA5E9'].map((color, i) => (
+                {['#6366f1', '#1565D8', '#0EA5E9'].map((color, i) => (
                   <div key={i} style={{ width: '30px', height: '30px', borderRadius: '50%', background: color, border: '2px solid white', marginLeft: i > 0 ? '-8px' : '0', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
                       <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
@@ -258,8 +298,8 @@ export default function Hero() {
                 </div>
               </div>
               <div>
-                <div style={{ fontSize: '15px', fontWeight: 800, color: '#0B1120', lineHeight: 1 }}>18k+</div>
-                <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>Trusted Clients</div>
+                <div style={{ fontSize: '15px', fontWeight: 800, color: '#0A1628', lineHeight: 1 }}>18k+</div>
+                <div style={{ fontSize: '11px', color: '#64748b', marginTop: '2px' }}>Enterprise Connections</div>
               </div>
             </motion.div>
 
@@ -290,12 +330,12 @@ export default function Hero() {
           style={{ borderTop: '1px solid rgba(255,255,255,0.07)', paddingTop: '2rem', paddingBottom: '3rem' }}
         >
           <div style={{ fontSize: '11px', textTransform: 'uppercase', letterSpacing: '0.25em', color: 'rgba(255,255,255,0.25)', textAlign: 'center', marginBottom: '1.5rem' }}>
-            Trusted by delivery-focused teams
+            Trusted by delivery-focused teams at
           </div>
           <div className="mask-fade-edges" style={{ overflow: 'hidden' }}>
             <div className="flex w-max animate-marquee items-center gap-14">
               {[...LOGOS, ...LOGOS].map((logo, i) => (
-                <span key={i} style={{ fontSize: '16px', fontFamily: '"Plus Jakarta Sans", Inter, sans-serif', fontWeight: 600, color: 'rgba(255,255,255,0.18)', whiteSpace: 'nowrap' }}>
+                <span key={i} style={{ fontSize: '16px', fontFamily: '"Inter", "Plus Jakarta Sans", sans-serif', fontWeight: 600, color: 'rgba(255,255,255,0.18)', whiteSpace: 'nowrap' }}>
                   {logo}
                 </span>
               ))}
@@ -306,8 +346,6 @@ export default function Hero() {
     </section>
   );
 }
-
-const LOGOS = ['Google', 'GM', 'Oracle', 'FedEx', 'HP', 'Verizon'];
 
 function Stat({ value, label }) {
   return (

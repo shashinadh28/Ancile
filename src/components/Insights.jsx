@@ -4,28 +4,31 @@ import { stagger, viewportOnce, easePremium } from '../utils/motion';
 
 const POSTS = [
   {
-    title: 'The Future of Staff Augmentation in 2026',
+    title: 'The Enterprise AI Implementation Playbook: Pilot to Production',
     excerpt:
-      'How leading enterprises are rethinking talent strategy — moving from headcount to outcome-aligned delivery models.',
-    category: 'Blog',
-    readTime: '6 min read',
-    img: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1100&q=80',
-  },
-  {
-    title: 'Building a Modern Data Platform: A Decision Framework',
-    excerpt:
-      'A practical guide for CIOs and CDOs evaluating data lakehouse, warehouse, and hybrid architectures.',
+      'How leading organizations move AI from experiment to governed, production-grade deployment — and the engineering talent gaps they hit along the way. Key sections: build vs buy decisions, LLMOps maturity, AI access governance checklist.',
     category: 'Whitepaper',
-    readTime: '12 min read',
-    img: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1100&q=80',
+    readTime: '10 min read',
+    slug: '/blog/ai-implementation-playbook',
+    img: 'https://images.unsplash.com/photo-1677442135703-1787eea5ce01?auto=format&fit=crop&w=1100&q=80',
   },
   {
-    title: 'Cloud Migration Playbook: Reducing Risk at Scale',
+    title: 'Zero Trust Is Not a Product. It Is an Architecture.',
     excerpt:
-      'Lessons from enterprise cloud migrations — governance frameworks, team structures, and phased approaches that work.',
+      'Why most enterprise IAM projects stall at Level 2 — and the three design decisions that determine whether your identity program will scale. Includes a Zero Trust readiness checklist.',
+    category: 'Blog Post',
+    readTime: '6 min read',
+    slug: '/blog/zero-trust-architecture',
+    img: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?auto=format&fit=crop&w=1100&q=80',
+  },
+  {
+    title: 'SailPoint to Entra ID: A Healthcare IAM Migration',
+    excerpt:
+      'How Ancile staffed and co-led a 14-month IAM platform migration for a 6,000-employee regional health system — on time, zero compliance gaps, and 40% reduction in provisioning time.',
     category: 'Case Study',
     readTime: '8 min read',
-    img: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1100&q=80',
+    slug: '/blog/healthcare-iam-migration',
+    img: 'https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1100&q=80',
   },
 ];
 
@@ -63,7 +66,7 @@ export default function Insights() {
             }}
             className="mt-5 font-display text-3xl sm:text-4xl lg:text-5xl font-bold leading-[1.1] tracking-tightest text-ink-900"
           >
-            Insights & perspectives
+            Insights and perspectives from the Ancile team.
           </motion.h2>
           <motion.p
             variants={{
@@ -72,7 +75,7 @@ export default function Insights() {
             }}
             className="mt-5 text-base sm:text-lg leading-relaxed text-ink-600 max-w-2xl"
           >
-            Sharp, opinionated reads from the Ancile team — covering the technologies, trends, and strategies redefining delivery.
+            Sharp, opinionated reads on AI implementation, identity security, and the talent strategies that accelerate enterprise technology delivery.
           </motion.p>
         </motion.div>
 
@@ -92,7 +95,7 @@ export default function Insights() {
 
         <div className="mt-12 flex justify-center">
           <motion.a
-            href="#blog"
+            href="/blog"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOnce}
