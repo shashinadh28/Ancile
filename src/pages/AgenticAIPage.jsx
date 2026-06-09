@@ -790,10 +790,9 @@ function HowItWorksSection() {
             <motion.div key={s.n}
               initial={{ opacity: 0, y: 32 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
               transition={{ duration: 0.65, ease, delay: i * 0.1 }}
-              whileHover={{ y: -8, boxShadow: `0 20px 48px ${s.color}20` }}
-              className="bg-white rounded-3xl p-7 flex flex-col gap-4 transition-all duration-300"
-              style={{ border: '1px solid #E2E8F0', boxShadow: '0 2px 12px rgba(15,23,42,0.04)' }}>
-              <span className="font-display text-5xl font-extrabold leading-none" style={{ color: `${s.color}25` }}>{s.n}</span>
+              className="group relative rounded-2xl bg-white p-7 flex flex-col gap-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+              style={{ border: '1px solid rgba(15,23,42,0.08)' }}>
+              <div className="font-display text-5xl font-extrabold text-[rgba(47,128,237,0.12)] transition-colors duration-300 group-hover:text-[#2F80ED]" style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', lineHeight: 1 }}>{s.n}</div>
               <div className="h-[2px] w-10 rounded-full" style={{ background: s.color }} />
               <h3 className="font-display font-extrabold text-slate-800 text-lg">{s.title}</h3>
               <p className="text-sm text-slate-500 leading-relaxed">{s.desc}</p>

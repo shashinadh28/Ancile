@@ -13,6 +13,7 @@ import TalentSpecialties from './components/TalentSpecialties.jsx';
 import SuccessStories from './components/SuccessStories.jsx';
 import Insights from './components/Insights.jsx';
 import AIReadinessCTA from './components/AIReadinessCTA.jsx';
+import AssessmentPromoSection from './components/AssessmentPromoSection.jsx';
 import FinalCTA from './components/FinalCTA.jsx';
 import Footer from './components/Footer.jsx';
 
@@ -28,6 +29,7 @@ import ResponsibleAIHiringPage from './pages/ResponsibleAIHiringPage.jsx';
 import EmployeeBenefitsPage from './pages/EmployeeBenefitsPage.jsx';
 import ArtificialIntelligencePage from './pages/ArtificialIntelligencePage.jsx';
 import ValuesCulturePage from './pages/ValuesCulturePage.jsx';
+import CapabilitiesPage from './pages/CapabilitiesPage.jsx';
 
 // New Pages
 import AIReadinessPage from './pages/AIReadinessPage.jsx';
@@ -85,6 +87,7 @@ function HomePage() {
         <TalentSpecialties />
         <SuccessStories />
         <Insights />
+        <AssessmentPromoSection />
         <AIReadinessCTA />
         <FinalCTA />
       </main>
@@ -125,6 +128,7 @@ export default function App() {
       <Route path="/partnerships" element={<PartnershipsPage />} />
       <Route path="/labor-condition-applications" element={<LaborConditionApplicationsPage />} />
       <Route path="/company-leadership" element={<CompanyLeadershipPage />} />
+      <Route path="/capabilities" element={<CapabilitiesPage />} />
     </Routes>
   );
 }

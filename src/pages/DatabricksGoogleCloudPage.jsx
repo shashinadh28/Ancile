@@ -158,10 +158,8 @@ export default function DatabricksGoogleCloudPage() {
                 transition={{ duration: 0.65, ease, delay: i * 0.12 }}
                 className="group relative rounded-2xl bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 style={{ border: '1px solid rgba(15,23,42,0.08)' }}>
-                <div className="mb-4 text-5xl font-extrabold transition-colors duration-300"
-                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', lineHeight: 1, color: 'rgba(47,128,237,0.12)' }}
-                  onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(47,128,237,0.25)'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(47,128,237,0.12)'}
+                <div className="mb-4 text-5xl font-extrabold text-[rgba(47,128,237,0.12)] transition-colors duration-300 group-hover:text-[#2F80ED]"
+                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', lineHeight: 1 }}
                 >{d.step}</div>
                 <h4 className="font-display text-lg font-bold text-slate-800 mb-2">{d.title}</h4>
                 <p className="text-sm leading-relaxed text-slate-500">{d.desc}</p>

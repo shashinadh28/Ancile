@@ -149,18 +149,21 @@ function UseAISection() {
       desc: 'AI can help you brainstorm, explore different ways to frame your experience, and overcome writer\'s block. Use it as a starting point to spark ideas—not as a replacement for your own thinking, insights, or lived experiences.',
       icon: <GenerateIdeasIcon />,
       color: '#2F80ED',
+      image: '/AI-Applications/Use-AI-To/Generate-Ideas.webp',
     },
     {
       title: 'Organise Your Thoughts',
       desc: 'AI can support you in structuring your responses, identifying key themes, and improving clarity. While it can help refine how your ideas are presented, decisions about what to include and how to express it should always be made by you.',
       icon: <OrganiseIcon />,
       color: '#8B5CF6',
+      image: '/AI-Applications/Use-AI-To/Organise-Your-Thoughts.webp',
     },
     {
       title: 'Find Sources',
       desc: 'AI can assist in identifying relevant concepts, terminology, or sources to support your thinking. Any information it provides should be reviewed and validated to ensure accuracy and relevance to your application.',
       icon: <FindSourcesIcon />,
       color: '#3B82F6',
+      image: '/AI-Applications/Use-AI-To/Find-Sources.webp',
     },
   ];
 
@@ -169,16 +172,19 @@ function UseAISection() {
       title: 'Let AI Misrepresent You',
       desc: 'Avoid using AI to generate responses that don\'t accurately reflect your background, skills, or experience. Your application should present an honest representation of who you are and what you bring.',
       icon: <MisrepresentIcon />,
+      image: "/AI-Applications/Don't/Let-AI-Misrepresent-You.webp",
     },
     {
       title: 'Rely Only On AI Output',
       desc: 'AI-generated content may be incomplete, outdated, or incorrect. Always apply your own judgment and take responsibility for reviewing and validating any information before submitting your application.',
       icon: <RelyOnlyIcon />,
+      image: "/AI-Applications/Don't/Rely-Only-On-AI-Output.webp",
     },
     {
       title: 'Give Up Your Voice',
       desc: 'AI should support—not replace—your perspective. Your motivations, experiences, and point of view are what make your application distinctive, and they should always come from you.',
       icon: <GiveUpVoiceIcon />,
+      image: "/AI-Applications/Don't/Give-Up-Your-Voice.webp",
     },
   ];
 
@@ -210,20 +216,31 @@ function UseAISection() {
                 viewport={viewportOnce}
                 transition={{ duration: 0.7, ease, delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-white p-8 rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+                className="bg-white rounded-2xl border border-slate-100 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden"
               >
-                <div
-                  className="h-20 w-20 mb-6 flex items-center justify-center rounded-2xl"
-                  style={{ color: item.color }}
-                >
-                  {item.icon}
+                {/* Card image */}
+                <div className="relative w-full overflow-hidden" style={{ height: '200px' }}>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute inset-0" style={{ background: `linear-gradient(180deg, transparent 50%, rgba(255,255,255,0.95) 100%)` }} />
                 </div>
-                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-800 leading-tight mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-500">
-                  {item.desc}
-                </p>
+                <div className="p-7 flex flex-col flex-1">
+                  <div
+                    className="h-12 w-12 mb-4 flex items-center justify-center rounded-xl"
+                    style={{ color: item.color, background: `${item.color}12` }}
+                  >
+                    {item.icon}
+                  </div>
+                  <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-800 leading-tight mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-500">
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>
@@ -253,17 +270,32 @@ function UseAISection() {
                 viewport={viewportOnce}
                 transition={{ duration: 0.7, ease, delay: i * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-white p-8 rounded-2xl border border-slate-200 hover:border-slate-300 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col"
+                className="bg-white rounded-2xl border border-slate-200 hover:border-red-200 shadow-sm hover:shadow-lg transition-all duration-300 flex flex-col overflow-hidden"
               >
-                <div className="h-20 w-20 mb-6 flex items-center justify-center rounded-2xl text-slate-700">
-                  {item.icon}
+                {/* Card image */}
+                <div className="relative w-full overflow-hidden" style={{ height: '200px' }}>
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, transparent 50%, rgba(255,255,255,0.95) 100%)' }} />
+                  {/* Red X badge */}
+                  <div className="absolute top-3 right-3 h-8 w-8 rounded-full flex items-center justify-center" style={{ background: 'rgba(239,68,68,0.9)', backdropFilter: 'blur(4px)' }}>
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="3" strokeLinecap="round"><line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" /></svg>
+                  </div>
                 </div>
-                <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-800 leading-tight mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-sm leading-relaxed text-slate-500">
-                  {item.desc}
-                </p>
+                <div className="p-7 flex flex-col flex-1">
+                  <div className="h-12 w-12 mb-4 flex items-center justify-center rounded-xl text-slate-700" style={{ background: 'rgba(239,68,68,0.08)' }}>
+                    {item.icon}
+                  </div>
+                  <h3 className="font-display font-extrabold text-xl sm:text-2xl text-slate-800 leading-tight mb-3">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed text-slate-500">
+                    {item.desc}
+                  </p>
+                </div>
               </motion.div>
             ))}
           </div>

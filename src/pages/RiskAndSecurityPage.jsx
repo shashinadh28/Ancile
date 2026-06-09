@@ -8,13 +8,13 @@ import Footer from '../components/Footer.jsx';
 const ease = [0.22, 1, 0.36, 1];
 
 const DOT_BG = {
-  backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.08) 1.5px, transparent 1.5px)',
-  backgroundSize: '24px 24px'
+  backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.13) 1.5px, transparent 1.5px)',
+  backgroundSize: '26px 26px',
 };
 
 const GRID_BG = {
   backgroundImage:
-    'linear-gradient(rgba(47,128,237,0.04) 1px, transparent 1px), linear-gradient(90deg, rgba(47,128,237,0.04) 1px, transparent 1px)',
+    'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
   backgroundSize: '48px 48px',
 };
 
@@ -33,6 +33,93 @@ const Pill = ({ children, color = '#2F80ED' }) => (
     {children}
   </span>
 );
+
+/* ── Brand Logo Components (same as PartnershipsPage) ── */
+function AWSLogo() {
+  return (
+    <svg viewBox="0 0 100 45" className="h-9 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12.5 12.8h3.3v13.6c0 2.2 1.4 3.3 3.5 3.3s3.5-1.1 3.5-3.3V12.8H26v13.8c0 4-2.6 6-6.5 6s-6.5-2-6.5-6V12.8zm17.6 19.8c-2.3 0-4.2-.9-4.8-2.6h3c.4.8 1.1 1.2 2 1.2 1 0 1.6-.4 1.6-1.1v-.2c-.5-.6-1.5-1-2.9-1.3-2.6-.6-4.5-1.5-4.5-3.8 0-2.3 2-3.7 4.5-3.7 2.1 0 3.7.8 4.3 2.3h-2.9c-.3-.7-.9-1-1.6-1-.9 0-1.4.3-1.4.9 0 .6.7.9 2 1.2 2.6.5 4.5 1.5 4.5 3.7 0 2.7-2.1 3.9-4.8 3.9zm13-8.8V12.8h3v20H43v-2.3c-.6 1.8-2 2.7-4.2 2.7-3.7 0-6.1-2.7-6.1-6.7s2.4-6.7 6.1-6.7c2.2 0 3.6.9 4.2 2.8V23.8zm-3.6 6.8c2 0 3.2-1.3 3.2-3.8s-1.2-3.8-3.2-3.8-3.2 1.3-3.2 3.8 1.2 3.8 3.2 3.8z" fill="#232F3E"/>
+      <path d="M11 36.5c16.5 6 36.5 6.5 52 1.5.8-.3 1.4.5.8 1-3.2 2.7-9.5 5.5-17.5 6.5-10.5 1.2-22.5.2-34.5-5.5-.6-.3-.3-1.1.4-1.1l.8-.4z" fill="#FF9900"/>
+    </svg>
+  );
+}
+
+function GoogleCloudLogo() {
+  return (
+    <div className="flex items-center gap-2">
+      <svg viewBox="0 0 24 24" className="h-7 w-7" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12.002 2l8.225 4.75v9.5l-8.225 4.75-8.225-4.75v-9.5L12.002 2z" fill="#4285F4"/>
+        <path d="M12.002 2L3.777 6.75v9.5l8.225 4.75V2z" fill="#34A853"/>
+        <path d="M12.002 2v9.5l8.225 4.75V6.75L12.002 2z" fill="#EA4335"/>
+        <path d="M12.002 11.5l-8.225 4.75 8.225 4.75v-9.5z" fill="#FBBC05"/>
+      </svg>
+      <span className="font-display text-sm font-bold text-slate-800 tracking-tight">Google Cloud</span>
+    </div>
+  );
+}
+
+function MicrosoftLogo() {
+  return (
+    <div className="flex items-center gap-2">
+      <svg viewBox="0 0 23 23" className="h-6 w-6" xmlns="http://www.w3.org/2000/svg">
+        <rect x="0" y="0" width="10.5" height="10.5" fill="#F25022"/>
+        <rect x="12.5" y="0" width="10.5" height="10.5" fill="#7FBA00"/>
+        <rect x="0" y="12.5" width="10.5" height="10.5" fill="#00A4EF"/>
+        <rect x="12.5" y="12.5" width="10.5" height="10.5" fill="#FFB900"/>
+      </svg>
+      <div className="text-left">
+        <div className="font-display text-xs font-black text-slate-900 tracking-wide leading-none">Microsoft</div>
+        <div className="text-[8px] font-bold text-slate-500 uppercase tracking-widest leading-normal">Solutions Partner</div>
+      </div>
+    </div>
+  );
+}
+
+function RedHatLogo() {
+  return (
+    <div className="flex items-center gap-1.5">
+      <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ background: '#CC0000' }}>
+        <span className="text-white font-extrabold text-[10px]">RH</span>
+      </div>
+      <span className="font-display text-sm font-extrabold text-slate-900 tracking-tighter">Red Hat</span>
+    </div>
+  );
+}
+
+function SnowflakeLogo() {
+  return (
+    <div className="flex items-center gap-1.5">
+      <svg viewBox="0 0 24 24" className="h-6 w-6 text-sky-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+        <path d="M22.585 13.545l-1.698-.98 1.698-.98a.75.75 0 0 0-.75-1.3l-1.697.98V9.038a.75.75 0 0 0-1.5 0v2.227l-5.138-2.966V4.112l1.803 1.04a.75.75 0 0 0 .75-1.3l-2.303-1.33v-1.77a.75.75 0 0 0-1.5 0v1.77L9.947 3.852a.75.75 0 0 0 .75 1.3l1.803-1.04v4.187L7.362 11.265V9.038a.75.75 0 0 0-1.5 0v2.227l-1.697-.98a.75.75 0 0 0-.75 1.3l1.697.98-1.697.98a.75.75 0 0 0 .75 1.3l1.697-.98v2.227a.75.75 0 0 0 1.5 0V13.87l5.138 2.966v4.187l-1.803-1.04a.75.75 0 0 0-.75 1.3l2.303 1.33v1.767a.75.75 0 0 0 1.5 0v-1.767l2.303-1.33a.75.75 0 0 0-.75-1.3l-1.803 1.04v-4.187l5.138-2.966v2.227a.75.75 0 0 0 1.5 0v-2.227l1.697.98a.75.75 0 0 0 .75-1.3z"/>
+      </svg>
+      <span className="font-display text-sm font-extrabold text-[#29B6F6] tracking-wide">snowflake</span>
+    </div>
+  );
+}
+
+function ServiceNowLogo() {
+  return (
+    <div className="flex items-center gap-1">
+      <svg viewBox="0 0 100 24" className="h-5 w-auto" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 2a8 8 0 1 0 0 16 8 8 0 0 0 0-16zm-1.8 9.5l2.4-2.4 1.1 1.1-3.5 3.5L5.7 11.2l1.1-1.1 1.4 1.4z" fill="#81B924"/>
+        <text x="22" y="17" fill="#0F172A" fontFamily="sans-serif" fontWeight="900" fontSize="16px" letterSpacing="-0.02em">servicenow.</text>
+      </svg>
+    </div>
+  );
+}
+
+function SalesforceLogo() {
+  return (
+    <div className="flex items-center gap-1.5">
+      <div className="h-7 w-7 rounded-full flex items-center justify-center" style={{ background: '#00A1E0' }}>
+        <svg viewBox="0 0 24 16" className="h-3 w-auto" fill="white" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 4c-.1 0-.2 0-.3.1C17.3 2.3 15.5 1 13.5 1c-1.5 0-2.9.8-3.7 2C9.2 2.4 8.3 2 7.4 2 5.6 2 4 3.3 3.7 5.1 2.6 5.4 1.8 6.5 1.8 7.7 1.8 9.1 3 10 4.3 10H18c1.3 0 2.5-.9 2.5-2.2C20.5 5.5 19.4 4 18 4z"/>
+        </svg>
+      </div>
+      <span className="font-display text-sm font-extrabold text-[#00A1E0] tracking-tight">salesforce</span>
+    </div>
+  );
+}
 
 export default function RiskAndSecurityPage() {
   useEffect(() => {
@@ -157,7 +244,7 @@ function OverviewSection() {
   ];
 
   return (
-    <section id="overview" className="py-24 sm:py-32 bg-white border-b border-slate-100 overflow-hidden">
+    <section id="overview" className="py-24 sm:py-32 border-b border-slate-100 overflow-hidden" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-20">
           <motion.div
@@ -221,20 +308,28 @@ function InItWithYouSection() {
   ];
 
   return (
-    <section className="py-24 sm:py-32 overflow-hidden border-b border-slate-100" style={{ backgroundColor: '#FAFAF9', ...GRID_BG }}>
-      <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+    <section className="py-24 sm:py-32 overflow-hidden border-b border-slate-100 relative" style={{ backgroundColor: '#0B1120' }}>
+      {/* Grid overlay */}
+      <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
+      {/* Blue glow top-center */}
+      <div aria-hidden className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[240px] blur-[110px]" style={{ background: 'rgba(47,128,237,0.09)' }} />
+      <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease }}
+            className="text-white"
           >
-            <Pill>In It With You</Pill>
-            <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-slate-900 leading-[1.06] tracking-tight mb-6">
+            <span className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-5" style={{ background: 'rgba(47,128,237,0.1)', border: '1px solid rgba(47,128,237,0.25)', color: '#2F80ED' }}>
+              <span className="h-1.5 w-1.5 rounded-full bg-current" />
+              In It With You
+            </span>
+            <h2 className="font-display text-4xl sm:text-5xl font-extrabold text-white leading-[1.06] tracking-tight mb-6">
               Holistic Threat &amp; Infrastructure Monitoring
             </h2>
-            <p className="text-base leading-relaxed text-slate-500 mb-6">
+            <p className="text-base leading-relaxed mb-6" style={{ color: 'rgba(255,255,255,0.65)' }}>
               We offer a centralized, holistic view of cybersecurity and critical infrastructure monitoring. Our tool-agnostic models unify IT, operations and data for agile, scalable solutions tailored to your environment. The goal? Transform and maintain enterprise security through compliance and data privacy.
             </p>
             
@@ -248,12 +343,12 @@ function InItWithYouSection() {
                   transition={{ duration: 0.5, ease, delay: i * 0.1 }}
                   className="flex items-start gap-4"
                 >
-                  <div className="h-6 w-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 bg-blue-500/10 text-blue-500" style={{ border: '1px solid rgba(47,128,237,0.25)' }}>
+                  <div className="h-6 w-6 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5" style={{ background: 'rgba(47,128,237,0.15)', border: '1px solid rgba(47,128,237,0.3)', color: '#60A5FA' }}>
                     <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round">
                       <polyline points="20 6 9 17 4 12" />
                     </svg>
                   </div>
-                  <p className="text-sm sm:text-base text-slate-700 leading-relaxed font-semibold">{text}</p>
+                  <p className="text-sm sm:text-base leading-relaxed font-semibold" style={{ color: 'rgba(255,255,255,0.82)' }}>{text}</p>
                 </motion.div>
               ))}
             </div>
@@ -264,8 +359,11 @@ function InItWithYouSection() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewportOnce}
             transition={{ duration: 0.8, ease, delay: 0.15 }}
-            className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-100 shadow-xl relative overflow-hidden"
+            className="rounded-3xl p-8 sm:p-10 relative overflow-hidden"
+            style={{ background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(255,255,255,0.09)' }}
           >
+            {/* Accent top stripe */}
+            <span className="absolute inset-x-0 top-0 h-[3px] rounded-t-3xl" style={{ background: '#2F80ED' }} />
             {/* Visual background elements */}
             <div className="absolute right-0 bottom-0 pointer-events-none opacity-5">
               <svg width="180" height="180" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -273,14 +371,14 @@ function InItWithYouSection() {
               </svg>
             </div>
             
-            <div className="h-1 w-12 rounded-full mb-6 bg-blue-500" />
-            <h3 className="font-display text-2xl font-extrabold text-slate-900 mb-4">Enterprise Defense Model</h3>
-            <p className="text-slate-500 leading-relaxed text-sm mb-6">
+            <div className="h-1 w-12 rounded-full mb-6" style={{ background: '#2F80ED' }} />
+            <h3 className="font-display text-2xl font-extrabold text-white mb-4">Enterprise Defense Model</h3>
+            <p className="leading-relaxed text-sm mb-6" style={{ color: 'rgba(255,255,255,0.55)' }}>
               Ancile unifies operational signals across physical, virtual, and cloud architectures. Our models adapt to your existing stack—enforcing compliance controls without vendor lock-in.
             </p>
-            <div className="rounded-2xl p-5 bg-slate-900">
-              <span className="text-[10px] font-bold uppercase tracking-wider text-blue-400">Security Architecture</span>
-              <p className="text-white font-extrabold text-lg mt-1">Holistic. Agnostic. Scalable.</p>
+            <div className="rounded-2xl p-5" style={{ background: 'rgba(47,128,237,0.1)', border: '1px solid rgba(47,128,237,0.2)' }}>
+              <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: '#60A5FA' }}>Security Architecture</span>
+              <p className="font-extrabold text-lg mt-1 text-white">Holistic. Agnostic. Scalable.</p>
             </div>
           </motion.div>
         </div>
@@ -293,49 +391,57 @@ function InItWithYouSection() {
 function CapabilitiesSection() {
   const capabilities = [
     {
-      icon: '🛡️',
       title: 'Governance, Risk and Compliance',
-      desc: 'Secure your data and strengthen your security posture with integrated GRC foundational security frameworks, ensuring regulatory compliance across infrastructure, cloud and data sources.'
+      desc: 'Secure your data and strengthen your security posture with integrated GRC foundational security frameworks, ensuring regulatory compliance across infrastructure, cloud and data sources.',
+      image: '/Risk-and-Security/Our-Capabilities/Governance-Risk-and-Compliance.webp',
+      accent: '#2F80ED',
     },
     {
-      icon: '🤖',
       title: 'AI Governance',
-      desc: 'The cornerstone of AI security. Implement policies, guidelines, controls and risk assessments that dictate how AI systems should be developed, deployed and monitored.'
+      desc: 'The cornerstone of AI security. Implement policies, guidelines, controls and risk assessments that dictate how AI systems should be developed, deployed and monitored.',
+      image: '/Risk-and-Security/Our-Capabilities/AI-Governance.webp',
+      accent: '#6366F1',
     },
     {
-      icon: '🔑',
       title: 'Identity and Access Management',
-      desc: 'Fingerprint Scanning Technology Concept. Secure and optimize enterprise directories. Establish robust controls to manage user access, authentication systems, and privileges.'
+      desc: 'Fingerprint Scanning Technology Concept. Secure and optimize enterprise directories. Establish robust controls to manage user access, authentication systems, and privileges.',
+      image: '/Risk-and-Security/Our-Capabilities/Identity-and-Access-Management.webp',
+      accent: '#0D9488',
     },
     {
-      icon: '🎯',
       title: 'Threat and Vulnerability Management',
-      desc: 'Stay ahead of potential threats before they become major issues with strategic planning, roadmapping and clearly defined KPIs. Identify and prioritize vulnerabilities, aligning security controls with your risk profile.'
+      desc: 'Stay ahead of potential threats before they become major issues with strategic planning, roadmapping and clearly defined KPIs. Identify and prioritize vulnerabilities, aligning security controls with your risk profile.',
+      image: '/Risk-and-Security/Our-Capabilities/Threat-and-Vulnerability-Management.webp',
+      accent: '#F59E0B',
     },
     {
-      icon: '💻',
       title: 'Application Security / DevSecOps',
-      desc: 'Implement robust, integrated security frameworks to protect applications across their life cycles. By aligning with organizational governance and regulatory compliance, ensure adherence to industry standards.'
+      desc: 'Implement robust, integrated security frameworks to protect applications across their life cycles. By aligning with organizational governance and regulatory compliance, ensure adherence to industry standards.',
+      image: '/Risk-and-Security/Our-Capabilities/Application-Security-DevSecOps.webp',
+      accent: '#EF4444',
     },
     {
-      icon: '📡',
       title: 'Cybersecurity Operations',
-      desc: 'Integrate information security and IT operations to streamline processes, enhance efficiency and boost security. From threat analysis to SOC implementation, discover cybersecurity solutions that deliver robust defense.'
+      desc: 'Integrate information security and IT operations to streamline processes, enhance efficiency and boost security. From threat analysis to SOC implementation, discover cybersecurity solutions that deliver robust defense.',
+      image: '/Risk-and-Security/Our-Capabilities/Cybersecurity-Operations.webp',
+      accent: '#10B981',
     },
     {
-      icon: '🔍',
       title: 'AML, Fraud Detection & Prevention',
-      desc: 'Safeguard your organization’s environment by implementing a proactive approach to detect and manage suspicious activity. With programs tailored to stay on top of risk assessments and alerts.'
+      desc: 'Safeguard your organization’s environment by implementing a proactive approach to detect and manage suspicious activity. With programs tailored to stay on top of risk assessments and alerts.',
+      image: '/Risk-and-Security/Our-Capabilities/AML-Fraud-Detection-Prevention.webp',
+      accent: '#8B5CF6',
     },
     {
-      icon: '📦',
       title: 'Asset Management',
-      desc: 'Secure and optimize assets across your infrastructure with improved asset visibility, streamlined management, asset monitoring, vulnerability alignment and risk mitigation.'
-    }
+      desc: 'Secure and optimize assets across your infrastructure with improved asset visibility, streamlined management, asset monitoring, vulnerability alignment and risk mitigation.',
+      image: '/Risk-and-Security/Our-Capabilities/Asset-Management.webp',
+      accent: '#EC4899',
+    },
   ];
 
   return (
-    <section id="capabilities" className="py-24 sm:py-32 bg-white overflow-hidden border-b border-slate-100" style={DOT_BG}>
+    <section id="capabilities" className="py-24 sm:py-32 overflow-hidden border-b border-slate-100" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -353,7 +459,7 @@ function CapabilitiesSection() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {capabilities.map((c, i) => (
             <motion.div
               key={c.title}
@@ -361,14 +467,29 @@ function CapabilitiesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}
               transition={{ duration: 0.6, ease, delay: i * 0.07 }}
-              whileHover={{ y: -6, boxShadow: '0 16px 40px rgba(47,128,237,0.08)' }}
-              className="bg-white rounded-3xl p-7 flex flex-col gap-4 border border-slate-100 hover:border-blue-500/20 shadow-sm transition-all duration-300 cursor-default"
+              className="group rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-400 cursor-default"
+              whileHover={{ y: -6 }}
             >
-              <div className="h-12 w-12 rounded-2xl flex items-center justify-center text-2xl bg-blue-500/10 border border-blue-500/20 text-blue-500">
-                {c.icon}
+              {/* Image */}
+              <div className="relative h-48 overflow-hidden">
+                <img
+                  src={c.image}
+                  alt={c.title}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(11,17,32,0.6) 100%)' }} />
+                {/* Accent line at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: c.accent }} />
               </div>
-              <h3 className="font-display font-extrabold text-slate-800 text-lg leading-snug">{c.title}</h3>
-              <p className="text-sm text-slate-500 leading-relaxed">{c.desc}</p>
+
+              {/* Content */}
+              <div className="bg-white p-6 flex flex-col justify-between h-[calc(100%-12rem)]">
+                <div>
+                  <div className="h-1.5 w-10 rounded-full mb-4 transition-all duration-300 group-hover:w-16" style={{ background: c.accent }} />
+                  <h3 className="font-display font-extrabold text-slate-800 text-base leading-snug mb-2.5">{c.title}</h3>
+                  <p className="text-xs text-slate-500 leading-relaxed">{c.desc}</p>
+                </div>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -383,17 +504,21 @@ function OurApproachSection() {
     {
       title: 'DevOps & Agile',
       desc: 'Accelerate speed and delivery for scalable growth.',
-      link: '/devops-agile'
+      link: '/devops-agile',
+      image: '/Workforce_Development/Our-Approach/DevOps-Agile.jpg',
+      accent: '#2F80ED',
     },
     {
       title: 'Workforce Development',
       desc: 'Our innovative workforce solutions help unlock your team’s highest performance.',
-      link: '/contact'
+      link: '/workforce-development',
+      image: '/Workforce_Development/Workforce-Development_homepage.webp',
+      accent: '#6366F1',
     }
   ];
 
   return (
-    <section className="py-24 sm:py-32 bg-white overflow-hidden border-b border-slate-100">
+    <section className="py-24 sm:py-32 bg-white overflow-hidden border-b border-slate-100" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-16">
           <motion.div
@@ -419,20 +544,33 @@ function OurApproachSection() {
               viewport={viewportOnce}
               transition={{ duration: 0.75, ease, delay: i * 0.12 }}
               whileHover={{ y: -6 }}
-              className="bg-white rounded-3xl p-8 sm:p-10 border border-slate-200/80 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[220px]"
+              className="group rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-400 cursor-default"
             >
-              <div>
-                <div className="h-1.5 w-12 rounded-full mb-6 bg-blue-500" />
-                <h3 className="font-display text-2xl font-extrabold text-slate-900 mb-3">{item.title}</h3>
-                <p className="text-slate-500 leading-relaxed text-base mb-6">{item.desc}</p>
+              {/* Image */}
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(11,17,32,0.6) 100%)' }} />
+                {/* Accent line at bottom */}
+                <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: item.accent }} />
               </div>
-              <Link
-                to={item.link}
-                className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider pb-1 transition-all duration-200 self-start hover:text-blue-500"
-                style={{ color: '#2F80ED', borderBottom: '2px solid #2F80ED', textDecoration: 'none' }}
-              >
-                Learn More <ArrowRight size={12} />
-              </Link>
+
+              {/* Content */}
+              <div className="bg-white p-8 sm:p-10">
+                <div className="h-1.5 w-12 rounded-full mb-6 transition-all duration-300 group-hover:w-20" style={{ background: item.accent }} />
+                <h3 className="font-display text-2xl font-extrabold text-slate-800 leading-snug mb-3">{item.title}</h3>
+                <p className="text-slate-500 leading-relaxed text-base mb-8">{item.desc}</p>
+                <Link
+                  to={item.link}
+                  className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider pb-1 transition-all duration-200 self-start"
+                  style={{ color: item.accent, borderBottom: `2px solid ${item.accent}`, textDecoration: 'none' }}
+                >
+                  Learn More <ArrowRight size={12} color={item.accent} />
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -441,23 +579,23 @@ function OurApproachSection() {
   );
 }
 
-/* ═══════════════════════════ PARTNERSHIPS — CLONED FROM IMAGE ═══ */
+/* ═══════════════════════════ PARTNERSHIPS — WITH REAL SVG LOGOS ═══ */
 function PartnershipsSection() {
-  const brands = [
-    { name: 'AWS', label: 'aws' },
-    { name: 'Google Cloud', label: 'Google Cloud' },
-    { name: 'Microsoft', label: 'Microsoft Solutions Partner' },
-    { name: 'Red Hat', label: 'Red Hat' },
-    { name: 'Snowflake', label: 'snowflake' },
-    { name: 'ServiceNow', label: 'servicenow' },
-    { name: 'Salesforce', label: 'salesforce' }
+  const brandLogos = [
+    { component: AWSLogo, key: 'aws' },
+    { component: GoogleCloudLogo, key: 'gcp' },
+    { component: MicrosoftLogo, key: 'microsoft' },
+    { component: RedHatLogo, key: 'redhat' },
+    { component: SnowflakeLogo, key: 'snowflake' },
+    { component: ServiceNowLogo, key: 'servicenow' },
+    { component: SalesforceLogo, key: 'salesforce' },
   ];
 
   return (
     <section className="py-24 sm:py-32 bg-white overflow-hidden border-b border-slate-100">
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-          {/* Left panel matching screenshot perfectly */}
+          {/* Left panel */}
           <motion.div
             initial={{ opacity: 0, x: -40 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -470,13 +608,13 @@ function PartnershipsSection() {
               Best-in-Class Integrations
             </h2>
             <p className="text-base sm:text-lg leading-relaxed text-slate-500 mb-8">
-              The world’s leading technology and software providers partner with us because of our scale, full-stack capabilities and speed. Together, we can deliver new, sustainable growth across your business.
+              The world's leading technology and software providers partner with us because of our scale, full-stack capabilities and speed. Together, we can deliver new, sustainable growth across your business.
             </p>
             <Link
               to="/contact"
               className="inline-flex items-center justify-center font-bold px-7 py-3 rounded-xl transition-all duration-300"
               style={{
-                border: '2px solid #84CC16', // neon lime light green border as in screenshot
+                border: '2px solid #84CC16',
                 color: '#0F172A',
                 background: '#ffffff',
                 textDecoration: 'none',
@@ -495,38 +633,32 @@ function PartnershipsSection() {
             </Link>
           </motion.div>
 
-          {/* Right panel logo cards matching screenshot perfectly */}
+          {/* Right panel - clean logo icons */}
           <motion.div
             initial={{ opacity: 0, x: 40 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={viewportOnce}
             transition={{ duration: 0.9, ease, delay: 0.15 }}
-            className="lg:col-span-7 grid grid-cols-2 gap-4"
+            className="lg:col-span-7 grid grid-cols-2 sm:grid-cols-3 gap-x-8 gap-y-12 items-center justify-items-center"
           >
-            {brands.map((p, i) => (
-              <motion.div
-                key={p.name}
-                initial={{ opacity: 0, scale: 0.94 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={viewportOnce}
-                transition={{ duration: 0.5, ease, delay: i * 0.06 }}
-                whileHover={{ y: -4, boxShadow: '0 12px 28px rgba(0,0,0,0.06)' }}
-                className="bg-white rounded-2xl border border-slate-100 flex items-center justify-center p-6 text-center transition-all duration-300 min-h-[90px]"
-                style={{
-                  boxShadow: '0 2px 10px rgba(0,0,0,0.02)',
-                  gridColumn: p.name === 'Salesforce' ? 'span 2' : 'auto',
-                  maxWidth: p.name === 'Salesforce' ? '50%' : '100%',
-                  justifySelf: p.name === 'Salesforce' ? 'center' : 'stretch',
-                  width: p.name === 'Salesforce' ? '100%' : 'auto'
-                }}
-              >
-                {/* Simulated Logo brand mark typography styling */}
-                <div className="flex flex-col items-center">
-                  <span className="font-display font-extrabold text-[#0B1A2E] text-base tracking-tight">{p.label}</span>
-                  <span className="text-[9px] font-bold text-slate-400 uppercase tracking-widest mt-0.5">Partner</span>
-                </div>
-              </motion.div>
-            ))}
+            {brandLogos.map((logo, i) => {
+              const LogoComponent = logo.component;
+              return (
+                <motion.div
+                  key={logo.key}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={viewportOnce}
+                  transition={{ duration: 0.5, ease, delay: i * 0.06 }}
+                  className="grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-300 transform hover:scale-105"
+                  style={{
+                    gridColumn: logo.key === 'salesforce' ? 'span 2 sm:span-1' : 'auto',
+                  }}
+                >
+                  <LogoComponent />
+                </motion.div>
+              );
+            })}
           </motion.div>
         </div>
       </div>
@@ -534,34 +666,34 @@ function PartnershipsSection() {
   );
 }
 
-/* ═══════════════════════════ FEATURED INSIGHTS — BOX GRID BG ═══ */
+/* ═══════════════════════════ FEATURED INSIGHTS — DOTTED BG ═══ */
 function InsightsSection() {
   const insights = [
     {
       color: '#2F80ED',
-      icon: '📡',
       tag: 'Article',
       title: 'Mitigate Risk With Security in the Cloud',
-      desc: 'Take the complexity out of compliance in the cloud by leveraging the automation power landing zones provide.'
+      desc: "Take the complexity out of compliance in the cloud by leveraging the automation power landing zones provide.",
+      image: '/Risk-and-Security/Featured-Insights/Mitigate-Risk-With-Security-Cloud.webp',
     },
     {
       color: '#1E5DB8',
-      icon: '📈',
       tag: 'Success Story',
       title: 'Cloud Capital: Investing in a Seamless AWS Migration',
-      desc: 'See how a global investment management company cut costs and boosted security with Ancile Inc’s AWS migration—enabling fast, reliable service and future-ready innovation.'
+      desc: "See how a global investment management company cut costs and boosted security with Ancile Inc's AWS migration—enabling fast, reliable service and future-ready innovation.",
+      image: '/Risk-and-Security/Featured-Insights/Cloud-Capital-Investing-Seamless-AWS-Migration.webp',
     },
     {
       color: '#6366F1',
-      icon: '🛡️',
       tag: 'Success Story',
       title: 'GLBA Compliance at Scale on AWS',
-      desc: 'A major U.S. mortgage lender achieved 100% GLBA compliance across 1.3 PB and 13.5B objects using an AWS-based data anonymization solution with Ancile Inc.'
+      desc: 'A major U.S. mortgage lender achieved 100% GLBA compliance across 1.3 PB and 13.5B objects using an AWS-based data anonymization solution with Ancile Inc.',
+      image: '/Risk-and-Security/Featured-Insights/GLBA-Compliance-Scale-AWS.webp',
     }
   ];
 
   return (
-    <section className="py-24 sm:py-32 overflow-hidden" style={{ backgroundColor: '#F8FAFC', ...GRID_BG }}>
+    <section className="py-24 sm:py-32 overflow-hidden" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
       <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
         <motion.div
           initial={{ opacity: 0, y: 32 }}
@@ -591,13 +723,18 @@ function InsightsSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={viewportOnce}
               transition={{ duration: 0.75, ease, delay: i * 0.12 }}
-              whileHover={{ y: -8, boxShadow: `0 20px 48px ${ins.color}18` }}
+              whileHover={{ y: -8, boxShadow: `0 20px 48px ${ins.color}28` }}
               className="group rounded-3xl overflow-hidden cursor-pointer transition-all duration-400 border border-slate-100 shadow-sm"
               style={{ background: '#fff' }}
             >
-              {/* Image banner mock */}
-              <div className="relative h-48 overflow-hidden" style={{ background: `linear-gradient(135deg, ${ins.color}20 0%, ${ins.color}08 100%)` }}>
-                <div className="absolute inset-0 flex items-center justify-center text-6xl">{ins.icon}</div>
+              {/* Real photo banner */}
+              <div className="relative h-52 overflow-hidden">
+                <img
+                  src={ins.image}
+                  alt={ins.title}
+                  className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(11,17,32,0.12) 0%, rgba(11,17,32,0.55) 100%)' }} />
                 <span className="absolute top-4 left-4 rounded-full px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-white" style={{ background: ins.color }}>
                   {ins.tag}
                 </span>

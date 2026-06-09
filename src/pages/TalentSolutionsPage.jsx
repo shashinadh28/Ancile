@@ -38,25 +38,192 @@ export default function TalentSolutionsPage() {
       <Navbar />
 
       {/* HERO */}
-      <section className="relative min-h-[82vh] flex items-center overflow-hidden pt-24" style={{ backgroundColor: '#0B1120' }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
-        <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[600px] h-[500px] rounded-full blur-[120px]" style={{ background: 'rgba(47,128,237,0.09)' }} />
-        <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 py-20 flex flex-col items-center text-center">
-          <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6"
-            style={{ border: '1px solid rgba(47,128,237,0.3)', background: 'rgba(47,128,237,0.1)', color: '#2F80ED' }}>
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />Talent Solutions
-          </motion.span>
-          <ScrollText text="Talent solutions built for speed, fit, and accountability." as="h1" delay={0.15} stagger={0.06}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.03] tracking-tight text-white max-w-4xl mx-auto" />
-          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.5 }}
-            className="mt-6 text-lg leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(255,255,255,0.72)' }}>
-            Specialized talent across engineering, data, cloud, QA automation, and AI—matched quickly and supported with clear governance.
-          </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.65 }} className="mt-10 flex flex-wrap justify-center gap-4">
-            <CTABtn href="#request-talent" primary>Request Talent</CTABtn>
-            <CTABtn href="#engagement-models" primary={false}>See Engagement Models</CTABtn>
-          </motion.div>
+      <section
+        className="relative min-h-screen flex items-center overflow-hidden"
+        style={{ backgroundColor: '#0B1120' }}
+      >
+        {/* Animated background grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
+
+        {/* RIGHT PANEL: Diagonal clipped image */}
+        <motion.div
+          className="absolute top-0 right-0 bottom-0 hidden lg:block"
+          style={{ width: '52%' }}
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.1, ease, delay: 0.2 }}
+        >
+          {/* Diagonal clip mask — left edge is a slanted cut */}
+          <div
+            className="absolute inset-0"
+            style={{
+              clipPath: 'polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            }}
+          >
+            {/* Actual image */}
+            <img
+              src="/talent-solutions/Home-Page.webp"
+              alt="Talent Solutions"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              style={{ opacity: 0.75 }}
+            />
+            {/* Dark gradient overlay blending into page bg on left */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(to right, rgba(11,17,32,0.92) 0%, rgba(11,17,32,0.4) 35%, rgba(11,17,32,0.1) 100%)',
+              }}
+            />
+            {/* Bottom fade */}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-32"
+              style={{
+                background: 'linear-gradient(to top, rgba(11,17,32,0.8), transparent)',
+              }}
+            />
+          </div>
+
+          {/* Floating stat chips — sit on top of the image */}
+          <div className="absolute inset-0" style={{ clipPath: 'polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%)' }}>
+            {[
+              { label: 'Match Time', val: '48 Hrs', top: '18%', right: '10%' },
+              { label: 'Vetted Talent', val: '5,000+', top: '52%', right: '6%' },
+              { label: 'Success Rate', val: '98%', top: '72%', right: '18%' },
+            ].map((chip, i) => (
+              <motion.div
+                key={chip.label}
+                className="absolute rounded-2xl px-5 py-3"
+                style={{
+                  top: chip.top,
+                  right: chip.right,
+                  background: 'rgba(11,17,32,0.72)',
+                  border: '1px solid rgba(47,128,237,0.35)',
+                  backdropFilter: 'blur(12px)',
+                }}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease, delay: 1.1 + i * 0.18 }}
+              >
+                <div className="text-xl font-extrabold text-white leading-none">{chip.val}</div>
+                <div className="text-[10px] mt-1 font-semibold uppercase tracking-wider" style={{ color: 'rgba(96,165,250,0.8)' }}>
+                  {chip.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Glow orb behind content */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 left-0 w-[600px] h-[500px] blur-[140px]"
+          style={{ background: 'rgba(47,128,237,0.09)' }}
+        />
+
+        {/* LEFT: Content */}
+        <div className="relative z-10 mx-auto max-w-[1280px] w-full px-6 sm:px-8 lg:px-12 py-32 lg:py-0">
+          <div className="max-w-[600px]">
+
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease }}
+              className="flex items-center gap-3 mb-8 pt-48 lg:pt-32"
+            >
+              <span style={{ width: '28px', height: '2px', background: '#2F80ED', borderRadius: '2px', display: 'inline-block' }} />
+              <span className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: '#2F80ED' }}>
+                Talent Solutions
+              </span>
+            </motion.div>
+
+            {/* Heading — word-by-word, tighter font size */}
+            <h1
+              className="font-display font-extrabold leading-[1.08] tracking-tight mb-7"
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)' }}
+            >
+              {/* "Talent Solutions" — first line */}
+              {['Talent', 'Solutions'].map((word, i) => (
+                <motion.span
+                  key={word}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.85, ease, delay: 0.22 + i * 0.13 }}
+                  style={{
+                    display: 'inline-block',
+                    color: '#FFFFFF',
+                    marginRight: '0.28em',
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <br />
+              {/* "Built for Speed" - second line */}
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.85, ease, delay: 0.48 }}
+                style={{ display: 'inline-block', whiteSpace: 'nowrap', color: '#60A5FA' }}
+              >
+                Built for Speed & Fit
+              </motion.span>
+            </h1>
+
+            {/* Divider */}
+            <motion.div
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.9, ease, delay: 0.78 }}
+              style={{
+                height: '1px',
+                background: 'rgba(47,128,237,0.4)',
+                maxWidth: '420px',
+                marginBottom: '1.75rem',
+              }}
+            />
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 0.92 }}
+              className="text-base leading-[1.85] mb-5"
+              style={{ color: 'rgba(255,255,255,0.72)', maxWidth: '520px' }}
+            >
+              Talent solutions built for speed, fit, and accountability. Specialized talent across engineering, data, cloud, QA automation, and AI—matched quickly and supported with clear governance.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 1.05 }}
+              className="text-sm leading-[1.85] mb-10"
+              style={{ color: 'rgba(255,255,255,0.48)', maxWidth: '500px' }}
+            >
+              Extend your team with vetted specialists on demand. Scale up or down as project needs shift—without the overhead of full-time hiring.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 1.2 }}
+              className="flex flex-wrap items-center gap-5"
+            >
+              <CTABtn href="#request-talent" primary>Request Talent</CTABtn>
+              <CTABtn href="#engagement-models" primary={false}>See Engagement Models</CTABtn>
+            </motion.div>
+
+          </div>
         </div>
       </section>
 

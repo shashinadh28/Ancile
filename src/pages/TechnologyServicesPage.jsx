@@ -1,19 +1,47 @@
 import { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
 import { viewportOnce } from '../utils/motion';
 import Navbar from '../components/Navbar.jsx';
 import Footer from '../components/Footer.jsx';
 import ScrollText from '../components/ui/ScrollText.jsx';
-import { CardHoverEffect } from '../components/ui/CardHoverEffect.jsx';
 
 const ease = [0.22, 1, 0.36, 1];
 const DOT_BG = { backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.13) 1.5px, transparent 1.5px)', backgroundSize: '26px 26px' };
 
 const CAPABILITIES = [
-  { num: '01', title: 'Application Modernization & Digital Delivery', desc: 'Migrate legacy systems, re-platform monoliths to microservices, and accelerate digital product delivery with experienced engineering teams.', icon: AppIcon },
-  { num: '02', title: 'Data Engineering & Data Platforms', desc: 'Design and build modern data pipelines, lakehouse architectures, and data platform foundations that are reliable, scalable, and governed.', icon: DataIcon },
-  { num: '03', title: 'Analytics, AI/ML Enablement', desc: 'Operationalize analytics and bring AI/ML models from experimentation to production with the right tooling, architecture, and talent.', icon: AiIcon },
-  { num: '04', title: 'Cloud & Data Modernization', desc: 'Migrate, optimize, and modernize cloud and data environments—reducing cost, improving reliability, and increasing deployment velocity.', icon: CloudIcon },
+  {
+    num: '01',
+    title: 'Application Modernization & Digital Delivery',
+    desc: 'Migrate legacy systems, re-platform monoliths to microservices, and accelerate digital product delivery with experienced engineering teams.',
+    icon: AppIcon,
+    image: '/Technology-Services/Capabilities/Application-Modernization.jpg',
+    accent: '#2F80ED',
+  },
+  {
+    num: '02',
+    title: 'Data Engineering & Data Platforms',
+    desc: 'Design and build modern data pipelines, lakehouse architectures, and data platform foundations that are reliable, scalable, and governed.',
+    icon: DataIcon,
+    image: '/Technology-Services/Capabilities/Data-Engineering-Data-Platforms.jpg',
+    accent: '#6366F1',
+  },
+  {
+    num: '03',
+    title: 'Analytics, AI/ML Enablement',
+    desc: 'Operationalize analytics and bring AI/ML models from experimentation to production with the right tooling, architecture, and talent.',
+    icon: AiIcon,
+    image: '/Technology-Services/Capabilities/Analytics-AIML-Enablement.webp',
+    accent: '#0D9488',
+  },
+  {
+    num: '04',
+    title: 'Cloud & Data Modernization',
+    desc: 'Migrate, optimize, and modernize cloud and data environments—reducing cost, improving reliability, and increasing deployment velocity.',
+    icon: CloudIcon,
+    image: '/Technology-Services/Capabilities/Cloud-Data-Modernization.jpg',
+    accent: '#F59E0B',
+  },
 ];
 
 const DELIVERY = [
@@ -39,43 +67,254 @@ const FORM_STEPS = [
 export default function TechnologyServicesPage() {
   return (
     <div className="min-h-screen bg-white">
-      <Navbar />
+      <Navbar />      {/* HERO */}
+      <section
+        className="relative min-h-screen flex items-center overflow-hidden"
+        style={{ backgroundColor: '#0B1120' }}
+      >
+        {/* Animated background grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage:
+              'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
 
-      {/* HERO */}
-      <section className="relative min-h-[82vh] flex items-center overflow-hidden pt-24" style={{ backgroundColor: '#0B1120' }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
-        <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[600px] h-[500px] rounded-full blur-[120px]" style={{ background: 'rgba(47,128,237,0.08)' }} />
-        <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[350px] rounded-full blur-[100px]" style={{ background: 'rgba(99,102,241,0.06)' }} />
-        <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 py-20 flex flex-col items-center text-center">
-          <motion.span initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, ease }}
-            className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6"
-            style={{ border: '1px solid rgba(47,128,237,0.3)', background: 'rgba(47,128,237,0.1)', color: '#2F80ED' }}>
-            <span className="h-1.5 w-1.5 rounded-full bg-current" />Technology Services
-          </motion.span>
-          <ScrollText text="Technology services that move programs forward—faster." as="h1" delay={0.15} stagger={0.055}
-            className="font-display text-5xl sm:text-6xl lg:text-7xl font-extrabold leading-[1.03] tracking-tight text-white max-w-4xl mx-auto" />
-          <motion.p initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.8, ease, delay: 0.55 }}
-            className="mt-6 text-lg leading-relaxed max-w-3xl mx-auto" style={{ color: 'rgba(255,255,255,0.72)' }}>
-            Modernize applications, build data platforms, operationalize analytics & AI/ML, and modernize cloud environments—with enterprise-grade delivery governance.
-          </motion.p>
-          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, ease, delay: 0.7 }} className="mt-10 flex flex-wrap justify-center gap-4">
-            <CTABtn href="#start-project" primary>Start a Project</CTABtn>
-            <CTABtn href="#outcomes" primary={false}>View Success Stories</CTABtn>
-          </motion.div>
+        {/* RIGHT PANEL: Diagonal clipped image */}
+        <motion.div
+          className="absolute top-0 right-0 bottom-0 hidden lg:block"
+          style={{ width: '52%' }}
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.1, ease, delay: 0.2 }}
+        >
+          {/* Diagonal clip mask — left edge is a slanted cut */}
+          <div
+            className="absolute inset-0"
+            style={{
+              clipPath: 'polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%)',
+            }}
+          >
+            {/* Actual image */}
+            <img
+              src="/Technology-Services/Home-Page.png"
+              alt="Technology Services"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              style={{ opacity: 0.75 }}
+            />
+            {/* Dark gradient overlay blending into page bg on left */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background:
+                  'linear-gradient(to right, rgba(11,17,32,0.92) 0%, rgba(11,17,32,0.4) 35%, rgba(11,17,32,0.1) 100%)',
+              }}
+            />
+            {/* Bottom fade */}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-32"
+              style={{
+                background: 'linear-gradient(to top, rgba(11,17,32,0.8), transparent)',
+              }}
+            />
+          </div>
+
+          {/* Floating stat chips — sit on top of the image */}
+          <div className="absolute inset-0" style={{ clipPath: 'polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%)' }}>
+            {[
+              { label: 'Sprints', val: '2 Weeks', top: '18%', right: '10%' },
+              { label: 'Cloud Experts', val: 'AWS/GCP/Azure', top: '52%', right: '6%' },
+              { label: 'Delivery', val: 'SLA-Backed', top: '72%', right: '18%' },
+            ].map((chip, i) => (
+              <motion.div
+                key={chip.label}
+                className="absolute rounded-2xl px-5 py-3"
+                style={{
+                  top: chip.top,
+                  right: chip.right,
+                  background: 'rgba(11,17,32,0.72)',
+                  border: '1px solid rgba(47,128,237,0.35)',
+                  backdropFilter: 'blur(12px)',
+                }}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease, delay: 1.1 + i * 0.18 }}
+              >
+                <div className="text-xl font-extrabold text-white leading-none">{chip.val}</div>
+                <div className="text-[10px] mt-1 font-semibold uppercase tracking-wider" style={{ color: 'rgba(96,165,250,0.8)' }}>
+                  {chip.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* Glow orb behind content */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 left-0 w-[600px] h-[500px] blur-[140px]"
+          style={{ background: 'rgba(47,128,237,0.09)' }}
+        />
+
+        {/* LEFT: Content */}
+        <div className="relative z-10 mx-auto max-w-[1280px] w-full px-6 sm:px-8 lg:px-12 py-32 lg:py-0">
+          <div className="max-w-[600px]">
+
+            {/* Badge */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease }}
+              className="flex items-center gap-3 mb-8 pt-48 lg:pt-32"
+            >
+              <span style={{ width: '28px', height: '2px', background: '#2F80ED', borderRadius: '2px', display: 'inline-block' }} />
+              <span className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: '#2F80ED' }}>
+                Technology Services
+              </span>
+            </motion.div>
+
+            {/* Heading — word-by-word, tighter font size */}
+            <h1
+              className="font-display font-extrabold leading-[1.08] tracking-tight mb-7"
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)' }}
+            >
+              {/* "Technology Services" — first line */}
+              {['Technology', 'Services'].map((word, i) => (
+                <motion.span
+                  key={word}
+                  initial={{ opacity: 0, y: 50 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.85, ease, delay: 0.22 + i * 0.13 }}
+                  style={{
+                    display: 'inline-block',
+                    color: '#FFFFFF',
+                    marginRight: '0.28em',
+                  }}
+                >
+                  {word}
+                </motion.span>
+              ))}
+              <br />
+              {/* "Program Forward" - second line */}
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.85, ease, delay: 0.48 }}
+                style={{ display: 'inline-block', whiteSpace: 'nowrap', color: '#60A5FA' }}
+              >
+                Program Acceleration
+              </motion.span>
+            </h1>
+
+            {/* Divider */}
+            <motion.div
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.9, ease, delay: 0.78 }}
+              style={{
+                height: '1px',
+                background: 'rgba(47,128,237,0.4)',
+                maxWidth: '420px',
+                marginBottom: '1.75rem',
+              }}
+            />
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 0.92 }}
+              className="text-base leading-[1.85] mb-5"
+              style={{ color: 'rgba(255,255,255,0.72)', maxWidth: '520px' }}
+            >
+              Technology services that move programs forward—faster. Modernize applications, build data platforms, operationalize analytics & AI/ML, and modernize cloud environments—with enterprise-grade delivery governance.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 1.05 }}
+              className="text-sm leading-[1.85] mb-10"
+              style={{ color: 'rgba(255,255,255,0.48)', maxWidth: '500px' }}
+            >
+              Partner with experienced delivery teams to execute high-impact engineering, data modernization, and analytics initiatives.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 1.2 }}
+              className="flex flex-wrap items-center gap-5"
+            >
+              <CTABtn href="#start-project" primary>Start a Project</CTABtn>
+              <CTABtn href="#outcomes" primary={false}>View Success Stories</CTABtn>
+            </motion.div>
+
+          </div>
         </div>
       </section>
-
       {/* CAPABILITIES */}
-      <section id="capabilities" className="py-20 sm:py-28" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
+      <section id="capabilities" className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
-          <SectionHdr badge="Capabilities" title="What we deliver"
-            sub="Four core capability areas built around the technology initiatives that matter most to enterprise delivery teams." />
-          <div className="mt-14"><CardHoverEffect items={CAPABILITIES} /></div>
+          <SectionHdr
+            badge="Capabilities"
+            title="What we deliver"
+            sub="Four core capability areas built around the technology initiatives that matter most to enterprise delivery teams."
+          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-8 mt-14">
+            {CAPABILITIES.map((c, i) => (
+              <motion.div
+                key={c.title}
+                initial={{ opacity: 0, y: 28 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={viewportOnce}
+                transition={{ duration: 0.6, ease, delay: i * 0.1 }}
+                className="group rounded-3xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-400 cursor-default"
+                whileHover={{ y: -6 }}
+              >
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={c.image}
+                    alt={c.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(11,17,32,0.6) 100%)' }} />
+                  {/* Accent line at bottom */}
+                  <div className="absolute bottom-0 left-0 right-0 h-[3px]" style={{ background: c.accent }} />
+                </div>
+
+                {/* Content */}
+                <div className="bg-white p-7">
+                  <div className="h-[2px] w-8 rounded-full mb-4 transition-all duration-300 group-hover:w-16" style={{ background: c.accent }} />
+                  <h3 className="font-display font-extrabold text-slate-800 text-xl leading-snug mb-3">{c.title}</h3>
+                  <p className="text-sm text-slate-500 leading-relaxed">{c.desc}</p>
+                  <div className="flex items-center gap-1.5 mt-5">
+                    <span className="text-xs font-bold uppercase tracking-wider" style={{ color: c.accent }}>Learn More</span>
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke={c.accent} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* DELIVERY APPROACH */}
-      <section id="delivery" className="py-20 sm:py-28 bg-white">
+      <section
+        id="delivery"
+        className="py-20 sm:py-28 border-b border-slate-100"
+        style={{
+          backgroundColor: '#FAFAF8',
+          backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.08) 1.5px, transparent 1.5px)',
+          backgroundSize: '24px 24px',
+        }}
+      >
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
           <SectionHdr badge="Delivery Approach" title="How we work"
             sub="Every engagement runs on a structured delivery model designed to minimize risk and maximize velocity." />
@@ -95,7 +334,7 @@ export default function TechnologyServicesPage() {
       </section>
 
       {/* OUTCOMES */}
-      <section id="outcomes" className="py-20 sm:py-28" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
+      <section id="outcomes" className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
           <SectionHdr badge="Case Studies" title="Outcomes we've delivered" sub="Real results from real engagements." />
           <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-14">

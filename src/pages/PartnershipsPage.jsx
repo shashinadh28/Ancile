@@ -24,7 +24,6 @@ function GoogleCloudLogo() {
   return (
     <div className="flex items-center gap-2">
       <svg viewBox="0 0 24 24" className="h-8 w-8" xmlns="http://www.w3.org/2000/svg">
-        <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z" fill="#1A73E8" opacity="0.1"/>
         <path d="M12.002 2l8.225 4.75v9.5l-8.225 4.75-8.225-4.75v-9.5L12.002 2z" fill="#4285F4"/>
         <path d="M12.002 2L3.777 6.75v9.5l8.225 4.75V2z" fill="#34A853"/>
         <path d="M12.002 2v9.5l8.225 4.75V6.75L12.002 2z" fill="#EA4335"/>
@@ -56,10 +55,8 @@ function RedHatLogo() {
   return (
     <div className="flex items-center gap-1.5">
       <svg viewBox="0 0 32 32" className="h-8 w-8" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M16 3C8.82 3 3 8.82 3 16s5.82 13 13 13 13-5.82 13-13S23.18 3 16 3zm0 2.2c5.96 0 10.8 4.84 10.8 10.8S21.96 26.8 16 26.8 5.2 21.96 5.2 16 10.04 5.2 16 5.2z" fill="#CC0000" opacity="0.1"/>
-        <path d="M26.2 15.6c-.6-1.5-2.2-2.5-4.2-2.7h-.3c-1 0-1.8.4-2.2 1.1-.3-.6-.9-.9-1.6-.9h-.3c-.9 0-1.7.5-2.1 1.3-.4-.5-1.1-.8-1.8-.8h-1.5c-.8 0-1.4.6-1.4 1.4v4c0 .8.6 1.4 1.4 1.4h1.1v-2h2.2v2h1.1v-2.7c0-.9.7-1.6 1.6-1.6.9 0 1.6.7 1.6 1.6v2.7h1.1v-2.7c0-.9.7-1.6 1.6-1.6.9 0 1.6.7 1.6 1.6v2.7H25V17c-.1-.7-.4-1.2-.8-1.4zm-14.8 2.6h-1.1V16h1.1v2.2z" fill="#CC0000"/>
-        <path d="M16 1C7.7 1 1 7.7 1 16s6.7 15 15 15 15-6.7 15-15S24.3 1 16 1zm0 3c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16 9.4 4 16 4z" fill="#000000" opacity="0.05"/>
         <path d="M27.5 19c-1.8-3.4-6.4-5.3-11.8-5.3-4.2 0-7.8 1.1-9.5 2.8.8-.9 2.5-1.8 5.5-1.8 4.8 0 9.8 1.9 11.2 4.9.4.9.4 1.8.1 2.6 1.8-1 3.5-2 4.5-3.2z" fill="#CC0000"/>
+        <path d="M16 1C7.7 1 1 7.7 1 16s6.7 15 15 15 15-6.7 15-15S24.3 1 16 1zm0 3c6.6 0 12 5.4 12 12s-5.4 12-12 12S4 22.6 4 16 9.4 4 16 4z" fill="#000000" opacity="0.05"/>
       </svg>
       <span className="font-display text-base font-extrabold text-slate-900 tracking-tighter">Red Hat</span>
     </div>
@@ -70,7 +67,7 @@ function SnowflakeLogo() {
   return (
     <div className="flex items-center gap-2">
       <svg viewBox="0 0 24 24" className="h-7 w-7 text-sky-400" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2c-.3 0-.5.2-.5.5v3.1l-1.8-1c-.2-.1-.5-.1-.7.1s-.1.5.1.7l1.8 1-2.4 1.4-1.4-2.4c-.1-.2-.4-.3-.6-.2s-.3.4-.2.6l1.4 2.4-2.2 1.3H2.5c-.3 0-.5.2-.5.5s.2.5.5.5h3.1l-1.8 1c-.2.1-.3.4-.2.6.1.2.3.3.5.3.1 0 .2 0 .2-.1l1.8-1-2.4 1.4-1.4-2.4c-.1-.2-.4-.3-.6-.2s-.3.4-.2.6l1.4 2.4-2.2 1.3H2.5c-.3 0-.5.2-.5.5s.2.5.5.5h3.1l1.8 1c.1.1.2.1.3.1.2 0 .4-.1.5-.3.1-.2.1-.5-.1-.7l-1.8-1 2.4-1.4 1.4 2.4c.1.2.3.3.5.3.1 0 .2 0 .2-.1.2-.1.3-.4.2-.6l-1.4-2.4 2.2-1.3h3.1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5H8.9l1.8-1c.2-.1.3-.4.2-.6-.1-.2-.3-.3-.5-.3-.1 0-.2 0-.2.1L8.4 9.1l2.4-1.4 1.4 2.4c.1.2.4.3.6.2s.3-.4.2-.6L11.6 7.3l2.2-1.3h3.1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5h-3.1l-1.8-1c-.2-.1-.5-.1-.7.1s-.1.5.1.7l1.8 1-2.4 1.4-1.4-2.4c-.1-.2-.4-.3-.6-.2s-.3.4-.2.6l1.4 2.4-2.2 1.3h3.1c.3 0 .5-.2.5-.5s-.2-.5-.5-.5H15.1l1.8-1c.2-.1.3-.4.2-.6-.1-.2-.3-.3-.5-.3z" />
+        <path d="M12 2a1 1 0 0 1 1 1v2.586l1.293-1.293a1 1 0 1 1 1.414 1.414L14 7.414V9a1 1 0 0 1-2 0V7.414L10.293 5.707a1 1 0 0 1 1.414-1.414L13 5.586V3a1 1 0 0 1-1-1zM5.05 6.464a1 1 0 0 1 1.414 0l1.827 1.827L9.5 7.5a1 1 0 0 1 1-1h1a1 1 0 0 1 0 2H11l-1.209 1.209 1.209 1.209H11a1 1 0 0 1 0 2h-1a1 1 0 0 1-1-1l-1.209-.291-1.827 1.827a1 1 0 1 1-1.414-1.414L6.086 12 4.636 10.55a1 1 0 0 1 .414-1.672V7.878a1 1 0 0 1 0-1.414z"/>
       </svg>
       <span className="font-display text-base font-extrabold text-[#29B6F6] tracking-wide">snowflake</span>
     </div>
@@ -231,41 +228,6 @@ function SitecoreLogo() {
   );
 }
 
-// --- Icons for Depth & Breadth Section ---
-
-function FullStackIcon() {
-  return (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
-      <line x1="8" y1="21" x2="16" y2="21" />
-      <line x1="12" y1="17" x2="12" y2="21" />
-      <path d="M6 8h12" />
-      <path d="M8 12h8" />
-    </svg>
-  );
-}
-
-function TalentIcon() {
-  return (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
-      <circle cx="9" cy="7" r="4" />
-      <path d="M23 21v-2a4 4 0 0 0-3-3.87" />
-      <path d="M16 3.13a4 4 0 0 1 0 7.75" />
-    </svg>
-  );
-}
-
-function GlobeIcon() {
-  return (
-    <svg className="h-8 w-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-      <circle cx="12" cy="12" r="10" />
-      <line x1="2" y1="12" x2="22" y2="12" />
-      <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-    </svg>
-  );
-}
-
 export default function PartnershipsPage() {
   const bigThinkers = [
     { component: AWSLogo, key: 'aws' },
@@ -292,22 +254,28 @@ export default function PartnershipsPage() {
 
   const depthBreadth = [
     {
-      icon: FullStackIcon,
       title: 'Full-stack capabilities',
       desc: 'Rapid scalability across a wide range of technologies and services',
       href: '/technology-services',
+      image: '/Technology-Partnerships/We-Offer-Depth-and-Breadth/Full-stack-capabilities.webp',
+      accent: '#2F80ED',
+      tag: 'Technology',
     },
     {
-      icon: TalentIcon,
       title: 'Largest talent network in the world',
       desc: 'Unparalleled access to the best talent; part of the largest talent management firm in the world',
       href: '/talent-solutions',
+      image: '/Technology-Partnerships/We-Offer-Depth-and-Breadth/Largest-talent-network-world.webp',
+      accent: '#6366F1',
+      tag: 'Talent',
     },
     {
-      icon: GlobeIcon,
       title: 'Global geographic footprint',
       desc: 'Outcomes delivered on complex, distributed projects for customers across the globe',
       href: '/contact',
+      image: '/Technology-Partnerships/We-Offer-Depth-and-Breadth/Global-geographic-footprint.webp',
+      accent: '#0D9488',
+      tag: 'Global',
     },
   ];
 
@@ -343,70 +311,215 @@ export default function PartnershipsPage() {
       <Navbar />
 
       {/* ── HERO ── */}
-      <section className="relative min-h-[75vh] flex items-center overflow-hidden pt-24" style={{ backgroundColor: '#0B1120' }}>
-        <div aria-hidden className="pointer-events-none absolute inset-0" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px)', backgroundSize: '48px 48px' }} />
-        <div aria-hidden className="pointer-events-none absolute top-0 right-0 w-[600px] h-[500px] rounded-full blur-[120px]" style={{ background: 'rgba(37,99,235,0.08)' }} />
-        <div aria-hidden className="pointer-events-none absolute bottom-0 left-0 w-[400px] h-[350px] rounded-full blur-[100px]" style={{ background: 'rgba(99,102,241,0.05)' }} />
+      <section className="relative min-h-screen flex items-center overflow-hidden" style={{ backgroundColor: '#0B1120' }}>
+        {/* Animated background grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px)',
+            backgroundSize: '64px 64px',
+          }}
+        />
 
-        <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12 py-20">
-          <div className="max-w-4xl">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, ease }}
-              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.18em] mb-6"
-              style={{ border: '1px solid rgba(47,128,237,0.3)', background: 'rgba(47,128,237,0.1)', color: '#2F80ED' }}
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-current" />Our Ecosystem
-            </motion.span>
+        {/* RIGHT PANEL: Diagonal clipped image */}
+        <motion.div
+          className="absolute top-0 right-0 bottom-0 hidden lg:block"
+          style={{ width: '52%' }}
+          initial={{ opacity: 0, x: 60 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1.1, ease, delay: 0.2 }}
+        >
+          <div
+            className="absolute inset-0"
+            style={{ clipPath: 'polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%)' }}
+          >
+            <img
+              src="/Technology-Partnerships/Technology-Partnerships-homepage.webp"
+              alt="Technology Partnerships"
+              className="absolute inset-0 w-full h-full object-cover object-center"
+              style={{ opacity: 0.8 }}
+            />
+            {/* Dark gradient overlay blending into page bg on left */}
+            <div
+              className="absolute inset-0"
+              style={{ background: 'linear-gradient(to right, rgba(11,17,32,0.95) 0%, rgba(11,17,32,0.45) 35%, rgba(11,17,32,0.1) 100%)' }}
+            />
+            {/* Bottom fade */}
+            <div
+              className="absolute bottom-0 left-0 right-0 h-32"
+              style={{ background: 'linear-gradient(to top, rgba(11,17,32,0.8), transparent)' }}
+            />
+          </div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.1 }}
-              className="font-display text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-[1.05] tracking-tight text-white"
-            >
-              Technology Partnerships
-            </motion.h1>
+          {/* Floating stat chips */}
+          <div className="absolute inset-0" style={{ clipPath: 'polygon(12% 0%, 100% 0%, 100% 100%, 0% 100%)' }}>
+            {[
+              { label: 'Tech Partners', val: '20+', top: '20%', right: '10%' },
+              { label: 'Certifications', val: '500+', top: '50%', right: '6%' },
+              { label: 'Global Reach', val: '40+ Countries', top: '74%', right: '14%' },
+            ].map((chip, i) => (
+              <motion.div
+                key={chip.label}
+                className="absolute rounded-2xl px-5 py-3"
+                style={{
+                  top: chip.top,
+                  right: chip.right,
+                  background: 'rgba(11,17,32,0.72)',
+                  border: '1px solid rgba(47,128,237,0.35)',
+                  backdropFilter: 'blur(12px)',
+                }}
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.7, ease, delay: 1.1 + i * 0.18 }}
+              >
+                <div className="text-xl font-extrabold text-white leading-none">{chip.val}</div>
+                <div className="text-[10px] mt-1 font-semibold uppercase tracking-wider" style={{ color: 'rgba(96,165,250,0.8)' }}>
+                  {chip.label}
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </motion.div>
 
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.25 }}
-              className="mt-6 text-lg sm:text-xl leading-relaxed text-slate-300 font-medium"
-            >
-              Transformational technologies demand equally transformative technology partnerships. Full-stack capabilities coupled with depth and diversity of experience in leading platforms that help organizations grow, innovate and thrive.
-            </motion.p>
+        {/* Glow orb behind content */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute bottom-0 left-0 w-[600px] h-[500px] blur-[140px]"
+          style={{ background: 'rgba(47,128,237,0.09)' }}
+        />
 
-            <motion.p
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease, delay: 0.35 }}
-              className="mt-4 text-base leading-relaxed text-slate-400"
-            >
-              With a progressive yet pragmatic approach, we work hand-in-hand with you to fully leverage these platforms to optimize productivity, adoption, business results. Our partner-based solutions successfully steward clients through digital disruption and into the future.
-            </motion.p>
+        {/* LEFT: Content */}
+        <div className="relative z-10 mx-auto max-w-[1280px] w-full px-6 sm:px-8 lg:px-12 py-32 lg:py-0">
+          <div className="max-w-[600px]">
 
+            {/* Badge */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease, delay: 0.45 }}
-              className="mt-10 flex flex-wrap gap-4"
+              transition={{ duration: 0.6, ease }}
+              className="flex items-center gap-3 mb-8 pt-48 lg:pt-36"
+            >
+              <span style={{ width: '28px', height: '2px', background: '#2F80ED', borderRadius: '2px', display: 'inline-block' }} />
+              <span className="text-xs font-bold uppercase tracking-[0.22em]" style={{ color: '#2F80ED' }}>
+                Our Ecosystem
+              </span>
+            </motion.div>
+
+            {/* Heading */}
+            <h1
+              className="font-display font-extrabold leading-[1.08] tracking-tight mb-7"
+              style={{ fontSize: 'clamp(2.2rem, 4.5vw, 3.8rem)' }}
+            >
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.85, ease, delay: 0.22 }}
+                style={{ display: 'inline-block', color: '#FFFFFF', marginRight: '0.28em' }}
+              >
+                Technology
+              </motion.span>
+              <br />
+              <motion.span
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.85, ease, delay: 0.38 }}
+                style={{ display: 'inline-block', whiteSpace: 'nowrap', color: '#60A5FA' }}
+              >
+                Partnerships
+              </motion.span>
+            </h1>
+
+            {/* Divider */}
+            <motion.div
+              initial={{ scaleX: 0, originX: 0 }}
+              animate={{ scaleX: 1 }}
+              transition={{ duration: 0.9, ease, delay: 0.6 }}
+              style={{ height: '1px', background: 'rgba(47,128,237,0.4)', maxWidth: '420px', marginBottom: '1.75rem' }}
+            />
+
+            {/* Description */}
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 0.75 }}
+              className="text-base leading-[1.85] mb-5"
+              style={{ color: 'rgba(255,255,255,0.72)', maxWidth: '520px' }}
+            >
+              Transformational technologies demand equally transformative technology partnerships. Full-stack capabilities coupled with depth and diversity of experience in leading platforms that help organizations grow, innovate and thrive.
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease, delay: 0.9 }}
+              className="text-sm leading-[1.85] mb-10"
+              style={{ color: 'rgba(255,255,255,0.48)', maxWidth: '500px' }}
+            >
+              With a progressive yet pragmatic approach, we work hand-in-hand with you to fully leverage these platforms to optimize productivity, adoption, and business results.
+            </motion.p>
+
+            {/* CTAs */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.7, ease, delay: 1.05 }}
+              className="flex flex-wrap items-center gap-5"
             >
               <a
                 href="#integrations"
-                className="inline-flex items-center justify-center font-bold px-7 py-3 rounded-full transition-all duration-300"
-                style={{ background: '#2F80ED', color: '#ffffff', textDecoration: 'none', fontSize: '15px', boxShadow: '0 8px 32px rgba(47,128,237,0.3)' }}
+                style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '10px',
+                  background: '#2F80ED',
+                  color: '#fff',
+                  fontWeight: 700,
+                  fontSize: '14px',
+                  padding: '13px 26px',
+                  borderRadius: '50px',
+                  textDecoration: 'none',
+                  boxShadow: '0 8px 32px rgba(47,128,237,0.42)',
+                }}
               >
                 Meet Our Partners
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
               </a>
               <Link
                 to="/contact"
-                className="inline-flex items-center justify-center font-bold px-7 py-3 rounded-full transition-all duration-300"
-                style={{ border: '1.5px solid rgba(255,255,255,0.2)', color: 'rgba(255,255,255,0.85)', background: 'transparent', textDecoration: 'none', fontSize: '15px' }}
+                style={{
+                  color: 'rgba(255,255,255,0.62)',
+                  fontWeight: 600,
+                  fontSize: '14px',
+                  textDecoration: 'none',
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '6px',
+                }}
               >
                 Start a Project
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                </svg>
               </Link>
+            </motion.div>
+
+            {/* Scroll indicator */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.6, duration: 0.8 }}
+              className="mt-16 flex items-center gap-3"
+            >
+              <motion.div
+                animate={{ y: [0, 8, 0] }}
+                transition={{ repeat: Infinity, duration: 1.6, ease: 'easeInOut' }}
+                style={{ width: '1px', height: '44px', background: 'linear-gradient(to bottom, rgba(47,128,237,0.9), transparent)' }}
+              />
+              <span className="text-xs uppercase tracking-[0.22em]" style={{ color: 'rgba(255,255,255,0.28)' }}>
+                Scroll to explore
+              </span>
             </motion.div>
           </div>
         </div>
@@ -427,7 +540,7 @@ export default function PartnershipsPage() {
               <span className="text-blue-500 font-semibold text-sm uppercase tracking-wider block mb-2">Best-in-Class Integrations</span>
               <h2 className="font-display text-3xl sm:text-4xl font-extrabold text-slate-900 tracking-tight mb-4">Big Thinkers</h2>
               <p className="text-base sm:text-lg leading-relaxed text-slate-500">
-                We’re better, together. The world’s leading technology brands work with us because of our scale, speed and quality—building upon their foundation to foster and share ideas that help our clients grow.
+                We're better, together. The world's leading technology brands work with us because of our scale, speed and quality—building upon their foundation to foster and share ideas that help our clients grow.
               </p>
             </motion.div>
 
@@ -485,51 +598,164 @@ export default function PartnershipsPage() {
         </div>
       </section>
 
-      {/* ── DEPTH AND BREADTH SECTION ── */}
-      <section className="py-24 bg-slate-50 border-y border-slate-100">
-        <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+      {/* ── DEPTH AND BREADTH SECTION — ENHANCED with images ── */}
+      <section
+        className="py-24 sm:py-32 relative overflow-hidden"
+        style={{ backgroundColor: '#0B1120' }}
+      >
+        {/* Background grid */}
+        <div
+          aria-hidden
+          className="pointer-events-none absolute inset-0"
+          style={{
+            backgroundImage: 'linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)',
+            backgroundSize: '48px 48px',
+          }}
+        />
+        {/* Glow orbs */}
+        <div aria-hidden className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[300px] blur-[120px]" style={{ background: 'rgba(47,128,237,0.07)' }} />
+        <div aria-hidden className="pointer-events-none absolute bottom-0 right-0 w-[400px] h-[300px] blur-[100px]" style={{ background: 'rgba(99,102,241,0.06)' }} />
+
+        <div className="relative z-10 mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
+          {/* Section header */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={viewportOnce}
-            transition={{ duration: 0.7, ease }}
-            className="text-center max-w-3xl mx-auto mb-16"
+            transition={{ duration: 0.75, ease }}
+            className="max-w-3xl mb-4"
           >
-            <h2 className="font-display text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 tracking-tight">
-              We Offer Depth and Breadth
+            <span
+              className="inline-flex items-center gap-2 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-[0.18em] mb-5"
+              style={{ background: 'rgba(47,128,237,0.1)', border: '1px solid rgba(47,128,237,0.25)', color: '#2F80ED' }}
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-current" />
+              Our Advantage
+            </span>
+            <h2
+              className="font-display font-extrabold text-white leading-[1.05] tracking-tight"
+              style={{ fontSize: 'clamp(2rem, 4vw, 3.2rem)' }}
+            >
+              We Offer Depth and{' '}
+              <span style={{ color: '#60A5FA' }}>Breadth</span>
             </h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {/* Divider line */}
+          <motion.div
+            initial={{ scaleX: 0, originX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.9, ease, delay: 0.2 }}
+            style={{ height: '1px', background: 'rgba(47,128,237,0.3)', maxWidth: '320px', marginBottom: '3.5rem' }}
+          />
+
+          {/* Cards grid */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {depthBreadth.map((item, i) => (
               <motion.div
                 key={item.title}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={viewportOnce}
-                transition={{ duration: 0.7, ease, delay: i * 0.1 }}
-                className="bg-white rounded-3xl p-8 border border-slate-100 shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow duration-300"
+                transition={{ duration: 0.75, ease, delay: i * 0.12 }}
+                className="group relative rounded-3xl overflow-hidden cursor-pointer transition-all duration-400"
+                style={{
+                  border: '1px solid rgba(255,255,255,0.07)',
+                  boxShadow: '0 4px 32px rgba(0,0,0,0.4)',
+                }}
+                whileHover={{ y: -8, boxShadow: `0 20px 60px rgba(0,0,0,0.5)` }}
               >
-                <div>
-                  <div className="h-16 w-16 rounded-2xl bg-blue-50 border border-blue-100 flex items-center justify-center text-blue-500 mb-6">
-                    <item.icon />
-                  </div>
-                  <h3 className="font-display text-xl font-bold text-slate-900 mb-3">{item.title}</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed mb-6">{item.desc}</p>
+                {/* Image */}
+                <div className="relative h-56 overflow-hidden">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                    style={{ opacity: 0.85 }}
+                  />
+                  {/* Overlay */}
+                  <div
+                    className="absolute inset-0"
+                    style={{ background: `linear-gradient(to bottom, rgba(11,17,32,0.2) 0%, rgba(11,17,32,0.65) 100%)` }}
+                  />
+                  {/* Tag badge */}
+                  <span
+                    className="absolute top-4 left-4 rounded-full px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white"
+                    style={{ background: item.accent, boxShadow: `0 4px 12px ${item.accent}40` }}
+                  >
+                    {item.tag}
+                  </span>
+                  {/* Accent line */}
+                  <div
+                    className="absolute bottom-0 left-0 right-0 h-[3px] transition-all duration-400 group-hover:h-[4px]"
+                    style={{ background: item.accent }}
+                  />
                 </div>
-                <Link
-                  to={item.href}
-                  className="text-sm font-bold text-blue-600 hover:text-blue-700 inline-flex items-center gap-1.5 text-decoration-none group"
+
+                {/* Content area */}
+                <div
+                  className="p-7 relative"
+                  style={{ background: 'rgba(255,255,255,0.03)', backdropFilter: 'blur(8px)' }}
                 >
-                  Read more
-                  <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12" />
-                    <polyline points="12 5 19 12 12 19" />
-                  </svg>
-                </Link>
+                  {/* Grid bg on card */}
+                  <div
+                    aria-hidden
+                    className="pointer-events-none absolute inset-0 opacity-[0.04]"
+                    style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '16px 16px' }}
+                  />
+                  <h3 className="font-display text-lg font-bold text-white mb-3 leading-snug relative z-10">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm leading-relaxed mb-5 relative z-10" style={{ color: 'rgba(255,255,255,0.55)' }}>
+                    {item.desc}
+                  </p>
+                  <Link
+                    to={item.href}
+                    className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-wider relative z-10 transition-all duration-200"
+                    style={{ color: item.accent, textDecoration: 'none' }}
+                  >
+                    Learn More
+                    <svg className="w-3 h-3 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
+                      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
+                    </svg>
+                  </Link>
+                </div>
               </motion.div>
             ))}
           </div>
+
+          {/* Bottom stat bar */}
+          <motion.div
+            initial={{ opacity: 0, y: 28 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={viewportOnce}
+            transition={{ duration: 0.75, ease, delay: 0.4 }}
+            className="mt-16 grid grid-cols-1 sm:grid-cols-3 gap-px"
+            style={{ background: 'rgba(255,255,255,0.06)', borderRadius: '20px', overflow: 'hidden', border: '1px solid rgba(255,255,255,0.07)' }}
+          >
+            {[
+              { stat: '500+', label: 'Certified Professionals' },
+              { stat: '35+', label: 'Years in the Industry' },
+              { stat: '40+', label: 'Countries Served' },
+            ].map((item, i) => (
+              <div
+                key={item.stat}
+                className="flex flex-col items-center text-center py-8 px-6"
+                style={{ background: 'rgba(11,17,32,0.6)', backdropFilter: 'blur(12px)' }}
+              >
+                <div
+                  className="font-display font-extrabold leading-none mb-2"
+                  style={{ fontSize: 'clamp(2rem, 4vw, 2.8rem)', color: '#60A5FA' }}
+                >
+                  {item.stat}
+                </div>
+                <div className="text-xs font-semibold uppercase tracking-wider" style={{ color: 'rgba(255,255,255,0.4)' }}>
+                  {item.label}
+                </div>
+              </div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
@@ -558,10 +784,7 @@ export default function PartnershipsPage() {
                 className="group relative rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between min-h-[380px]"
                 style={{ background: card.bgGradient }}
               >
-                {/* Background grid lines for styling */}
                 <div aria-hidden className="absolute inset-0 opacity-[0.03] pointer-events-none" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '24px 24px' }} />
-                
-                {/* Floating graphic overlay representing the described image context */}
                 <div aria-hidden className="absolute right-4 top-4 h-24 w-24 rounded-full opacity-10 flex items-center justify-center text-7xl select-none">
                   {card.iconText}
                 </div>
@@ -592,8 +815,7 @@ export default function PartnershipsPage() {
                       <span className="absolute bottom-0 left-0 w-full h-[2px] scale-x-0 group-hover:scale-x-100 transition-transform origin-left" style={{ background: card.accentColor }} />
                     </span>
                     <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
-                      <line x1="5" y1="12" x2="19" y2="12" />
-                      <polyline points="12 5 19 12 12 19" />
+                      <line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" />
                     </svg>
                   </Link>
                 </div>
@@ -625,7 +847,7 @@ export default function PartnershipsPage() {
             </p>
             <Link
               to="/contact"
-              className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-104 shadow-lg"
+              className="inline-flex items-center justify-center font-bold px-8 py-4 rounded-full transition-all duration-300 hover:scale-105 shadow-lg"
               style={{ background: '#ffffff', color: '#0F172A', textDecoration: 'none', fontSize: '15px' }}
             >
               Start a Conversation with Our Team

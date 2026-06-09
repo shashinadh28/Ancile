@@ -15,9 +15,27 @@ const STATS = [
 ];
 
 const MORE_STORIES = [
-  { tag: 'Success Story', title: 'Leading the Way', desc: 'Read how TEKsystems partnered with an organization to transform their Microsoft Azure DevOps pipeline for improved user experiences and increased velocity.', icon: '☁️' },
-  { tag: 'Success Story', title: 'Transformation in Transit', desc: 'Learn how TEKsystems helped our client gain cloud capabilities through Amazon Web Services.', icon: '🚌' },
-  { tag: 'Success Story', title: 'Building a Roundabout for Data', desc: 'Learn how a large-scale logistics company navigated a complex Databricks migration with support from TEKsystems.', icon: '🚛' },
+  {
+    tag: 'Success Story',
+    title: 'Leading the Way',
+    desc: 'Read how TEKsystems partnered with an organization to transform their Microsoft Azure DevOps pipeline for improved user experiences and increased velocity.',
+    image: '/jb-hunt-the-road-to-better-data-gcp-bigquery/More-Stories/Leading-theWay.webp',
+    icon: '☁️',
+  },
+  {
+    tag: 'Success Story',
+    title: 'Transformation in Transit',
+    desc: 'Learn how TEKsystems helped our client gain cloud capabilities through Amazon Web Services.',
+    image: '/jb-hunt-the-road-to-better-data-gcp-bigquery/More-Stories/cloud-migration-illustration.webp',
+    icon: '🚌',
+  },
+  {
+    tag: 'Success Story',
+    title: 'Building a Roundabout for Data',
+    desc: 'Learn how a large-scale logistics company navigated a complex Databricks migration with support from TEKsystems.',
+    image: '/jb-hunt-the-road-to-better-data-gcp-bigquery/More-Stories/modern-data-platform.webp',
+    icon: '🚛',
+  },
 ];
 
 const FORM_STEPS = [
@@ -93,7 +111,7 @@ export default function JBHuntPage() {
         </div>
       </section>
 
-      {/* ── OVERVIEW ── */}
+      {/* ── OVERVIEW (BigQuery Data Modernization) with real image ── */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -116,12 +134,14 @@ export default function JBHuntPage() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewportOnce} transition={{ duration: 0.85, ease, delay: 0.15 }}>
-              <div className="h-72 rounded-3xl overflow-hidden bg-gradient-to-br from-blue-600 to-blue-900 flex items-center justify-center relative mb-6">
-                <div className="text-center text-white p-8">
-                  <div className="text-7xl mb-4">🚛</div>
-                  <h3 className="font-display text-2xl font-extrabold mb-2">J.B. Hunt Transport</h3>
-                  <p className="text-sm" style={{ color: 'rgba(255,255,255,0.75)' }}>Fortune 500 · 60+ Years of Excellence · North America</p>
-                </div>
+              {/* Real BigQuery Modernization image */}
+              <div className="rounded-3xl overflow-hidden border border-slate-100 shadow-lg mb-6 relative group">
+                <img
+                  src="/jb-hunt-the-road-to-better-data-gcp-bigquery/BigQuery-Data-Modernization/BigQuery-Data-Modernization.webp"
+                  alt="BigQuery Data Modernization"
+                  className="w-full h-72 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(11,17,32,0.5) 100%)' }} />
                 <div className="absolute bottom-4 right-4 rounded-xl px-3 py-2 text-xs font-bold" style={{ background: 'rgba(255,255,255,0.15)', backdropFilter: 'blur(8px)' }}>
                   <span className="text-white">Google Cloud Premier Partner</span>
                 </div>
@@ -140,8 +160,11 @@ export default function JBHuntPage() {
         </div>
       </section>
 
-      {/* ── MIGRATION PLAN ── */}
-      <section className="py-20 sm:py-28" style={{ backgroundColor: '#FAFAF8', ...DOT_BG }}>
+      {/* ── MIGRATION PLAN — Delivery Approach clone design ── */}
+      <section
+        className="py-20 sm:py-28 border-b border-slate-100"
+        style={{ backgroundColor: '#FAFAF8', backgroundImage: 'radial-gradient(circle, rgba(15,23,42,0.08) 1.5px, transparent 1.5px)', backgroundSize: '24px 24px' }}
+      >
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
           <SectionHdr badge="Data Modernization Plan" title="Revving the engine to race forward"
             sub="The first step to a successful data migration of this scale was prioritization. We worked with J.B. Hunt's internal experts to identify the highest priority data tables." />
@@ -156,10 +179,10 @@ export default function JBHuntPage() {
                 transition={{ duration: 0.65, ease, delay: i * 0.12 }}
                 className="group relative rounded-2xl bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 style={{ border: '1px solid rgba(15,23,42,0.08)' }}>
-                <div className="mb-4 text-5xl font-extrabold text-blue-500/12 transition-colors duration-300 group-hover:text-blue-500/25"
-                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', lineHeight: 1, color: 'rgba(47,128,237,0.12)' }}>{d.step}</div>
+                <div className="mb-4 text-5xl font-extrabold text-[rgba(47,128,237,0.12)] transition-colors duration-300 group-hover:text-[#2F80ED]"
+                  style={{ fontFamily: '"Plus Jakarta Sans", sans-serif', lineHeight: 1 }}>{d.step}</div>
                 <h4 className="font-display text-lg font-bold text-slate-800 mb-2">{d.title}</h4>
-                <p className="text-sm leading-relaxed text-slate-500">{d.desc}</p>
+                <p className="text-sm leading-relaxed" style={{ color: '#475569' }}>{d.desc}</p>
                 {i < 3 && <span className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 text-xl" style={{ color: '#cbd5e1' }}>→</span>}
               </motion.div>
             ))}
@@ -167,7 +190,7 @@ export default function JBHuntPage() {
         </div>
       </section>
 
-      {/* ── KEEPING CUSTOMER IN DRIVER SEAT ── */}
+      {/* ── KEEPING CUSTOMER IN DRIVER SEAT with real image ── */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -200,12 +223,14 @@ export default function JBHuntPage() {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, x: 40 }} whileInView={{ opacity: 1, x: 0 }} viewport={viewportOnce} transition={{ duration: 0.85, ease, delay: 0.15 }}>
-              <div className="h-80 rounded-3xl overflow-hidden bg-gradient-to-br from-blue-900 via-blue-800 to-slate-900 relative flex items-center justify-center mb-6">
-                <div className="absolute inset-0 opacity-20" style={{ backgroundImage: 'linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-                <div className="text-center text-white z-10 p-8">
-                  <div className="text-6xl mb-4">🛣️</div>
-                  <p className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.8)' }}>A truck driving on a long highway through wide golden fields — powered by data.</p>
-                </div>
+              {/* Real Communication & Collaboration image */}
+              <div className="rounded-3xl overflow-hidden border border-slate-100 shadow-lg mb-6 relative group">
+                <img
+                  src="/jb-hunt-the-road-to-better-data-gcp-bigquery/Communication-Collaboration/Communication-Collaboration.webp"
+                  alt="Communication and Collaboration"
+                  className="w-full h-80 object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 50%, rgba(11,17,32,0.45) 100%)' }} />
               </div>
 
               <div className="grid grid-cols-3 gap-4">
@@ -245,7 +270,7 @@ export default function JBHuntPage() {
         </div>
       </section>
 
-      {/* ── MORE STORIES ── */}
+      {/* ── MORE STORIES with real images ── */}
       <section className="py-20 sm:py-28 bg-white">
         <div className="mx-auto max-w-[1280px] px-6 sm:px-8 lg:px-12">
           <SectionHdr badge="More Stories" title="More stories of owning change" sub="Explore more transformation journeys across industries and technologies." />
@@ -254,8 +279,13 @@ export default function JBHuntPage() {
               <motion.div key={s.title} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={viewportOnce}
                 transition={{ duration: 0.65, ease, delay: i * 0.1 }}
                 className="group bg-white rounded-2xl overflow-hidden border border-slate-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1 cursor-pointer">
-                <div className="h-36 bg-gradient-to-br from-blue-50 to-blue-100 flex items-center justify-center text-5xl">
-                  {s.icon}
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={s.image}
+                    alt={s.title}
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, transparent 40%, rgba(11,17,32,0.55) 100%)' }} />
                 </div>
                 <div className="p-6">
                   <span className="inline-block rounded-full px-3 py-1 text-[11px] font-semibold uppercase tracking-wider mb-3" style={{ background: 'rgba(47,128,237,0.1)', color: '#2F80ED' }}>{s.tag}</span>

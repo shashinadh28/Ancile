@@ -170,9 +170,31 @@ export default function IAMMaturityCheckPage() {
       <Navbar />
 
       <main className="flex-grow py-12 px-6 sm:px-8 lg:px-12 flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: '#F8FAFC', minHeight: 'calc(100vh - 80px)' }}>
-        {/* Decorative glows */}
+        {/* Animated dot grid */}
+        <div aria-hidden className="pointer-events-none absolute inset-0"
+          style={{ backgroundImage: 'radial-gradient(circle, rgba(60,52,137,0.2) 1.5px, transparent 1.5px)', backgroundSize: '32px 32px', opacity: 0.55 }} />
+
+        {/* Pulsing rings */}
+        <div aria-hidden className="pointer-events-none absolute" style={{ top: '10%', left: '6%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '90px', height: '90px', border: '2px solid rgba(60,52,137,0.22)', animationDuration: '3.5s' }} />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute" style={{ top: '55%', left: '4%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '55px', height: '55px', border: '2px solid rgba(21,101,216,0.2)', animationDuration: '4.5s', animationDelay: '1.5s' }} />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute" style={{ top: '18%', right: '5%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '70px', height: '70px', border: '2px solid rgba(60,52,137,0.2)', animationDuration: '4s', animationDelay: '0.8s' }} />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute" style={{ bottom: '12%', right: '7%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '50px', height: '50px', border: '2px solid rgba(21,101,216,0.25)', animationDuration: '5s', animationDelay: '2.5s' }} />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute" style={{ bottom: '25%', left: '15%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '40px', height: '40px', border: '2px solid rgba(60,52,137,0.15)', animationDuration: '6s', animationDelay: '1s' }} />
+        </div>
+
+        {/* Soft glow blobs */}
         <div aria-hidden className="pointer-events-none absolute top-10 left-10 w-[450px] h-[450px] rounded-full blur-[120px] opacity-[0.15]" style={{ background: '#3C3489' }} />
         <div aria-hidden className="pointer-events-none absolute bottom-10 right-10 w-[450px] h-[450px] rounded-full blur-[120px] opacity-[0.15]" style={{ background: '#1565D8' }} />
+        <div aria-hidden className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[160px] opacity-[0.07]" style={{ background: 'linear-gradient(90deg, #3C3489, #1565D8)' }} />
 
         <div className="w-full max-w-2xl relative z-10">
           <AnimatePresence mode="wait">

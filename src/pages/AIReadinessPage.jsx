@@ -189,9 +189,28 @@ export default function AIReadinessPage() {
       <Navbar />
 
       <main className="flex-grow py-12 px-6 sm:px-8 lg:px-12 flex items-center justify-center relative overflow-hidden" style={{ backgroundColor: '#F8FAFC', minHeight: 'calc(100vh - 80px)' }}>
-        {/* Glow effects */}
+        {/* Animated dot grid */}
+        <div aria-hidden className="pointer-events-none absolute inset-0"
+          style={{ backgroundImage: 'radial-gradient(circle, rgba(13,148,136,0.18) 1.5px, transparent 1.5px)', backgroundSize: '32px 32px', opacity: 0.6 }} />
+
+        {/* Pulsing ring effects */}
+        <div aria-hidden className="pointer-events-none absolute" style={{ top: '15%', left: '8%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '80px', height: '80px', border: '2px solid rgba(13,148,136,0.25)', animationDuration: '3s' }} />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute" style={{ top: '60%', left: '5%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '50px', height: '50px', border: '2px solid rgba(21,101,216,0.2)', animationDuration: '4s', animationDelay: '1s' }} />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute" style={{ top: '20%', right: '6%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '65px', height: '65px', border: '2px solid rgba(13,148,136,0.2)', animationDuration: '3.5s', animationDelay: '0.5s' }} />
+        </div>
+        <div aria-hidden className="pointer-events-none absolute" style={{ bottom: '15%', right: '8%' }}>
+          <div className="animate-ping rounded-full" style={{ width: '45px', height: '45px', border: '2px solid rgba(21,101,216,0.25)', animationDuration: '5s', animationDelay: '2s' }} />
+        </div>
+
+        {/* Soft glow blobs */}
         <div aria-hidden className="pointer-events-none absolute top-10 right-10 w-[400px] h-[400px] rounded-full blur-[120px] opacity-[0.15]" style={{ background: '#1565D8' }} />
         <div aria-hidden className="pointer-events-none absolute bottom-10 left-10 w-[400px] h-[400px] rounded-full blur-[120px] opacity-[0.15]" style={{ background: '#0D9488' }} />
+        <div aria-hidden className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] rounded-full blur-[160px] opacity-[0.08]" style={{ background: 'linear-gradient(90deg, #0D9488, #1565D8)' }} />
 
         <div className="w-full max-w-2xl relative z-10">
           <AnimatePresence mode="wait">
